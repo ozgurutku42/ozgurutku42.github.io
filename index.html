@@ -176,7 +176,7 @@
     }
 
     .manifesto-video video {
-        width: 300px;
+        width: 300px; /* Masaüstü (max) boyutu */
         border-radius: 14px;
         box-shadow: 0 0 25px rgba(0,255,191,0.5); 
     }
@@ -316,28 +316,51 @@
     // MOBILE RESPONSIVENESS (Max Width: 850px)
     ----------------------------------- */
     @media (max-width: 850px) {
-        /* Genel Düzenleme */
+        
+        /* MANIFESTO VIDEO (MOBİLDE TAM GENİŞLİK) */
+        .manifesto-video {
+            width: 100%;
+            text-align: center;
+        }
+        .manifesto-video video {
+            width: 100%; /* Mobil cihazlarda tam genişlik */
+            max-width: 400px; /* Maksimum genişliği koru */
+        }
+        
+        /* Diğer Mobil Düzenlemeler */
+        .manifesto-section {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+        }
+        .section-content h2 {
+            font-size: 32px;
+        }
+        .buy-steps li {
+            padding-left: 40px;
+        }
+
+        /* ROADMAP MOBİL GÖRÜNÜMÜ */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
         }
-        
-        /* Desktop Görsellerini Gizle */
         .roadmap-image-wrapper {
             display: none;
         }
-
-        /* Mobil Görselleri Göster ve Biçimlendir */
         .roadmap-image-mobile {
-            display: block; /* Mobil cihazlarda göster */
+            display: block; 
             width: 80%; 
             max-width: 400px;
-            margin: 20px auto 10px auto; /* Başlık üstü ve altına boşluk */
+            margin: 20px auto 10px auto; 
             border-radius: 14px;
             box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
         }
-
-        /* Listeyi yeniden merkezle */
         .roadmap-list {
             text-align: center;
             width: 100%;
@@ -347,23 +370,12 @@
             margin: 0 auto;
             max-width: 400px; 
         }
-
-        /* Diğer Mobil Düzenlemeler */
         nav {
             padding: 15px 10px;
         }
         nav a {
             margin: 0 8px;
             font-size: 14px;
-        }
-        .hero h1 {
-            font-size: 42px;
-        }
-        .section-content h2 {
-            font-size: 32px;
-        }
-        .buy-steps li {
-            padding-left: 40px;
         }
     }
 </style>
