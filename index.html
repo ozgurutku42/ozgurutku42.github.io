@@ -240,10 +240,38 @@
     /* ----------------------------------
     // ROADMAP (Sloth themed list)
     ----------------------------------- */
+    .roadmap-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Merkezi hizalama */
+        max-width: 900px; /* Bölümü biraz genişlettim */
+        margin: 0 auto;
+    }
+
+    .roadmap-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 40px;
+        gap: 20px; /* Resim ve başlık arasına boşluk */
+    }
+
+    .roadmap-header img {
+        width: 120px; /* Resim boyutunu ayarlayın */
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 191, 0.5);
+    }
+    
+    .roadmap-header h2 {
+        margin: 0;
+        text-align: left;
+    }
+
     .roadmap-list {
         max-width: 750px; 
-        margin: 0 auto; 
         text-align: left;
+        width: 100%; /* Kapsayıcıya yayılma */
     }
     .roadmap-list ul {
         list-style: none;
@@ -307,6 +335,13 @@
         .buy-steps li {
             padding-left: 40px;
         }
+        .roadmap-header {
+            flex-direction: column; 
+            text-align: center;
+        }
+        .roadmap-header h2 {
+            text-align: center;
+        }
     }
 </style>
 </head>
@@ -366,23 +401,29 @@
 </section>
 
 <section class="section-content" id="roadmap">
-    <h2>$SLT Roadmap: Steady Progress, Solid Goals</h2>
-    <div class="roadmap-list">
-        <h3 style="color: #00ffbf;">🌲 Phase 1: The Great Sloth Stretch (Awakening)</h3>
-        <ul style="list-style: none; padding-left: 0; line-height: 2;">
-            <li>✔ **Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
-            <li>☐ **Blum Deployment:** We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
-            <li>☐ **Reaching for Ston.fi:** Once the Blum den is complete, we'll slowly swing towards the <span class="highlight">Ston.fi</span> tree. We wait until we're ready for the crowds.</li>
-            <li>☐ **Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
-        </ul>
+    <div class="roadmap-container">
+        <div class="roadmap-header">
+            <img src="Roadmap.png" alt="Sloth Roadmap Image" />
+            <h2>$SLT Roadmap: Steady Progress, Solid Goals</h2>
+        </div>
         
-        <h3 style="color: #00ffbf; margin-top: 50px;">🚀 Phase 2: Climbing the Canopy (Ascent)</h3>
-        <p style="text-align: left; opacity: 0.8;">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
-        <ul style="list-style: none; padding-left: 0; line-height: 2;">
-            <li>☐ **Entering TON Top 50:** Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
-            <li>☐ **The TON Top 10 Summit:** Perching on the thickest, most comfortable branch in the top 10.</li>
-            <li>☐ **King of the TON Forest:** Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
-        </ul>
+        <div class="roadmap-list">
+            <h3 style="color: #00ffbf;">🌲 Phase 1: The Great Sloth Stretch (Awakening)</h3>
+            <ul style="list-style: none; padding-left: 0; line-height: 2;">
+                <li>✔ **Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
+                <li>☐ **Blum Deployment:** We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
+                <li>☐ **Reaching for Ston.fi:** Once the Blum den is complete, we'll slowly swing towards the <span class="highlight">Ston.fi</span> tree. We wait until we're ready for the crowds.</li>
+                <li>☐ **Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
+            </ul>
+            
+            <h3 style="color: #00ffbf; margin-top: 50px;">🚀 Phase 2: Climbing the Canopy (Ascent)</h3>
+            <p style="text-align: left; opacity: 0.8;">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
+            <ul style="list-style: none; padding-left: 0; line-height: 2;">
+                <li>☐ **Entering TON Top 50:** Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
+                <li>☐ **The TON Top 10 Summit:** Perching on the thickest, most comfortable branch in the top 10.</li>
+                <li>☐ **King of the TON Forest:** Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
+            </ul>
+        </div>
     </div>
 </section>
 
