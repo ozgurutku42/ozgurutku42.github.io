@@ -160,12 +160,12 @@
     .btn {
         display: inline-block;
         padding: 14px 30px;
-        border-radius: 10px; /* Köşeler biraz daha keskin */
+        border-radius: 10px; 
         font-size: 18px;
         font-weight: 600;
         text-decoration: none;
         color: white;
-        border: 2px solid #00ffbf; /* Kalın kenarlık */
+        border: 2px solid #00ffbf; 
         background: rgba(0, 255, 191, 0.1); 
         backdrop-filter: blur(5px);
         box-shadow: 0 0 20px rgba(0,255,191,0.5);
@@ -191,7 +191,7 @@
     }
 
     .manifesto-video video {
-        width: 350px; /* Biraz büyüdü */
+        width: 350px; 
         border-radius: 20px;
         box-shadow: 0 0 30px rgba(0,255,191,0.7); 
     }
@@ -211,7 +211,7 @@
     }
 
     /* ----------------------------------
-    // HOW TO BUY (Ordered List)
+    // HOW TO BUY (Ordered List) - Düzeltme yapıldı
     ----------------------------------- */
     .buy-steps {
         max-width: 800px;
@@ -226,13 +226,12 @@
     .buy-steps li {
         counter-increment: step-counter;
         margin-bottom: 40px;
-        padding-left: 60px;
         position: relative;
         font-size: 19px;
         line-height: 1.5;
         font-weight: 400;
         background: rgba(0, 255, 191, 0.05);
-        padding: 20px;
+        padding: 20px 20px 20px 80px; /* Sol padding artırıldı (80px) */
         border-radius: 10px;
     }
     .buy-steps li strong {
@@ -243,7 +242,7 @@
     .buy-steps li::before {
         content: counter(step-counter);
         position: absolute;
-        left: -15px; /* Dışarı taşırmak için */
+        left: 15px; /* Konumu içeri kaydırıldı (Metin ile çakışmasın) */
         top: 50%;
         transform: translateY(-50%);
         background: #00ffbf;
@@ -257,6 +256,7 @@
         font-size: 22px;
         box-shadow: 0 0 15px #00ffbf;
         border: 3px solid #030a12;
+        z-index: 2; /* Metnin arkasında kalmaması için */
     }
     .buy-steps p {
         margin-top: 5px;
@@ -323,7 +323,7 @@
     .roadmap-list li {
         margin-bottom: 20px; /* Daha fazla satır aralığı */
         line-height: 1.7;
-        padding-left: 30px; /* İkon için boşluk */
+        padding-left: 35px; /* İkon için boşluk artırıldı */
         position: relative;
         font-size: 18px;
         font-weight: 400;
@@ -336,34 +336,28 @@
         color: #00ffbf;
     }
 
-    /* HAVALI İKON STİLLERİ */
-    /* ✔ - TAMAMLANDI */
+    /* YENİ HAVALI İKON STİLLERİ */
     .roadmap-list li::before {
         position: absolute;
         left: 0;
         font-size: 22px;
-        margin-right: 10px;
+        line-height: 1.6;
         transition: color 0.3s;
     }
     
+    /* 🪙 - TAMAMLANDI (İlk madde için) */
     .roadmap-list li:first-child::before {
-        content: '✅'; /* Daha modern emoji */
-        color: #00ffbf;
+        content: '🪙'; 
+        color: #00ffbf; /* İkonun rengini kontrol edemiyoruz, sadece gölge veriyoruz */
         text-shadow: 0 0 10px #00ffbf;
     }
     
-    /* ☐ - DEVAM EDİYOR/HEDEF */
-    .roadmap-list li:nth-child(2)::before,
-    .roadmap-list li:nth-child(3)::before,
-    .roadmap-list li:nth-child(4)::before,
-    .roadmap-list li:nth-child(5)::before,
-    .roadmap-list li:nth-child(6)::before,
-    .roadmap-list li:nth-child(7)::before {
-        content: '🎯'; /* Daha ilgi çekici emoji */
-        color: #ffcc00; /* Altın sarısı hedef rengi */
-        text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+    /* 🚀 - HEDEFLER (Diğer maddeler için) */
+    .roadmap-list li:not(:first-child)::before {
+        content: '🚀';
+        color: #ffcc00; 
+        text-shadow: 0 0 8px rgba(255, 204, 0, 0.9); /* Sarı Roket Parlaması */
     }
-
 
     /* ----------------------------------
     // FOOTER
@@ -388,20 +382,13 @@
     @media (max-width: 850px) {
         /* Font ve Başlık Boyutları */
         body {
-            font-size: 15px; /* Mobil temel font boyutu */
+            font-size: 15px; 
         }
         .hero h1 {
             font-size: 40px;
         }
-        .hero p {
-            font-size: 18px;
-        }
         .section-content h2 {
             font-size: 36px;
-            margin-bottom: 40px;
-        }
-        .roadmap-list h3 {
-            font-size: 24px;
         }
 
         /* Navigasyon */
@@ -416,13 +403,7 @@
         /* Manifesto */
         .manifesto-section {
             flex-direction: column;
-            align-items: center;
             padding: 80px 20px;
-            gap: 40px;
-        }
-        .manifesto-video {
-            width: 90%;
-            text-align: center;
         }
         .manifesto-video video {
             width: 100%;
@@ -433,33 +414,33 @@
             max-width: 100%;
         }
         .manifesto-text p {
-            text-align: left; /* Paragraf metinleri sola yaslı kalsın */
+            text-align: left; 
         }
 
         /* How to Buy */
         .buy-steps li {
-            padding-left: 50px;
+            /* Mobil için de sol padding düzeltildi */
+            padding: 15px 15px 15px 60px; 
             margin-bottom: 30px;
-            padding: 15px 15px 15px 60px;
         }
         .buy-steps li::before {
-            left: -10px;
+            left: 10px; /* Mobil için de konumu düzeltildi */
             width: 40px;
             height: 40px;
             line-height: 40px;
             font-size: 20px;
         }
 
-        /* ROADMAP MOBİL GÖRÜNÜMÜ (Görsel ve Fazların Ayrılması) */
+        /* ROADMAP MOBİL GÖRÜNÜMÜ */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
         }
         .roadmap-image-wrapper {
-            display: none; /* Masaüstü görsellerini gizle */
+            display: none; 
         }
         .roadmap-image-mobile {
-            display: block; /* Mobil görselleri göster */
+            display: block; 
             width: 90%; 
             max-width: 400px;
             margin: 25px auto 15px auto; 
@@ -509,8 +490,6 @@
     </div>
 </section>
 
----
-
 <section class="manifesto-section" id="manifesto">
     <div class="manifesto-video">
         <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
@@ -535,8 +514,6 @@
     </div>
 </section>
 
----
-
 <section class="section-content" id="roadmap">
     <div class="roadmap-container">
         <h2>$SLT ROADMAP: STEADY PROGRESS, SOLID GOALS</h2>
@@ -554,6 +531,7 @@
                 <h3 style="color: #00ffbf;">🌲 PHASE 1: THE GREAT SLOTH STRETCH (AWAKENING)</h3>
                 <ul style="list-style: none; padding-left: 0; line-height: 2;">
                     <li>**Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
+                    
                     <li>**Blum Deployment:** We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
                     <li>**Reaching for Ston.fi:** Once the Blum den is complete, we'll slowly swing towards the <span class="highlight">Ston.fi</span> tree. We wait until we're ready for the crowds.</li>
                     <li>**Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
@@ -572,8 +550,6 @@
         </div>
     </div>
 </section>
-
----
 
 <section class="section-content" id="howtobuy">
     <h2>HOW TO JOIN THE SLOW MOVEMENT (BUY $SLT)</h2>
@@ -598,8 +574,6 @@
         </ol>
     </div>
 </section>
-
----
 
 <footer>
     <p>&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
