@@ -21,43 +21,47 @@
         overflow-x: hidden;
     }
 
-    /* NEON BACKGROUNDS (STRONGER ANIMATIONS) */
+    /* ORMAN TEMALI ARKA PLAN (Daha derin, yeşil/mavi tonlar) */
     .glow1, .glow2 {
         position: fixed;
         width: 600px;
         height: 600px;
-        filter: blur(250px); /* Increased blur */
+        filter: blur(250px); 
         z-index: -1;
-        opacity: 0.45; /* Increased opacity */
+        opacity: 0.4; /* Opaklık azaltıldı */
     }
     .glow1 {
         top: -200px;
         left: -200px;
-        background: #00c8ff;
-        animation: pulse1 7s infinite alternate;
+        background: #008000; /* Derin Orman Yeşili */
+        animation: pulse1 8s infinite alternate;
     }
     .glow2 {
         bottom: -200px;
         right: -200px;
-        background: #00ffbf;
-        animation: pulse2 9s infinite alternate;
+        background: #00a0a0; /* Koyu Turkuaz/Mavi-Yeşil */
+        animation: pulse2 10s infinite alternate;
     }
 
-    @keyframes pulse1 { from {opacity:0.35;} to {opacity:0.55;} } /* Stronger pulse range */
-    @keyframes pulse2 { from {opacity:0.30;} to {opacity:0.50;} } /* Stronger pulse range */
+    @keyframes pulse1 { from {opacity:0.35;} to {opacity:0.55;} } 
+    @keyframes pulse2 { from {opacity:0.30;} to {opacity:0.50;} } 
 
-    /* LOGO (Absolute position to allow scrolling) */
+    /* LOGO (Artık HERO içinde) */
     .logo {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        width: 75px;
-        height: 75px;
+        /* position: absolute kaldırıldı */
+        width: 100px; /* Biraz büyütüldü */
+        height: 100px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 0 20px #00c8ff;
+        box-shadow: 0 0 25px #008000; /* Kutu gölgesi yeşile çevrildi */
         z-index: 60;
+        margin-bottom: 20px; /* Başlıktan ayırmak için boşluk */
+        transition: transform 0.3s;
     }
+    .logo:hover {
+        transform: scale(1.05); /* Ufak hover efekti */
+    }
+
 
     /* ----------------------------------
     // NAVIGATION
@@ -87,8 +91,8 @@
     }
 
     nav a:hover {
-        color: #00c8ff;
-        border-bottom: 2px solid #00c8ff;
+        color: #00ffbf; /* Nav hover rengi yeşile yakın tona çevrildi */
+        border-bottom: 2px solid #00ffbf;
     }
 
     /* ----------------------------------
@@ -104,7 +108,7 @@
 
     .hero h1 {
         font-size: 55px;
-        text-shadow: 0 0 20px #00c8ff;
+        text-shadow: 0 0 20px #00ffbf; /* Başlık gölgesi yeşile çevrildi */
         margin-bottom: 10px;
     }
 
@@ -131,7 +135,7 @@
     }
 
     .highlight {
-        color: #00c8ff;
+        color: #00ffbf; /* Vurgu rengi yeşil tonuna çevrildi */
         font-weight: bold;
     }
     
@@ -150,15 +154,15 @@
         font-size: 17px;
         text-decoration: none;
         color: white;
-        border: 1px solid #00c8ff;
-        background: rgba(0, 170, 255, 0.2);
+        border: 1px solid #00ffbf;
+        background: rgba(0, 255, 191, 0.2); /* Yeşile yakın background */
         backdrop-filter: blur(4px);
-        box-shadow: 0 0 15px rgba(0,200,255,0.4);
+        box-shadow: 0 0 15px rgba(0,255,191,0.4);
         transition: 0.25s;
     }
     .btn:hover {
-        box-shadow: 0 0 25px rgba(0,200,255,1);
-        background: rgba(0, 170, 255, 0.35);
+        box-shadow: 0 0 25px rgba(0,255,191,1);
+        background: rgba(0, 255, 191, 0.35);
     }
 
     /* MANIFESTO SECTION (Replaced ABOUT section styles) */
@@ -175,7 +179,7 @@
     .manifesto-video video {
         width: 300px;
         border-radius: 14px;
-        box-shadow: 0 0 25px rgba(0,200,255,0.5);
+        box-shadow: 0 0 25px rgba(0,255,191,0.5); /* Yeşil gölge */
     }
 
     .manifesto-text {
@@ -187,7 +191,7 @@
         font-size: 18px;
         opacity: 0.9;
         line-height: 1.6;
-        margin-bottom: 25px; /* Increased spacing between paragraphs */
+        margin-bottom: 25px; 
     }
 
     /* ----------------------------------
@@ -199,7 +203,7 @@
         text-align: left;
     }
     .buy-steps ol {
-        list-style-type: none; /* Removed default numbers for custom styling */
+        list-style-type: none; 
         counter-reset: step-counter;
         padding: 0;
     }
@@ -262,7 +266,7 @@
         padding: 30px 20px;
         text-align: center;
         background: rgba(0, 0, 0, 0.5);
-        border-top: 1px solid rgba(0, 200, 255, 0.1);
+        border-top: 1px solid rgba(0, 255, 191, 0.1);
         margin-top: 50px;
     }
     footer p {
@@ -310,8 +314,6 @@
 
 <body>
 
-<img src="slttokenlogo.jpeg" class="logo">
-
 <div class="glow1"></div>
 <div class="glow2"></div>
 
@@ -323,6 +325,8 @@
 </nav>
 
 <section class="hero" id="home">
+    <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
+    
     <h1>Sloth Token – $SLT</h1>
     <p>
         We believe in the calm approach. This is the simple, smooth, and unforgettable meme token built on the TON Blockchain.
