@@ -87,7 +87,7 @@
     nav a {
         color: white;
         text-decoration: none;
-        margin: 0 20px;
+        margin: 0 15px; /* Menü aralığı daraltıldı */
         font-size: 17px;
         font-weight: 600;
         transition: color 0.3s, transform 0.3s;
@@ -113,7 +113,7 @@
     }
 
     .hero h1 {
-        font-size: 64px; /* Büyük ve dikkat çekici */
+        font-size: 64px; 
         font-weight: 800;
         text-shadow: 0 0 25px #00ffbf; 
         margin-bottom: 10px;
@@ -211,7 +211,7 @@
     }
 
     /* ----------------------------------
-    // HOW TO BUY (Ordered List) - Düzeltme yapıldı
+    // HOW TO BUY (Ordered List)
     ----------------------------------- */
     .buy-steps {
         max-width: 800px;
@@ -231,7 +231,7 @@
         line-height: 1.5;
         font-weight: 400;
         background: rgba(0, 255, 191, 0.05);
-        padding: 20px 20px 20px 80px; /* Sol padding artırıldı (80px) */
+        padding: 20px 20px 20px 80px; 
         border-radius: 10px;
     }
     .buy-steps li strong {
@@ -242,7 +242,7 @@
     .buy-steps li::before {
         content: counter(step-counter);
         position: absolute;
-        left: 15px; /* Konumu içeri kaydırıldı (Metin ile çakışmasın) */
+        left: 15px; 
         top: 50%;
         transform: translateY(-50%);
         background: #00ffbf;
@@ -256,7 +256,7 @@
         font-size: 22px;
         box-shadow: 0 0 15px #00ffbf;
         border: 3px solid #030a12;
-        z-index: 2; /* Metnin arkasında kalmaması için */
+        z-index: 2; 
     }
     .buy-steps p {
         margin-top: 5px;
@@ -268,7 +268,7 @@
     }
 
     /* ----------------------------------
-    // ROADMAP (Improved Styles)
+    // ROADMAP
     ----------------------------------- */
     .roadmap-container {
         max-width: 1000px; 
@@ -280,20 +280,17 @@
         display: flex;
         align-items: flex-start; 
         justify-content: center;
-        gap: 60px; /* Daha fazla boşluk */
+        gap: 60px; 
         margin-top: 40px;
     }
-
-    /* GÖRSEL ALANINI DİKEY YÖNLENDİRME (Desktop) */
     .roadmap-image-wrapper {
         flex: 0 0 30%; 
         max-width: 300px;
         text-align: center;
         display: flex;
         flex-direction: column; 
-        gap: 35px; /* İKİ GÖRSEL ARASI BOŞLUK */
+        gap: 35px; 
     }
-
     .roadmap-image-wrapper img {
         width: 100%; 
         height: auto;
@@ -301,29 +298,22 @@
         box-shadow: 0 0 25px rgba(0, 255, 191, 0.7);
         transition: transform 0.3s;
     }
-    .roadmap-image-wrapper img:hover {
-        transform: scale(1.02);
-    }
-
-    /* Mobil cihazlarda bu görselleri gizle */
     .roadmap-image-mobile {
         display: none;
     }
-
     .roadmap-list {
         flex: 1; 
         max-width: 650px; 
         text-align: left;
     }
-    
     .roadmap-list ul {
         list-style: none;
         padding-left: 0;
     }
     .roadmap-list li {
-        margin-bottom: 20px; /* Daha fazla satır aralığı */
+        margin-bottom: 20px; 
         line-height: 1.7;
-        padding-left: 35px; /* İkon için boşluk artırıldı */
+        padding-left: 35px; 
         position: relative;
         font-size: 18px;
         font-weight: 400;
@@ -336,7 +326,7 @@
         color: #00ffbf;
     }
 
-    /* YENİ HAVALI İKON STİLLERİ */
+    /* İKON STİLLERİ */
     .roadmap-list li::before {
         position: absolute;
         left: 0;
@@ -348,15 +338,70 @@
     /* 🪙 - TAMAMLANDI (İlk madde için) */
     .roadmap-list li:first-child::before {
         content: '🪙'; 
-        color: #00ffbf; /* İkonun rengini kontrol edemiyoruz, sadece gölge veriyoruz */
         text-shadow: 0 0 10px #00ffbf;
     }
     
     /* 🚀 - HEDEFLER (Diğer maddeler için) */
     .roadmap-list li:not(:first-child)::before {
         content: '🚀';
-        color: #ffcc00; 
-        text-shadow: 0 0 8px rgba(255, 204, 0, 0.9); /* Sarı Roket Parlaması */
+        text-shadow: 0 0 8px rgba(255, 204, 0, 0.9); 
+    }
+
+    /* ----------------------------------
+    // FAQ (FREQUENTLY ASKED QUESTIONS)
+    ----------------------------------- */
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .faq-item {
+        margin-bottom: 15px;
+        border: 1px solid rgba(0, 255, 191, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        background: rgba(0, 255, 191, 0.05);
+        transition: all 0.3s;
+    }
+
+    .faq-question {
+        padding: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 255, 191, 0.1);
+        color: #00ffbf;
+    }
+
+    .faq-question:hover {
+        background: rgba(0, 255, 191, 0.2);
+    }
+
+    .faq-toggle {
+        font-size: 24px;
+        line-height: 1;
+        transition: transform 0.3s;
+    }
+    
+    .faq-item.active .faq-toggle {
+        transform: rotate(45deg); /* Açıkken artı işaretini çarpıya çevir */
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+        padding: 0 20px;
+    }
+    
+    .faq-answer p {
+        padding: 10px 0 20px 0;
+        font-size: 16px;
+        opacity: 0.9;
     }
 
     /* ----------------------------------
@@ -380,10 +425,17 @@
     // MOBILE RESPONSIVENESS (Max Width: 850px)
     ----------------------------------- */
     @media (max-width: 850px) {
-        /* Font ve Başlık Boyutları */
-        body {
-            font-size: 15px; 
+        
+        /* Navigasyon */
+        nav {
+            padding: 15px 5px;
         }
+        nav a {
+            margin: 0 5px;
+            font-size: 12px; 
+        }
+        
+        /* Font ve Başlık Boyutları */
         .hero h1 {
             font-size: 40px;
         }
@@ -391,15 +443,6 @@
             font-size: 36px;
         }
 
-        /* Navigasyon */
-        nav {
-            padding: 15px 10px;
-        }
-        nav a {
-            margin: 0 5px;
-            font-size: 13px;
-        }
-        
         /* Manifesto */
         .manifesto-section {
             flex-direction: column;
@@ -409,29 +452,24 @@
             width: 100%;
             max-width: 400px; 
         }
-        .manifesto-text {
-            text-align: center;
-            max-width: 100%;
-        }
         .manifesto-text p {
             text-align: left; 
         }
 
         /* How to Buy */
         .buy-steps li {
-            /* Mobil için de sol padding düzeltildi */
             padding: 15px 15px 15px 60px; 
             margin-bottom: 30px;
         }
         .buy-steps li::before {
-            left: 10px; /* Mobil için de konumu düzeltildi */
+            left: 10px; 
             width: 40px;
             height: 40px;
             line-height: 40px;
             font-size: 20px;
         }
 
-        /* ROADMAP MOBİL GÖRÜNÜMÜ */
+        /* ROADMAP */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
@@ -444,17 +482,17 @@
             width: 90%; 
             max-width: 400px;
             margin: 25px auto 15px auto; 
-            border-radius: 14px;
-            box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
-        }
-        .roadmap-list {
-            text-align: center;
-            width: 100%;
         }
         .roadmap-list ul {
             text-align: left;
             margin: 0 auto;
             max-width: 400px; 
+        }
+        
+        /* FAQ Mobil */
+        .faq-question {
+            padding: 15px;
+            font-size: 16px;
         }
     }
 </style>
@@ -470,6 +508,7 @@
     <a href="#manifesto">MANIFESTO</a>
     <a href="#roadmap">ROADMAP</a>
     <a href="#howtobuy">HOW TO BUY</a>
+    <a href="#faqs">FAQS</a>
 </nav>
 
 <section class="hero" id="home">
@@ -485,8 +524,6 @@
         <a href="https://www.google.com" target="_blank" class="btn">BUY ON BLUM</a>
         <a href="https://www.google.com" target="_blank" class="btn">BUY ON STON.FI</a>
         <a href="https://www.google.com" target="_blank" class="btn">CHART</a>
-        <a href="https://www.google.com" target="_blank" class="btn">TELEGRAM</a>
-        <a href="https://www.google.com" target="_blank" class="btn">TWITTER</a>
     </div>
 </section>
 
@@ -575,10 +612,82 @@
     </div>
 </section>
 
+<section class="section-content" id="faqs">
+    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    
+    <div class="faq-container">
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                What is Sloth Token ($SLT)? <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Sloth Token is a fun, community-driven meme token operating on the highly efficient TON Blockchain. We promote the philosophy of "Slow Down and Stack Up," encouraging stable, long-term holding (HODL) over chaotic trading.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What is the tokenomics of $SLT? <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>We believe in simplicity and fairness. $SLT has zero taxes (0% Buy/Sell Tax). This ensures that every transaction is straightforward and maximizes benefits for our community members.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                Where can I buy $SLT? <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Initially, you can purchase $SLT via **Blum**. Our roadmap goal is to slowly expand to major TON DEXs like **Ston.fi** once our liquidity pool reaches 1,500 TON, ensuring stability before widespread release.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Is the Sloth Token audited or safe? <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>As a community-driven meme token, $SLT relies on the security of the TON Blockchain. We strive for transparency, but as with all meme coins, investors should conduct their own research (DYOR) before purchasing.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
 <footer>
     <p>&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
     <p>THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
 </footer>
+
+<script>
+    // FAQ Akordeon Fonksiyonu
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            const answer = item.querySelector('.faq-answer');
+            
+            // Eğer açılacaksa, max-height'ı içeriğin scroll yüksekliğine ayarla
+            if (!item.classList.contains('active')) {
+                // Diğer tüm akordeonları kapat
+                faqItems.forEach(i => {
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.maxHeight = null;
+                });
+                
+                // Tıklanan akordeonu aç
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                // Zaten açıksa, kapat
+                item.classList.remove('active');
+                answer.style.maxHeight = null;
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
