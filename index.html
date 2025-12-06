@@ -1,99 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sloth Token</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Comic Sans MS", "Poppins", sans-serif;
-      background: #f6f6f6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sloth Token</title>
 
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #222;
-      margin-bottom: 10px;
-    }
+    <!-- Eğlenceli modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    .tagline {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #555;
-      max-width: 600px;
-      margin-bottom: 20px;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
 
-    .subline {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 25px;
-    }
+        /* Neon arka plan ışıkları */
+        .glow-bg,
+        .glow-bg2 {
+            position: fixed;
+            width: 650px;
+            height: 650px;
+            filter: blur(200px);
+            z-index: -1;
+            opacity: 0.25;
+        }
+        .glow-bg {
+            top: -250px;
+            left: -250px;
+            background: #00aaff;
+            animation: pulse 7s infinite alternate;
+        }
+        .glow-bg2 {
+            bottom: -250px;
+            right: -250px;
+            background: #00ffbf;
+            animation: pulse2 9s infinite alternate;
+        }
 
-    video {
-      width: 260px;
-      max-width: 80%;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+        @keyframes pulse {
+            from { transform: scale(1); opacity: 0.25; }
+            to   { transform: scale(1.2); opacity: 0.4; }
+        }
+        @keyframes pulse2 {
+            from { transform: scale(1); opacity: 0.2; }
+            to   { transform: scale(1.25); opacity: 0.35; }
+        }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 10px;
-    }
+        h1 {
+            font-size: 52px;
+            margin-top: 50px;
+            text-shadow: 0 0 20px #00eaff, 0 0 35px #00eaff;
+            font-weight: 700;
+        }
 
-    .btn {
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      background: #4CAF50;
-      color: white;
-      transition: 0.2s;
-    }
+        .subtitle {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 450px;
+            margin: 0 auto;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(0,255,255,0.4);
+        }
 
-    .btn:hover {
-      transform: scale(1.05);
-      background: #43a047;
-    }
+        /* Video kutusu */
+        .video-box {
+            margin: 35px auto;
+        }
 
-    @media(max-width:600px){
-      h1{font-size:2rem;}
-      .tagline{font-size:1.05rem;}
-      .subline{font-size:1rem;}
-    }
-  </style>
+        .video-box video {
+            width: 260px;
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0,255,255,0.5);
+        }
+
+        .section-title {
+            margin-top: 30px;
+            font-size: 32px;
+            text-shadow: 0 0 15px #00ffbf;
+        }
+
+        /* Butonlar */
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            margin: 8px;
+            background: rgba(0,180,255,0.18);
+            border: 1px solid #00c8ff;
+            border-radius: 12px;
+            color: white;
+            font-size: 17px;
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+            transition: 0.25s;
+            box-shadow: 0 0 12px rgba(0,200,255,0.3);
+        }
+
+        .btn:hover {
+            background: rgba(0,200,255,0.35);
+            box-shadow: 0 0 25px rgba(0,255,255,0.8);
+        }
+
+        /* Mobil optimize */
+        @media (max-width: 600px) {
+            h1 { font-size: 38px; }
+            .subtitle { font-size: 16px; max-width: 320px; }
+            .video-box video { width: 200px; }
+            .btn { padding: 10px 20px; font-size: 15px; }
+        }
+    </style>
 </head>
+
 <body>
 
-  <h1>Sloth Token</h1>
+    <!-- Neon glow background -->
+    <div class="glow-bg"></div>
+    <div class="glow-bg2"></div>
 
-  <div class="tagline">A fun meme token built on the TON Blockchain.</div>
+    <h1>Sloth Token • $SLT</h1>
 
-  <div class="subline">TON's Coolest Crypto — $SLT: Slow down, and stack up.</div>
+    <p class="subtitle">
+        A clean, fun meme token on the TON Blockchain — simple, smooth, unforgettable.  
+        <br><b>$SLT: Slow down, and stack up.</b>
+    </p>
 
-  <video autoplay loop muted playsinline src="slothtoken.mp4"></video>
+    <div class="video-box">
+        <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
+    </div>
 
-  <div class="buttons">
-    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from Blum Memepad</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from STON.fi</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Chart</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Telegram</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Twitter</a>
-  </div>
+    <h2 class="section-title">Meme Token</h2>
+
+    <div class="buttons">
+        <a href="https://google.com" target="_blank" class="btn">Buy $SLT from Blum MemePad</a>
+        <a href="https://google.com" target="_blank" class="btn">Buy $SLT from STON.fi</a>
+        <a href="https://google.com" target="_blank" class="btn">Chart</a>
+        <a href="https://google.com" target="_blank" class="btn">Telegram</a>
+        <a href="https://google.com" target="_blank" class="btn">Twitter</a>
+    </div>
 
 </body>
 </html>
