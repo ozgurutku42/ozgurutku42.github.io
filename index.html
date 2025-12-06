@@ -191,58 +191,56 @@
     }
 
     /* ----------------------------------
-    // TOKENOMICS (Table)
+    // HOW TO BUY (Ordered List)
     ----------------------------------- */
-    .token-table {
-        width: 100%;
-        max-width: 600px;
+    .buy-steps {
+        max-width: 750px;
         margin: 40px auto;
-        border-collapse: collapse;
         text-align: left;
     }
-    .token-table th, .token-table td {
-        padding: 15px;
-        border-bottom: 1px solid rgba(0, 200, 255, 0.2);
-        font-size: 18px;
+    .buy-steps ol {
+        list-style-type: none; /* Removed default numbers for custom styling */
+        counter-reset: step-counter;
+        padding: 0;
     }
-    .token-table th {
-        color: #00ffbf;
-        text-transform: uppercase;
+    .buy-steps li {
+        counter-increment: step-counter;
+        margin-bottom: 30px;
+        padding-left: 50px;
+        position: relative;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+    .buy-steps li::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: #00ffbf;
+        color: #030a12;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border-radius: 50%;
         font-weight: bold;
+    }
+    .buy-steps p {
+        margin-top: 8px;
+        font-size: 16px;
+        opacity: 0.8;
+    }
+    .buy-steps a {
+        text-decoration: none;
     }
 
     /* ----------------------------------
-    // TEAM (Card style)
+    // ROADMAP (List)
     ----------------------------------- */
-    .team-grid {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        margin-top: 40px;
-    }
-    .team-member {
-        background: rgba(0, 170, 255, 0.1);
-        padding: 20px;
-        border-radius: 14px;
-        max-width: 250px;
-        box-shadow: 0 0 15px rgba(0, 200, 255, 0.15);
-    }
-    .team-member h4 {
-        margin: 10px 0 5px;
-        font-size: 20px;
-        color: #00c8ff;
-    }
-    .team-member p {
-        margin: 0;
-        opacity: 0.7;
-    }
-    .team-member img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #00c8ff;
+    .roadmap-list {
+        max-width: 700px; 
+        margin: 0 auto; 
+        text-align: left;
     }
 
     /* ----------------------------------
@@ -291,8 +289,8 @@
         .manifesto-text {
             text-align: center;
         }
-        .team-grid {
-            gap: 20px;
+        .buy-steps li {
+            padding-left: 40px;
         }
     }
 </style>
@@ -308,9 +306,8 @@
 <nav>
     <a href="#home">Home</a>
     <a href="#manifesto">Manifesto</a>
-    <a href="#tokenomics">Tokenomics</a>
+    <a href="#howtobuy">How to Buy</a>
     <a href="#roadmap">Roadmap</a>
-    <a href="#team">Team</a>
 </nav>
 
 <section class="hero" id="home">
@@ -359,45 +356,33 @@
     </div>
 </section>
 
-<section class="section-content" id="tokenomics">
-    <h2>Tokenomics</h2>
-    <p>Simple tokenomics for sustainable growth and fair distribution.</p>
-    <table class="token-table">
-        <thead>
-            <tr>
-                <th>Allocation</th>
-                <th>Percentage</th>
-                <th>Vesting</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Public Sale (Blum/Ston.fi)</td>
-                <td>60%</td>
-                <td>100% Unlock at Launch</td>
-            </tr>
-            <tr>
-                <td>Liquidity Pool (LP)</td>
-                <td>20%</td>
-                <td>Locked for 365 Days</td>
-            </tr>
-            <tr>
-                <td>Marketing & Ecosystem</td>
-                <td>15%</td>
-                <td>Vested over 12 Months</td>
-            </tr>
-            <tr>
-                <td>Team</td>
-                <td>5%</td>
-                <td>Locked for 6 Months, Vested over 18 Months</td>
-            </tr>
-        </tbody>
-    </table>
+<section class="section-content" id="howtobuy">
+    <h2>How to Buy $SLT</h2>
+    <div class="buy-steps">
+        <ol>
+            <li>
+                <strong>Create a Wallet</strong>
+                <p>Download the <a href="#" class="highlight">Tonkeeper</a> wallet extension and set it up to create your wallet.</p>
+            </li>
+            <li>
+                <strong>Get Some TON</strong>
+                <p>Make sure you have TON in your wallet to swap for $SLT. If you don’t have any TON, you can buy it directly on <a href="#" class="highlight">Bybit</a>, <a href="#" class="highlight">OKX</a>, transfer from another wallet, or buy on another exchange and send it to your Tonkeeper wallet.</p>
+            </li>
+            <li>
+                <strong>Go to Ston.fi</strong>
+                <p>Visit <a href="#" class="highlight">Ston.fi</a> in Google Chrome. Connect your Tonkeeper wallet, paste the $SLT token address into Ston.fi, select $SLT, and confirm. When Tonkeeper prompts you for a wallet signature, sign it to complete the process. <span style="font-size: 14px; opacity: 0.6;">(Note: You will need the correct $SLT contract address.)</span></p>
+            </li>
+            <li>
+                <strong>Switch TON for $SLT</strong>
+                <p>Swap your TON for $SLT. We have ZERO taxes, so you don’t need to worry about slippage unless there is significant market volatility.</p>
+            </li>
+        </ol>
+    </div>
 </section>
 
 <section class="section-content" id="roadmap">
     <h2>Roadmap</h2>
-    <div class="roadmap-list" style="max-width: 700px; margin: 0 auto; text-align: left;">
+    <div class="roadmap-list">
         <h3 style="color: #00c8ff;">Phase 1: Sloth Awakening</h3>
         <ul style="list-style: none; padding-left: 20px; line-height: 2;">
             <li>✔ Smart Contract Audit & Deployment</li>
@@ -413,28 +398,6 @@
             <li>☐ Exclusive NFT Collection Drop</li>
             <li>☐ Partnerships within the TON Ecosystem</li>
         </ul>
-    </div>
-</section>
-
-<section class="section-content" id="team">
-    <h2>The Team</h2>
-    <p>A committed group of builders and community managers ensuring smooth, steady growth.</p>
-    <div class="team-grid">
-        <div class="team-member">
-            <img src="sloth-dev.jpeg" alt="Lead Developer">
-            <h4>Alex (Dev)</h4>
-            <p>Lead Blockchain Architect</p>
-        </div>
-        <div class="team-member">
-            <img src="sloth-marketing.jpeg" alt="Marketing">
-            <h4>Jasmine</h4>
-            <p>Community & Marketing Lead</p>
-        </div>
-        <div class="team-member">
-            <img src="sloth-manager.jpeg" alt="Project Manager">
-            <h4>Marcus</h4>
-            <p>Project Manager</p>
-        </div>
     </div>
 </section>
 
