@@ -1,145 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sloth Token</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sloth Token — $SLT</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            color: #fff;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            overflow-x: hidden;
-        }
+  <!-- Google Fonts: Baloo 2 (playful) + Poppins (clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-        /* Neon TON arka plan */
-        .glow-bg {
-            position: fixed;
-            top: -200px;
-            left: -200px;
-            width: 600px;
-            height: 600px;
-            background: #00aaff;
-            filter: blur(180px);
-            opacity: 0.25;
-            animation: pulse 8s infinite alternate;
-            z-index: -1;
-        }
+  <style>
+    :root{
+      --bg:#000;
+      --neon-1:#00c8ff;
+      --neon-2:#1effbc;
+      --muted:rgba(255,255,255,0.82);
+    }
 
-        .glow-bg2 {
-            position: fixed;
-            bottom: -200px;
-            right: -200px;
-            width: 600px;
-            height: 600px;
-            background: #1effbc;
-            filter: blur(160px);
-            opacity: 0.20;
-            animation: pulse2 10s infinite alternate;
-            z-index: -1;
-        }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Poppins",system-ui,Segoe UI,Roboto,Arial;
+      background:var(--bg);
+      color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
 
-        @keyframes pulse {
-            from { transform: scale(1); opacity: 0.25; }
-            to   { transform: scale(1.2); opacity: 0.35; }
-        }
+    /* Neon glow backgrounds */
+    .glow-bg{
+      position:fixed; left:-220px; top:-220px;
+      width:640px;height:640px;
+      background:var(--neon-1);
+      filter:blur(180px); opacity:0.22;
+      z-index:-2; animation:pulse 9s infinite alternate;
+    }
+    .glow-bg2{
+      position:fixed; right:-220px; bottom:-220px;
+      width:640px;height:640px;
+      background:var(--neon-2);
+      filter:blur(160px); opacity:0.18;
+      z-index:-2; animation:pulse2 10s infinite alternate;
+    }
+    @keyframes pulse { from{transform:scale(1)} to{transform:scale(1.18)} }
+    @keyframes pulse2{ from{transform:scale(1)} to{transform:scale(1.22)} }
 
-        @keyframes pulse2 {
-            from { transform: scale(1); opacity: 0.20; }
-            to   { transform: scale(1.25); opacity: 0.32; }
-        }
+    /* Page layout - center content vertically */
+    .wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px 20px;
+    }
 
-        h1 {
-            font-size: 50px;
-            margin-top: 50px;
-            text-shadow: 0 0 15px #00c8ff, 0 0 30px #00c8ff;
-        }
+    .hero{
+      max-width:920px;
+      width:100%;
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:32px;
+      align-items:center;
+      text-align:left;
+    }
 
-        p.subtitle {
-            font-size: 20px;
-            opacity: 0.85;
-        }
+    /* Left column - text content */
+    .hero-left{
+      padding:24px;
+    }
 
-        /* Video kutusu */
-        .video-box {
-            margin: 30px auto;
-        }
+    .brand{
+      display:flex;
+      align-items:baseline;
+      gap:14px;
+      margin-bottom:6px;
+    }
+    .brand h1{
+      font-family:"Baloo 2", "Poppins", sans-serif;
+      font-size:48px;
+      line-height:1;
+      margin:0;
+      color: #fff;
+      text-shadow: 0 0 12px rgba(0,200,255,0.18), 0 0 28px rgba(30,255,188,0.06);
+    }
+    .brand .ticker{
+      font-family:"Poppins",sans-serif;
+      font-weight:600;
+      font-size:18px;
+      color:var(--neon-2);
+      padding:6px 10px;
+      border-radius:8px;
+      background:rgba(30,255,188,0.06);
+      border:1px solid rgba(30,255,188,0.12);
+    }
 
-        .video-box video {
-            width: 260px;
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(0,200,255,0.4);
-        }
+    .subtitle{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.45;
+    }
 
-        h2.section-title {
-            margin-top: 40px;
-            font-size: 36px;
-            text-shadow: 0 0 12px #1effbc;
-        }
-
-        /* Butonlar modern neon */
-        .buttons {
-            margin-top: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            margin: 10px;
-            background: rgba(0,170,255,0.25);
-            border: 1px solid #00c8ff;
-            color: white;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 18px;
-            backdrop-filter: blur(4px);
-            transition: 0.25s;
-            box-shadow: 0 0 12px rgba(0,200,255,0.4);
-        }
-
-        .btn:hover {
-            background: rgba(0,170,255,0.45);
-            box-shadow: 0 0 22px rgba(0,200,255,0.8);
-        }
-
-        /* Mobil uyum */
-        @media (max-width: 600px) {
-            h1 { font-size: 36px; }
-            h2.section-title { font-size: 28px; }
-            .video-box video { width: 200px; }
-            .btn { padding: 10px 20px; font-size: 16px; }
-        }
-
-    </style>
-</head>
-
-<body>
-
-    <!-- Neon glow background -->
-    <div class="glow-bg"></div>
-    <div class="glow-bg2"></div>
-
-    <h1>Sloth Token</h1>
-    <h1> $SLT</h1> 
-    <p class="subtitle">T“A clean, fun meme token on the TON Blockchain — simple, smooth, unforgettable.
-$SLT: Slow down, and stack up.”</p>
-
-    <div class="video-box">
-        <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
-    </div>
-
-    <h2 class="section-title">Meme Token</h2>
-
-    <div class="buttons">
-        <a href="#" class="btn">Buy</a>
-        <a href="#" class="btn">Chart</a>
-        <a href="#" class="btn">Telegram</a>
-        <a href="#" class="btn">Twitter</a>
-    </div>
-
-</body>
-</html>
+    /* CTA area */
+    .cta{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justi
