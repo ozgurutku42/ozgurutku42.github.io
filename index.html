@@ -3,44 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ozgur Utku - Personal Website</title>
+    <title>SLT Token - Sloth Meme Token</title>
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: Arial, sans-serif;
             background: #111;
             color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Video arkaplan stili */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(70%);
+        }
+
+        /* İçerik */
+        .content {
+            position: relative;
             text-align: center;
-            padding: 40px;
+            padding-top: 18vh;
         }
-        .card {
-            max-width: 600px;
-            margin: auto;
-            background: #222;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #000;
         }
-        h1 { font-size: 32px; margin-bottom: 10px; }
-        p { font-size: 18px; line-height: 1.5; }
-        a {
+
+        p {
+            font-size: 20px;
+            text-shadow: 0 0 10px #000;
+        }
+
+        .btn {
             display: inline-block;
-            margin-top: 20px;
-            background: #4CAF50;
-            color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
+            margin-top: 25px;
+            padding: 14px 26px;
+            background: #00ff9d;
+            color: #000;
+            border-radius: 10px;
             text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 0 10px #00ff9d;
         }
-        a:hover { background: #3b9e41; }
+
+        .btn:hover {
+            filter: brightness(1.2);
+        }
     </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>Welcome to My Website</h1>
-        <p>This is my GitHub Pages website.</p>
-        <p>You can add blog, projects, or anything you want here.</p>
-        <a href="#">Contact Me</a>
+
+    <!-- Arkaplan video -->
+    <video autoplay muted loop class="video-bg">
+        <source src="slothtoken.mp4" type="video/mp4">
+    </video>
+
+    <!-- İçerik -->
+    <div class="content">
+        <h1>SLT TOKEN</h1>
+        <p>The Official Sloth Meme Token on TON Network</p>
+        <a class="btn" href="#">Buy Now</a>
     </div>
+
 </body>
 </html>
