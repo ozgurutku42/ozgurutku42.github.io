@@ -19,26 +19,26 @@
         padding: 0;
         background: #030a12;
         color: #fff;
-        font-family: 'Poppins', sans-serif; /* Yeni Font Ailesi */
-        font-size: 16px; /* Temel font boyutu ayarlandı */
+        font-family: 'Poppins', sans-serif;
+        font-size: 16px;
         line-height: 1.6;
         overflow-x: hidden;
     }
 
-    /* ORMAN TEMALI ARKA PLAN GLOWS */
+    /* FOREST THEME BACKGROUND GLOWS */
     .glow1, .glow2 {
         position: fixed;
-        width: 80vh; /* Ekran boyutuna göre ayarlandı */
+        width: 80vh;
         height: 80vh;
-        filter: blur(350px); /* Daha yumuşak blur */
+        filter: blur(350px);
         z-index: -1;
         opacity: 0.4; 
-        border-radius: 50%; /* Daha dairesel etki */
+        border-radius: 50%;
     }
     .glow1 {
         top: -10vh;
         left: -10vh;
-        background: #00ffbf; /* Canlı Teal Yeşili */
+        background: #00ffbf; 
         animation: pulse1 8s infinite alternate;
     }
     .glow2 {
@@ -53,11 +53,11 @@
 
     /* LOGO */
     .logo {
-        width: 120px; /* Biraz büyütüldü */
+        width: 120px;
         height: 120px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 0 30px rgba(0, 255, 191, 0.8); /* Daha güçlü gölge */
+        box-shadow: 0 0 30px rgba(0, 255, 191, 0.8);
         z-index: 60;
         margin-bottom: 25px; 
         transition: transform 0.3s;
@@ -75,8 +75,8 @@
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(3, 10, 18, 0.98); /* Daha koyu arka plan */
-        backdrop-filter: blur(8px); /* Daha güçlü blur */
+        background: rgba(3, 10, 18, 0.98);
+        backdrop-filter: blur(8px);
         padding: 15px 50px;
         z-index: 50;
         display: flex;
@@ -87,7 +87,7 @@
     nav a {
         color: white;
         text-decoration: none;
-        margin: 0 15px; /* Menü aralığı daraltıldı */
+        margin: 0 15px;
         font-size: 17px;
         font-weight: 600;
         transition: color 0.3s, transform 0.3s;
@@ -326,7 +326,7 @@
         color: #00ffbf;
     }
 
-    /* İKON STİLLERİ */
+    /* ICON STYLES */
     .roadmap-list li::before {
         position: absolute;
         left: 0;
@@ -335,13 +335,13 @@
         transition: color 0.3s;
     }
     
-    /* 🪙 - TAMAMLANDI (İlk madde için) */
+    /* 🪙 - COMPLETED */
     .roadmap-list li:first-child::before {
         content: '🪙'; 
         text-shadow: 0 0 10px #00ffbf;
     }
     
-    /* 🚀 - HEDEFLER (Diğer maddeler için) */
+    /* 🚀 - GOALS */
     .roadmap-list li:not(:first-child)::before {
         content: '🚀';
         text-shadow: 0 0 8px rgba(255, 204, 0, 0.9); 
@@ -388,7 +388,7 @@
     }
     
     .faq-item.active .faq-toggle {
-        transform: rotate(45deg); /* Açıkken artı işaretini çarpıya çevir */
+        transform: rotate(45deg);
     }
 
     .faq-answer {
@@ -426,7 +426,7 @@
     ----------------------------------- */
     @media (max-width: 850px) {
         
-        /* Navigasyon */
+        /* Navigation */
         nav {
             padding: 15px 5px;
         }
@@ -435,7 +435,7 @@
             font-size: 12px; 
         }
         
-        /* Font ve Başlık Boyutları */
+        /* Font and Headers */
         .hero h1 {
             font-size: 40px;
         }
@@ -489,7 +489,7 @@
             max-width: 400px; 
         }
         
-        /* FAQ Mobil */
+        /* FAQ Mobile */
         .faq-question {
             padding: 15px;
             font-size: 16px;
@@ -613,7 +613,7 @@
 </section>
 
 <section class="section-content" id="faqs">
-    <h2>FREQUENTLY ASKED QUESTIONS</h2>
+    <h2>FREQUENTLY ASKED QUESTIONS (Listen to the Sloth)</h2>
     
     <div class="faq-container">
         
@@ -622,34 +622,34 @@
                 What is Sloth Token ($SLT)? <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Sloth Token is a fun, community-driven meme token operating on the highly efficient TON Blockchain. We promote the philosophy of "Slow Down and Stack Up," encouraging stable, long-term holding (HODL) over chaotic trading.</p>
+                <p>Ah, $SLT? You're curious, aren't you? But don't rush! We are community-supported sloths chilling in the most comfortable and green corner of the TON Blockchain. Our philosophy? **"Slow Down, and Stack Up Big!"** The chaotic DEX race is not for us. We prefer taking a long, peaceful HODL nap in our wallets. We are transparent, and we favor fair distribution. Because the strongest stance is the calmest one.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">
-                What is the tokenomics of $SLT? <span class="faq-toggle">+</span>
+                Why doesn't the $SLT token have official social media channels? <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>We believe in simplicity and fairness. $SLT has zero taxes (0% Buy/Sell Tax). This ensures that every transaction is straightforward and maximizes benefits for our community members.</p>
+                <p>Oh, social media? Too noisy... Too fast... All those notifications, all that rushing... Not for us. **The deepest secret of crypto is anonymity.** Besides, the best viral marketing is done completely organically by our loyal **HODL army**. Our energy is focused on building a stable **community**, not stressing over keyboard wars. Look, **our slow, anonymous state is not due to weak liquidity.** On the contrary, we seek **maximalist anonymity** and comfort. We are so lazy (and so committed to anonymity) that **we don't even buy a domain.** This is part of our pure Sloth philosophy. We are grateful to GitHub for providing such a quiet place.</p>
             </div>
         </div>
         
         <div class="faq-item">
             <div class="faq-question">
-                Where can I buy $SLT? <span class="faq-toggle">+</span>
+                Will the $SLT token be listed on major exchanges (CEX)? <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Initially, you can purchase $SLT via **Blum**. Our roadmap goal is to slowly expand to major TON DEXs like **Ston.fi** once our liquidity pool reaches 1,500 TON, ensuring stability before widespread release.</p>
+                <p>**Absolutely not.** Why? We don't want to enter the complicated and tiring world of major exchanges. We believe that **anonymity is power** and that **decentralization** is paramount. Our only goal is to stay peacefully on **DEXs** (Decentralized Exchanges) with high, healthy liquidity for life. For us, comfort comes before popularity.</p>
             </div>
         </div>
 
         <div class="faq-item">
             <div class="faq-question">
-                Is the Sloth Token audited or safe? <span class="faq-toggle">+</span>
+                How can I support Sloth Token's marketing/promotion efforts? <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>As a community-driven meme token, $SLT relies on the security of the TON Blockchain. We strive for transparency, but as with all meme coins, investors should conduct their own research (DYOR) before purchasing.</p>
+                <p>Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, **slowly** share them on your social media. Don't rush, thinking, "I'll share it now, I'll get rich immediately." Consistency and peace are what matter. Get the latest **meme materials** from our site—that's the trunk of our tree. Remember: **Your calmness is $SLT's greatest hype power.**</p>
             </div>
         </div>
 
@@ -662,26 +662,26 @@
 </footer>
 
 <script>
-    // FAQ Akordeon Fonksiyonu
+    // FAQ Accordion Functionality
     const faqItems = document.querySelectorAll('.faq-item');
 
     faqItems.forEach(item => {
         item.querySelector('.faq-question').addEventListener('click', () => {
             const answer = item.querySelector('.faq-answer');
             
-            // Eğer açılacaksa, max-height'ı içeriğin scroll yüksekliğine ayarla
+            // If opening, set max-height to the scroll height
             if (!item.classList.contains('active')) {
-                // Diğer tüm akordeonları kapat
+                // Close all other accordions first
                 faqItems.forEach(i => {
                     i.classList.remove('active');
                     i.querySelector('.faq-answer').style.maxHeight = null;
                 });
                 
-                // Tıklanan akordeonu aç
+                // Open the clicked accordion
                 item.classList.add('active');
                 answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
-                // Zaten açıksa, kapat
+                // If already open, close it
                 item.classList.remove('active');
                 answer.style.maxHeight = null;
             }
