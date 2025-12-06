@@ -1,161 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sloth Token</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Comic Sans MS", "Poppins", sans-serif;
-      background: #f6f6f6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sloth Token - $SLT</title>
 
-    h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      color: #222;
-      margin-bottom: 10px;
-    }
+<style>
+/* ---- GENERAL ---- */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 80%);
+    color: #fff;
+    scroll-behavior: smooth;
+}
 
-    .tagline {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #555;
-      max-width: 600px;
-      margin-bottom: 20px;
-    }
+/* ---- NEON EFFECT ---- */
+.neon {
+    color: #15ffb0;
+    text-shadow: 0 0 5px #15ffb0, 0 0 10px #15ffb0, 0 0 20px #00ffcc;
+}
 
-    .subline {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #333;
-      margin-bottom: 25px;
-    }
+/* ---- HEADER / NAV ---- */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 15px 0;
+    background: rgba(0,0,0,0.60);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    z-index: 999;
+}
 
-    video {
-      width: 260px;
-      max-width: 80%;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.25s;
+}
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 10px;
-    }
+nav a:hover {
+    color: #15ffb0;
+}
 
-    .btn {
-      padding: 12px 18px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      text-decoration: none;
-      background: #4CAF50;
-      color: white;
-      transition: 0.2s;
-    }
+/* ---- SECTIONS ---- */
+section {
+    padding: 120px 20px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+}
 
-    .btn:hover {
-      transform: scale(1.05);
-      background: #43a047;
-    }
+/* ---- LOGO ---- */
+.logo {
+    width: 160px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px #00ffcc;
+}
 
-    @media(max-width:600px){
-      h1{font-size:2rem;}
-      .tagline{font-size:1.05rem;}
-      .subline{font-size:1rem;}
-    }
-          /* Gelişmiş mobil uyum */
-        @media (max-width: 480px) {
-            body { padding: 10px; }
-            h1 { font-size: 32px; }
-            .subtitle { font-size: 16px; line-height: 1.4; }
-            .video-box video { width: 90%; max-width: 260px; }
-            .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-            .btn { flex: 1 1 calc(50% - 20px); max-width: 160px; font-size: 15px; padding: 10px 14px; }
-        }
+/* ---- BUTTONS ---- */
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
-    </style>
+.btn {
+    padding: 14px 25px;
+    background: #111;
+    border: 2px solid #15ffb0;
+    border-radius: 10px;
+    color: #15ffb0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    background: #15ffb0;
+    color: #000;
+    box-shadow: 0 0 20px #15ffb0;
+}
+
+/* ---- NEON TITLE ---- */
+section h1, h2 {
+    font-size: 42px;
+}
+
+/* ---- RESPONSIVE ---- */
+@media(max-width: 600px) {
+    nav {
+        gap: 15px;
+        padding: 10px 0;
+    }
+    section h1 {
+        font-size: 32px;
+    }
+}
+</style>
 </head>
 <body>
 
-  <h1>Sloth Token</h1>
+<!-- NAVIGATION -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#tokenomics">Tokenomics</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-  <div class="tagline">A fun meme token built on the TON Blockchain.</div>
+<!-- HOME -->
+<section id="home">
+    <img src="slttokenlogo.jpeg" alt="Sloth Token Logo" class="logo">
+    <h1 class="neon">Sloth Token — $SLT</h1>
+    <p style="font-size: 20px; margin-top: 5px;">
+        Slow down, and stack up.
+    </p>
 
-  <div class="subline">TON's Coolest Crypto — $SLT: Slow down, and stack up.</div>
+    <div class="buttons">
+        <a class="btn" target="_blank" href="https://google.com/search?q=Buy+SLT+from+Blum+Memepad">Buy on Blum</a>
+        <a class="btn" target="_blank" href="https://google.com/search?q=Buy+SLT+from+STON.fi">Buy on STON.fi</a>
+        <a class="btn" target="_blank" href="https://google.com/search?q=SLT+Chart">Chart</a>
+        <a class="btn" target="_blank" href="https://google.com/search?q=SLT+Telegram">Telegram</a>
+        <a class="btn" target="_blank" href="https://google.com/search?q=SLT+Twitter">Twitter</a>
+    </div>
+</section>
 
-  <video autoplay loop muted playsinline src="slothtoken.mp4"></video>
-
-  <div class="buttons">
-    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from Blum Memepad</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from STON.fi</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Chart</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Telegram</a>
-    <a class="btn" href="https://www.google.com" target="_blank">Twitter</a>
-  </div>
-
-
-
-<!-- ABOUT SECTION -->
-<section id="about" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
-  <h2 style="font-size:40px; text-shadow:0 0 12px #00c8ff;">About Sloth Token</h2>
-  <p style="font-size:18px; opacity:.85; line-height:1.6; margin-top:15px;">
-    Sloth Token ($SLT) is a fun, clean and community-driven meme token built on the fast and scalable TON Blockchain.
-    Designed for entertainment, culture and good vibes — $SLT brings the spirit of taking it slow… while stacking up.
-  </p>
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="neon">About</h2>
+    <p>
+        SLT is a fun, community-driven meme token on TON.  
+        Simple, chill, and built for long-term stacking.
+    </p>
 </section>
 
 <!-- TOKENOMICS -->
-<section id="tokenomics" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
-  <h2 style="font-size:40px; text-shadow:0 0 12px #1effbc;">Tokenomics</h2>
-  <p style="font-size:18px; opacity:.85; line-height:1.6; margin-top:15px;">
-    • Total Supply: 1,000,000,000 SLT<br>
-    • Liquidity: Locked<br>
-    • Team: 5%<br>
-    • Community Rewards: 20%<br>
-    • Marketing: 10%<br>
-  </p>
+<section id="tokenomics">
+    <h2 class="neon">Tokenomics</h2>
+    <p>
+        Total Supply: 1,000,000,000 SLT  
+        Fair launch — community first.
+    </p>
 </section>
 
 <!-- ROADMAP -->
-<section id="roadmap" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
-  <h2 style="font-size:40px; text-shadow:0 0 12px #ffea00;">Roadmap</h2>
-
-  <div style="margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
-    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
-      <h3>Q1 — Launch</h3>
-      <p>Website launch, community growth, first listings.</p>
-    </div>
-    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
-      <h3>Q2 — Expansion</h3>
-      <p>Marketing, partnerships, social media boosts.</p>
-    </div>
-    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
-      <h3>Q3 — Utility</h3>
-      <p>Mini-games, staking concepts, community events.</p>
-    </div>
-    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
-      <h3>Q4 — Ecosystem</h3>
-      <p>More utilities, ecosystem tools, surprises.</p>
-    </div>
-  </div>
+<section id="roadmap">
+    <h2 class="neon">Roadmap</h2>
+    <p>
+        Phase 1 — Launch & Community  
+        Phase 2 — Listings  
+        Phase 3 — Ecosystem & Utility
+    </p>
 </section>
 
-<!-- FOOTER -->
-<footer style="padding:40px 0; text-align:center; color:#ccc; font-size:14px; opacity:.7;">
-  © 2025 Sloth Token — Built on TON Blockchain
-</footer>
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="neon">Contact</h2>
+    <p>For partnerships & inquiries: team@slottoken.io</p>
+</section>
 
 </body>
 </html>
