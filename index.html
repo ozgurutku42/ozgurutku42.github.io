@@ -5,40 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sloth Token</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 <style>
     /* ----------------------------------
     // GLOBAL STYLES & ANIMATION ENHANCEMENTS
     ----------------------------------- */
     html {
-        scroll-behavior: smooth; /* Smooth Scroll */
+        scroll-behavior: smooth;
     }
     body {
         margin: 0;
         padding: 0;
         background: #030a12;
         color: #fff;
-        font-family: Arial, sans-serif;
+        font-family: 'Poppins', sans-serif; /* Yeni Font Ailesi */
+        font-size: 16px; /* Temel font boyutu ayarlandı */
+        line-height: 1.6;
         overflow-x: hidden;
     }
 
-    /* ORMAN TEMALI ARKA PLAN */
+    /* ORMAN TEMALI ARKA PLAN GLOWS */
     .glow1, .glow2 {
         position: fixed;
-        width: 600px;
-        height: 600px;
-        filter: blur(250px); 
+        width: 80vh; /* Ekran boyutuna göre ayarlandı */
+        height: 80vh;
+        filter: blur(350px); /* Daha yumuşak blur */
         z-index: -1;
         opacity: 0.4; 
+        border-radius: 50%; /* Daha dairesel etki */
     }
     .glow1 {
-        top: -200px;
-        left: -200px;
-        background: #008000; 
+        top: -10vh;
+        left: -10vh;
+        background: #00ffbf; /* Canlı Teal Yeşili */
         animation: pulse1 8s infinite alternate;
     }
     .glow2 {
-        bottom: -200px;
-        right: -200px;
+        bottom: -10vh;
+        right: -10vh;
         background: #00a0a0; 
         animation: pulse2 10s infinite alternate;
     }
@@ -46,19 +51,19 @@
     @keyframes pulse1 { from {opacity:0.35;} to {opacity:0.55;} } 
     @keyframes pulse2 { from {opacity:0.30;} to {opacity:0.50;} } 
 
-    /* LOGO (Artık HERO içinde) */
+    /* LOGO */
     .logo {
-        width: 100px; 
-        height: 100px;
+        width: 120px; /* Biraz büyütüldü */
+        height: 120px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 0 25px #008000; 
+        box-shadow: 0 0 30px rgba(0, 255, 191, 0.8); /* Daha güçlü gölge */
         z-index: 60;
-        margin-bottom: 20px; 
+        margin-bottom: 25px; 
         transition: transform 0.3s;
     }
     .logo:hover {
-        transform: scale(1.05); 
+        transform: scale(1.1); 
     }
 
 
@@ -70,28 +75,30 @@
         top: 0;
         left: 0;
         width: 100%;
-        background: rgba(3, 10, 18, 0.95); 
-        backdrop-filter: blur(6px);
+        background: rgba(3, 10, 18, 0.98); /* Daha koyu arka plan */
+        backdrop-filter: blur(8px); /* Daha güçlü blur */
         padding: 15px 50px;
         z-index: 50;
         display: flex;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(0, 200, 255, 0.1);
+        box-shadow: 0 2px 20px rgba(0, 255, 191, 0.2);
     }
 
     nav a {
         color: white;
         text-decoration: none;
-        margin: 0 15px;
-        font-size: 16px;
-        transition: color 0.2s, border-bottom 0.2s;
-        border-bottom: 2px solid transparent;
+        margin: 0 20px;
+        font-size: 17px;
+        font-weight: 600;
+        transition: color 0.3s, transform 0.3s;
+        border-bottom: 3px solid transparent;
         padding-bottom: 5px;
     }
 
     nav a:hover {
         color: #00ffbf; 
-        border-bottom: 2px solid #00ffbf;
+        border-bottom-color: #00ffbf;
+        transform: translateY(-2px);
     }
 
     /* ----------------------------------
@@ -100,105 +107,115 @@
     .hero {
         text-align: center;
         padding-top: 180px; 
-        padding-bottom: 80px;
+        padding-bottom: 100px;
         padding-left: 20px;
         padding-right: 20px;
     }
 
     .hero h1 {
-        font-size: 55px;
-        text-shadow: 0 0 20px #00ffbf; 
+        font-size: 64px; /* Büyük ve dikkat çekici */
+        font-weight: 800;
+        text-shadow: 0 0 25px #00ffbf; 
         margin-bottom: 10px;
+        letter-spacing: 1px;
     }
 
     .hero p {
-        font-size: 20px;
+        font-size: 22px;
         opacity: 0.9;
-        max-width: 600px;
-        margin: 10px auto;
+        max-width: 700px;
+        margin: 15px auto;
         line-height: 1.5;
+        font-weight: 300;
     }
 
     .section-content {
-        padding: 100px 60px;
+        padding: 120px 60px;
         max-width: 1200px;
         margin: 0 auto;
         text-align: center;
     }
 
     .section-content h2 {
-        font-size: 40px;
-        text-shadow: 0 0 12px #00ffbf;
-        margin-bottom: 40px;
+        font-size: 48px;
+        font-weight: 800;
+        text-shadow: 0 0 15px #00ffbf;
+        margin-bottom: 60px;
         color: #00ffbf;
     }
 
     .highlight {
         color: #00ffbf; 
-        font-weight: bold;
+        font-weight: 600;
     }
     
     /* BUTTONS */
     .btns {
-        margin-top: 25px;
+        margin-top: 35px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px;
+        gap: 15px;
     }
     .btn {
         display: inline-block;
-        padding: 12px 26px;
-        border-radius: 14px;
-        font-size: 17px;
+        padding: 14px 30px;
+        border-radius: 10px; /* Köşeler biraz daha keskin */
+        font-size: 18px;
+        font-weight: 600;
         text-decoration: none;
         color: white;
-        border: 1px solid #00ffbf;
-        background: rgba(0, 255, 191, 0.2); 
-        backdrop-filter: blur(4px);
-        box-shadow: 0 0 15px rgba(0,255,191,0.4);
-        transition: 0.25s;
+        border: 2px solid #00ffbf; /* Kalın kenarlık */
+        background: rgba(0, 255, 191, 0.1); 
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(0,255,191,0.5);
+        transition: 0.3s;
+        text-transform: uppercase;
     }
     .btn:hover {
-        box-shadow: 0 0 25px rgba(0,255,191,1);
-        background: rgba(0, 255, 191, 0.35);
+        box-shadow: 0 0 35px rgba(0,255,191,1);
+        background: rgba(0, 255, 191, 0.3);
+        transform: translateY(-2px);
     }
 
     /* MANIFESTO SECTION */
     .manifesto-section {
         display: flex;
-        align-items: flex-start; 
+        align-items: center; 
         justify-content: center;
-        gap: 50px;
-        padding: 100px 60px;
+        gap: 60px;
+        padding: 120px 60px;
         max-width: 1200px;
         margin: 0 auto;
+        text-align: left;
     }
 
     .manifesto-video video {
-        width: 300px; /* Masaüstü (max) boyutu */
-        border-radius: 14px;
-        box-shadow: 0 0 25px rgba(0,255,191,0.5); 
+        width: 350px; /* Biraz büyüdü */
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0,255,191,0.7); 
     }
 
     .manifesto-text {
         max-width: 550px;
-        text-align: left;
     }
 
     .manifesto-text p {
         font-size: 18px;
         opacity: 0.9;
-        line-height: 1.6;
-        margin-bottom: 25px; 
+        line-height: 1.7;
+        margin-bottom: 30px; 
+    }
+    .manifesto-text h2 {
+        margin-bottom: 30px;
     }
 
     /* ----------------------------------
     // HOW TO BUY (Ordered List)
     ----------------------------------- */
     .buy-steps {
-        max-width: 750px;
-        margin: 40px auto;
+        max-width: 800px;
+        margin: 60px auto;
         text-align: left;
     }
     .buy-steps ol {
@@ -208,37 +225,50 @@
     }
     .buy-steps li {
         counter-increment: step-counter;
-        margin-bottom: 30px;
-        padding-left: 50px;
+        margin-bottom: 40px;
+        padding-left: 60px;
         position: relative;
-        font-size: 18px;
-        line-height: 1.4;
+        font-size: 19px;
+        line-height: 1.5;
+        font-weight: 400;
+        background: rgba(0, 255, 191, 0.05);
+        padding: 20px;
+        border-radius: 10px;
+    }
+    .buy-steps li strong {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
     }
     .buy-steps li::before {
         content: counter(step-counter);
         position: absolute;
-        left: 0;
-        top: 0;
+        left: -15px; /* Dışarı taşırmak için */
+        top: 50%;
+        transform: translateY(-50%);
         background: #00ffbf;
         color: #030a12;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
+        width: 45px;
+        height: 45px;
+        line-height: 45px;
         text-align: center;
         border-radius: 50%;
-        font-weight: bold;
+        font-weight: 800;
+        font-size: 22px;
+        box-shadow: 0 0 15px #00ffbf;
+        border: 3px solid #030a12;
     }
     .buy-steps p {
-        margin-top: 8px;
+        margin-top: 5px;
         font-size: 16px;
-        opacity: 0.8;
+        opacity: 0.85;
     }
     .buy-steps a {
         text-decoration: none;
     }
 
     /* ----------------------------------
-    // ROADMAP (Desktop Styles)
+    // ROADMAP (Improved Styles)
     ----------------------------------- */
     .roadmap-container {
         max-width: 1000px; 
@@ -250,7 +280,7 @@
         display: flex;
         align-items: flex-start; 
         justify-content: center;
-        gap: 40px;
+        gap: 60px; /* Daha fazla boşluk */
         margin-top: 40px;
     }
 
@@ -261,14 +291,18 @@
         text-align: center;
         display: flex;
         flex-direction: column; 
-        gap: 35px; /* İKİ GÖRSEL ARASI BOŞLUK (35px) */
+        gap: 35px; /* İKİ GÖRSEL ARASI BOŞLUK */
     }
 
     .roadmap-image-wrapper img {
         width: 100%; 
         height: auto;
         border-radius: 14px;
-        box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
+        box-shadow: 0 0 25px rgba(0, 255, 191, 0.7);
+        transition: transform 0.3s;
+    }
+    .roadmap-image-wrapper img:hover {
+        transform: scale(1.02);
     }
 
     /* Mobil cihazlarda bu görselleri gizle */
@@ -287,77 +321,148 @@
         padding-left: 0;
     }
     .roadmap-list li {
-        margin-bottom: 15px;
-        line-height: 1.6;
-        padding-left: 0;
+        margin-bottom: 20px; /* Daha fazla satır aralığı */
+        line-height: 1.7;
+        padding-left: 30px; /* İkon için boşluk */
+        position: relative;
+        font-size: 18px;
+        font-weight: 400;
     }
     .roadmap-list h3 {
-        margin-top: 40px;
-        margin-bottom: 15px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: 600;
+        color: #00ffbf;
     }
+
+    /* HAVALI İKON STİLLERİ */
+    /* ✔ - TAMAMLANDI */
+    .roadmap-list li::before {
+        position: absolute;
+        left: 0;
+        font-size: 22px;
+        margin-right: 10px;
+        transition: color 0.3s;
+    }
+    
+    .roadmap-list li:first-child::before {
+        content: '✅'; /* Daha modern emoji */
+        color: #00ffbf;
+        text-shadow: 0 0 10px #00ffbf;
+    }
+    
+    /* ☐ - DEVAM EDİYOR/HEDEF */
+    .roadmap-list li:nth-child(2)::before,
+    .roadmap-list li:nth-child(3)::before,
+    .roadmap-list li:nth-child(4)::before,
+    .roadmap-list li:nth-child(5)::before,
+    .roadmap-list li:nth-child(6)::before,
+    .roadmap-list li:nth-child(7)::before {
+        content: '🎯'; /* Daha ilgi çekici emoji */
+        color: #ffcc00; /* Altın sarısı hedef rengi */
+        text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+    }
+
 
     /* ----------------------------------
     // FOOTER
     ----------------------------------- */
     footer {
-        padding: 30px 20px;
+        padding: 40px 20px;
         text-align: center;
-        background: rgba(0, 0, 0, 0.5);
-        border-top: 1px solid rgba(0, 255, 191, 0.1);
-        margin-top: 50px;
+        background: rgba(0, 0, 0, 0.7);
+        border-top: 2px solid rgba(0, 255, 191, 0.2);
+        margin-top: 80px;
     }
     footer p {
         margin: 5px 0;
-        font-size: 14px;
-        opacity: 0.7;
+        font-size: 15px;
+        opacity: 0.8;
+        font-weight: 300;
     }
 
     /* ----------------------------------
     // MOBILE RESPONSIVENESS (Max Width: 850px)
     ----------------------------------- */
     @media (max-width: 850px) {
-        
-        /* MANIFESTO VIDEO (MOBİLDE TAM GENİŞLİK) */
-        .manifesto-video {
-            width: 100%;
-            text-align: center;
+        /* Font ve Başlık Boyutları */
+        body {
+            font-size: 15px; /* Mobil temel font boyutu */
         }
-        .manifesto-video video {
-            width: 100%; /* Mobil cihazlarda tam genişlik */
-            max-width: 400px; /* Maksimum genişliği koru */
+        .hero h1 {
+            font-size: 40px;
+        }
+        .hero p {
+            font-size: 18px;
+        }
+        .section-content h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .roadmap-list h3 {
+            font-size: 24px;
+        }
+
+        /* Navigasyon */
+        nav {
+            padding: 15px 10px;
+        }
+        nav a {
+            margin: 0 5px;
+            font-size: 13px;
         }
         
-        /* Diğer Mobil Düzenlemeler */
+        /* Manifesto */
         .manifesto-section {
             flex-direction: column;
             align-items: center;
+            padding: 80px 20px;
+            gap: 40px;
+        }
+        .manifesto-video {
+            width: 90%;
             text-align: center;
-            padding: 60px 20px;
         }
-        
-        .hero h1 {
-            font-size: 42px;
+        .manifesto-video video {
+            width: 100%;
+            max-width: 400px; 
         }
-        .section-content h2 {
-            font-size: 32px;
+        .manifesto-text {
+            text-align: center;
+            max-width: 100%;
         }
-        .buy-steps li {
-            padding-left: 40px;
+        .manifesto-text p {
+            text-align: left; /* Paragraf metinleri sola yaslı kalsın */
         }
 
-        /* ROADMAP MOBİL GÖRÜNÜMÜ */
+        /* How to Buy */
+        .buy-steps li {
+            padding-left: 50px;
+            margin-bottom: 30px;
+            padding: 15px 15px 15px 60px;
+        }
+        .buy-steps li::before {
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+        }
+
+        /* ROADMAP MOBİL GÖRÜNÜMÜ (Görsel ve Fazların Ayrılması) */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
         }
         .roadmap-image-wrapper {
-            display: none;
+            display: none; /* Masaüstü görsellerini gizle */
         }
         .roadmap-image-mobile {
-            display: block; 
-            width: 80%; 
+            display: block; /* Mobil görselleri göster */
+            width: 90%; 
             max-width: 400px;
-            margin: 20px auto 10px auto; 
+            margin: 25px auto 15px auto; 
             border-radius: 14px;
             box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
         }
@@ -370,13 +475,6 @@
             margin: 0 auto;
             max-width: 400px; 
         }
-        nav {
-            padding: 15px 10px;
-        }
-        nav a {
-            margin: 0 8px;
-            font-size: 14px;
-        }
     }
 </style>
 </head>
@@ -387,29 +485,31 @@
 <div class="glow2"></div>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#manifesto">Manifesto</a>
-    <a href="#roadmap">Roadmap</a>
-    <a href="#howtobuy">How to Buy</a>
+    <a href="#home">HOME</a>
+    <a href="#manifesto">MANIFESTO</a>
+    <a href="#roadmap">ROADMAP</a>
+    <a href="#howtobuy">HOW TO BUY</a>
 </nav>
 
 <section class="hero" id="home">
     <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
     
-    <h1>Sloth Token – $SLT</h1>
+    <h1>SLOTH TOKEN – $SLT</h1>
     <p>
         A fun meme token built on the TON Blockchain.
-        <br>TON's Coolest Crypto — <b>$SLT: Slow down, and stack up.</b>
+        <br>TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
     </p>
 
     <div class="btns">
-        <a href="https://www.google.com" target="_blank" class="btn">Buy on Blum</a>
-        <a href="https://www.google.com" target="_blank" class="btn">Buy on STON.fi</a>
-        <a href="https://www.google.com" target="_blank" class="btn">Chart</a>
-        <a href="https://www.google.com" target="_blank" class="btn">Telegram</a>
-        <a href="https://www.google.com" target="_blank" class="btn">Twitter</a>
+        <a href="https://www.google.com" target="_blank" class="btn">BUY ON BLUM</a>
+        <a href="https://www.google.com" target="_blank" class="btn">BUY ON STON.FI</a>
+        <a href="https://www.google.com" target="_blank" class="btn">CHART</a>
+        <a href="https://www.google.com" target="_blank" class="btn">TELEGRAM</a>
+        <a href="https://www.google.com" target="_blank" class="btn">TWITTER</a>
     </div>
 </section>
+
+---
 
 <section class="manifesto-section" id="manifesto">
     <div class="manifesto-video">
@@ -417,27 +517,29 @@
     </div>
 
     <div class="manifesto-text">
-        <h2>Manifesto: The Way of the Calm Stacker</h2>
+        <h2>MANIFESTO: THE WAY OF THE CALM STACKER</h2>
         
         <p>
             Hey everyone! 🌿 Why aren't we diving straight into those chaotic, fast **DEXs**? Because I love to take it **slow**! Our strategy is very simple: We are setting up comfortably on **Blum** first. We aren't gathering those speedy day-traders, but loyal friends who, just like me, love to settle in for a long **HODL** nap. Remember: **A Sloth in a hurry stumbles on the road!** Let's grow slowly, steadily, but solidly, together.
         </p>
         
         <p>
-            ### 🎯 Our First Goal: A Long Winter Sleep (<span class="highlight">1,500 TON</span>)
+            ### 🎯 OUR FIRST GOAL: A LONG WINTER SLEEP (<span class="highlight">1,500 TON</span>)
             <br>
             Let's get a little lazier and fill up our wallets. When our liquidity pool reaches the sweet weight of exactly <span class="highlight">1,500 TON</span>... *That's* when we can slowly start swaying towards **Ston.fi**. We'll be taking a giant Sloth step!
         </p>
         
         <p style="font-size: 20px; font-weight: bold; color: #00ffbf;">
-            Because we are $SLT: **Slow Down and Stack Up!** 🧘‍♂️
+            Because we are $SLT: **SLOW DOWN AND STACK UP!** 🧘‍♂️
         </p>
     </div>
 </section>
 
+---
+
 <section class="section-content" id="roadmap">
     <div class="roadmap-container">
-        <h2>$SLT Roadmap: Steady Progress, Solid Goals</h2>
+        <h2>$SLT ROADMAP: STEADY PROGRESS, SOLID GOALS</h2>
         
         <div class="roadmap-content-wrapper">
             <div class="roadmap-image-wrapper">
@@ -449,55 +551,59 @@
                 
                 <img src="Roadmap.png" alt="Sloth Roadmap Image 1 Mobile" class="roadmap-image-mobile">
 
-                <h3 style="color: #00ffbf;">🌲 Phase 1: The Great Sloth Stretch (Awakening)</h3>
+                <h3 style="color: #00ffbf;">🌲 PHASE 1: THE GREAT SLOTH STRETCH (AWAKENING)</h3>
                 <ul style="list-style: none; padding-left: 0; line-height: 2;">
-                    <li>✔ **Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
-                    <li>☐ **Blum Deployment:** We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
-                    <li>☐ **Reaching for Ston.fi:** Once the Blum den is complete, we'll slowly swing towards the <span class="highlight">Ston.fi</span> tree. We wait until we're ready for the crowds.</li>
-                    <li>☐ **Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
+                    <li>**Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
+                    <li>**Blum Deployment:** We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
+                    <li>**Reaching for Ston.fi:** Once the Blum den is complete, we'll slowly swing towards the <span class="highlight">Ston.fi</span> tree. We wait until we're ready for the crowds.</li>
+                    <li>**Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
                 </ul>
                 
                 <img src="Roadmap2.png" alt="Sloth Roadmap Image 2 Mobile" class="roadmap-image-mobile">
 
-                <h3 style="color: #00ffbf; margin-top: 50px;">🚀 Phase 2: Climbing the Canopy (Ascent)</h3>
+                <h3 style="color: #00ffbf; margin-top: 50px;">🚀 PHASE 2: CLIMBING THE CANOPY (ASCENT)</h3>
                 <p style="text-align: left; opacity: 0.8;">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
                 <ul style="list-style: none; padding-left: 0; line-height: 2;">
-                    <li>☐ **Entering TON Top 50:** Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
-                    <li>☐ **The TON Top 10 Summit:** Perching on the thickest, most comfortable branch in the top 10.</li>
-                    <li>☐ **King of the TON Forest:** Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
+                    <li>**Entering TON Top 50:** Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
+                    <li>**The TON Top 10 Summit:** Perching on the thickest, most comfortable branch in the top 10.</li>
+                    <li>**King of the TON Forest:** Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
+---
+
 <section class="section-content" id="howtobuy">
-    <h2>How to Join the Slow Movement (Buy $SLT)</h2>
+    <h2>HOW TO JOIN THE SLOW MOVEMENT (BUY $SLT)</h2>
     <div class="buy-steps">
         <ol>
             <li>
-                <strong>Create a Wallet</strong>
+                <strong>CREATE A WALLET</strong>
                 <p>Download the <a href="#" class="highlight">Tonkeeper</a> wallet extension and set it up to create your wallet.</p>
             </li>
             <li>
-                <strong>Get Some TON</strong>
+                <strong>GET SOME TON</strong>
                 <p>Make sure you have TON in your wallet to swap for $SLT. If you don’t have any TON, you can buy it directly on <a href="#" class="highlight">Bybit</a>, <a href="#" class="highlight">OKX</a>, transfer from another wallet, or buy on another exchange and send it to your Tonkeeper wallet.</p>
             </li>
             <li>
-                <strong>Go to Ston.fi</strong>
+                <strong>GO TO STON.FI</strong>
                 <p>Visit <a href="#" class="highlight">Ston.fi</a> in Google Chrome. Connect your Tonkeeper wallet, paste the $SLT token address into Ston.fi, select $SLT, and confirm. When Tonkeeper prompts you for a wallet signature, sign it to complete the process. <span style="font-size: 14px; opacity: 0.6;">(Note: You will need the correct $SLT contract address.)</span></p>
             </li>
             <li>
-                <strong>Switch TON for $SLT</strong>
+                <strong>SWITCH TON FOR $SLT</strong>
                 <p>Swap your TON for $SLT. We have ZERO taxes, so you don’t need to worry about slippage unless there is significant market volatility.</p>
             </li>
         </ol>
     </div>
 </section>
 
+---
+
 <footer>
-    <p>&copy; 2025 Sloth Token. All Rights Reserved.</p>
-    <p>The slow movement is the strongest movement.</p>
+    <p>&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
+    <p>THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
 </footer>
 
 </body>
