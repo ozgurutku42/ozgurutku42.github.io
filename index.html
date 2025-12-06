@@ -26,3 +26,72 @@
         }
 
         /* Video ortada küçük */
+        .video-box {
+            margin: 30px auto;
+        }
+
+        .video-box video {
+            width: 260px;
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+        }
+
+        h2.section-title {
+            margin-top: 40px;
+            font-size: 32px;
+        }
+
+        /* Butonlar */
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            background: #1e90ff;
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #0066cc;
+        }
+
+        /* Mobil */
+        @media (max-width: 600px) {
+            h1 { font-size: 34px; }
+            .video-box video { width: 200px; }
+            h2.section-title { font-size: 26px; }
+            .btn { padding: 10px 18px; font-size: 16px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Üst Başlık -->
+    <h1>Sloth Token</h1>
+    <p class="subtitle">TON Blockchain üzerinde eğlenceli bir meme token.</p>
+
+    <!-- Küçük Video -->
+    <div class="video-box">
+        <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
+    </div>
+
+    <!-- Meme Token Başlık + Butonlar -->
+    <h2 class="section-title">Meme Token</h2>
+
+    <div class="buttons">
+        <a href="#" class="btn">Buy</a>
+        <a href="#" class="btn">Chart</a>
+        <a href="#" class="btn">Telegram</a>
+        <a href="#" class="btn">Twitter</a>
+    </div>
+
+</body>
+</html>
