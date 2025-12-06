@@ -241,23 +241,28 @@
     // ROADMAP (Sloth themed list)
     ----------------------------------- */
     .roadmap-container {
-        max-width: 1000px; /* Kapsayıcıyı biraz daha genişlettik */
+        max-width: 1000px; 
         margin: 0 auto;
         text-align: center;
     }
     
     .roadmap-content-wrapper {
         display: flex;
-        align-items: flex-start; /* İçeriğin üstten hizalanmasını sağlar */
+        align-items: flex-start; 
         justify-content: center;
         gap: 40px;
         margin-top: 40px;
     }
 
+    /* GÖRSEL ALANINI DİKEY YÖNLENDİRME */
     .roadmap-image-wrapper {
-        flex: 0 0 30%; /* Görsel %30 genişlik kaplar */
+        flex: 0 0 30%; 
         max-width: 300px;
         text-align: center;
+        /* İki görselin alt alta gelmesi için flex-direction: column kullanıldı */
+        display: flex;
+        flex-direction: column; 
+        gap: 25px; /* İki görsel arasına boşluk */
     }
 
     .roadmap-image-wrapper img {
@@ -268,7 +273,7 @@
     }
 
     .roadmap-list {
-        flex: 1; /* Listeyi kalan alanı kaplar */
+        flex: 1; 
         max-width: 650px; 
         text-align: left;
     }
@@ -343,7 +348,7 @@
         }
         .roadmap-image-wrapper {
             flex: none;
-            width: 80%; /* Mobil cihazda daha geniş */
+            width: 80%; 
             max-width: 400px;
             margin: 0 auto;
         }
@@ -354,7 +359,7 @@
         .roadmap-list ul {
             text-align: left;
             margin: 0 auto;
-            max-width: 400px; /* Listeyi mobilde daraltır */
+            max-width: 400px; 
         }
     }
 </style>
@@ -420,8 +425,8 @@
         
         <div class="roadmap-content-wrapper">
             <div class="roadmap-image-wrapper">
-                <img src="Roadmap.png" alt="Sloth Roadmap Image" />
-            </div>
+                <img src="Roadmap.png" alt="Sloth Roadmap Image 1" />
+                <img src="Roadmap2.png" alt="Sloth Roadmap Image 2" /> </div>
 
             <div class="roadmap-list">
                 <h3 style="color: #00ffbf;">🌲 Phase 1: The Great Sloth Stretch (Awakening)</h3>
