@@ -58,6 +58,8 @@
         text-align: center;
         padding-top: 130px;
         padding-bottom: 80px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .hero h1 {
@@ -77,11 +79,14 @@
     /* BUTTONS */
     .btns {
         margin-top: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
     .btn {
         display: inline-block;
         padding: 12px 26px;
-        margin: 8px;
         border-radius: 14px;
         font-size: 17px;
         text-decoration: none;
@@ -102,30 +107,39 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 40px;
+        gap: 50px;
         padding: 100px 60px;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
     .about-video video {
-        width: 260px;
+        width: 300px;
         border-radius: 14px;
         box-shadow: 0 0 25px rgba(0,200,255,0.5);
     }
 
     .about-text {
-        max-width: 450px;
+        max-width: 550px;
     }
 
     .about-text h2 {
         font-size: 40px;
         text-shadow: 0 0 12px #00ffbf;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
+        color: #00ffbf;
     }
 
     .about-text p {
         font-size: 18px;
-        opacity: 0.88;
-        line-height: 1.5;
+        opacity: 0.9;
+        line-height: 1.6;
+        margin-bottom: 15px;
+    }
+    
+    .highlight {
+        color: #00c8ff;
+        font-weight: bold;
     }
 
     /* MOBILE */
@@ -133,12 +147,17 @@
         .about-section {
             flex-direction: column;
             text-align: center;
+            padding: 60px 20px;
         }
         .about-video video {
-            width: 220px;
+            width: 100%;
+            max-width: 300px;
         }
         .hero h1 {
             font-size: 42px;
+        }
+        .about-text h2 {
+            font-size: 32px;
         }
     }
 </style>
@@ -151,34 +170,40 @@
 <div class="glow1"></div>
 <div class="glow2"></div>
 
-<!-- HERO -->
 <section class="hero">
     <h1>Sloth Token – $SLT</h1>
     <p>
-        A clean, fun meme token on the TON Blockchain — simple, smooth, unforgettable.  
+        A clean, fun meme token on the TON Blockchain — simple, smooth, unforgettable.
         <br><b>$SLT: Slow down, and stack up.</b>
     </p>
 
     <div class="btns">
-        <a href="https://www.google.com" target="_blank" class="btn">Buy $SLT from Blum</a>
-        <a href="https://www.google.com" target="_blank" class="btn">Buy $SLT from STON.fi</a>
+        <a href="https://www.google.com" target="_blank" class="btn">Buy on Blum</a>
+        <a href="https://www.google.com" target="_blank" class="btn">Buy on STON.fi</a>
         <a href="https://www.google.com" target="_blank" class="btn">Chart</a>
         <a href="https://www.google.com" target="_blank" class="btn">Telegram</a>
         <a href="https://www.google.com" target="_blank" class="btn">Twitter</a>
     </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about-section">
     <div class="about-video">
         <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
     </div>
 
     <div class="about-text">
-        <h2>About</h2>
+        <h2>About & Vision</h2>
         <p>
-            Sloth Token is a calm, friendly, fun-toned meme coin built for the TON ecosystem.  
-            Simple utility, strong community, and a smooth vibe — that's the Sloth spirit.
+            Strategically, we chose to list on <span class="highlight">Blum</span> first instead of standard DEXs. Our goal is to reach a wider audience and build a loyal community of true "HODLers." Let's buy and grow together.
+        </p>
+        <p>
+            Once we reach our liquidity target of <span class="highlight">1,500 TON</span>, we will officially list on <span class="highlight">Ston.fi</span>.
+        </p>
+        <p>
+            At that stage, our custom <strong>Market Maker bots</strong> will activate to maintain price stability:
+            <br><br>
+            🚀 <strong>Rising Demand:</strong> Supply is released formulaically.<br>
+            🛡️ <strong>Falling Demand:</strong> The contract performs automatic <strong>buybacks</strong> based on the DEX price.
         </p>
     </div>
 </section>
