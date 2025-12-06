@@ -46,7 +46,7 @@
     @keyframes pulse1 { from {opacity:0.35;} to {opacity:0.55;} } /* Stronger pulse range */
     @keyframes pulse2 { from {opacity:0.30;} to {opacity:0.50;} } /* Stronger pulse range */
 
-    /* LOGO (Fixed position removed to allow scrolling) */
+    /* LOGO (Absolute position to allow scrolling) */
     .logo {
         position: absolute;
         top: 20px;
@@ -161,10 +161,10 @@
         background: rgba(0, 170, 255, 0.35);
     }
 
-    /* ABOUT SECTION (Flex layout) */
-    .about-section {
+    /* MANIFESTO SECTION (Replaced ABOUT section styles) */
+    .manifesto-section {
         display: flex;
-        align-items: center;
+        align-items: flex-start; /* Aligned to the top */
         justify-content: center;
         gap: 50px;
         padding: 100px 60px;
@@ -172,22 +172,22 @@
         margin: 0 auto;
     }
 
-    .about-video video {
+    .manifesto-video video {
         width: 300px;
         border-radius: 14px;
         box-shadow: 0 0 25px rgba(0,200,255,0.5);
     }
 
-    .about-text {
+    .manifesto-text {
         max-width: 550px;
         text-align: left;
     }
 
-    .about-text p {
+    .manifesto-text p {
         font-size: 18px;
         opacity: 0.9;
         line-height: 1.6;
-        margin-bottom: 15px;
+        margin-bottom: 25px; /* Increased spacing between paragraphs */
     }
 
     /* ----------------------------------
@@ -272,22 +272,23 @@
             margin: 0 8px;
             font-size: 14px;
         }
-        .about-section {
+        .manifesto-section {
             flex-direction: column;
+            align-items: center;
             text-align: center;
             padding: 60px 20px;
         }
-        .about-video video {
+        .manifesto-video video {
             width: 100%;
             max-width: 300px;
         }
         .hero h1 {
             font-size: 42px;
         }
-        .about-text h2, .section-content h2 {
+        .manifesto-text h2, .section-content h2 {
             font-size: 32px;
         }
-        .about-text {
+        .manifesto-text {
             text-align: center;
         }
         .team-grid {
@@ -306,7 +307,7 @@
 
 <nav>
     <a href="#home">Home</a>
-    <a href="#about">About</a>
+    <a href="#manifesto">Manifesto</a>
     <a href="#tokenomics">Tokenomics</a>
     <a href="#roadmap">Roadmap</a>
     <a href="#team">Team</a>
@@ -328,24 +329,32 @@
     </div>
 </section>
 
-<section class="about-section" id="about">
-    <div class="about-video">
+<section class="manifesto-section" id="manifesto">
+    <div class="manifesto-video">
         <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
     </div>
 
-    <div class="about-text">
-        <h2>About & Vision</h2>
+    <div class="manifesto-text">
+        <h2>😴 $SLT's Tempo Manifesto: Slow Down and Stack Up! 🚀</h2>
+        
         <p>
-            Strategically, we chose to list on <span class="highlight">Blum</span> first instead of standard DEXs. Our goal is to reach a wider audience and build a loyal community of true "HODLers." Let's buy and grow together.
+            Hey everyone! 🌿 Why aren't we diving straight into those chaotic, fast **DEXs**? Because I love to take it **slow**! Our strategy is very simple: We are setting up comfortably on **Blum** first. We aren't gathering those speedy day-traders, but loyal friends who, just like me, love to settle in for a long **HODL** nap. Remember: **A Sloth in a hurry stumbles on the road!** Let's grow slowly, steadily, but solidly, together.
         </p>
+        
         <p>
-            Once we reach our liquidity target of <span class="highlight">1,500 TON</span>, we will officially list on <span class="highlight">Ston.fi</span>.
+            ### 🎯 Our First Goal: A Long Winter Sleep (<span class="highlight">1,500 TON</span>)
+            <br>
+            Let's get a little lazier and fill up our wallets. When our liquidity pool reaches the sweet weight of exactly <span class="highlight">1,500 TON</span>... *That's* when we can slowly start swaying towards **Ston.fi**. We'll be taking a giant Sloth step!
         </p>
+
         <p>
-            At that stage, our custom <strong>Market Maker bots</strong> will activate to maintain price stability:
-            <br><br>
-            🚀 <strong>Rising Demand:</strong> Supply is released formulaically.<br>
-            🛡️ <strong>Falling Demand:</strong> The contract performs automatic <strong>buybacks</strong> based on the DEX price.
+            ### 📢 Communication: Serenity First
+            <br>
+            Finally, you know I don't like too much talking. My Telegram and X channels are strictly for important announcements. Too much noise means too much stress. Therefore, our community chat door opens only **once a week for 2 hours**. During the rest of the time, everyone is expected to peacefully stack their $SLT.
+        </p>
+        
+        <p style="font-size: 20px; font-weight: bold; color: #00ffbf;">
+            Because we are $SLT: **Slow Down and Stack Up!** 🧘‍♂️
         </p>
     </div>
 </section>
@@ -412,17 +421,17 @@
     <p>A committed group of builders and community managers ensuring smooth, steady growth.</p>
     <div class="team-grid">
         <div class="team-member">
-            <img src="placeholder-ceo.jpeg" alt="Lead Developer">
+            <img src="sloth-dev.jpeg" alt="Lead Developer">
             <h4>Alex (Dev)</h4>
             <p>Lead Blockchain Architect</p>
         </div>
         <div class="team-member">
-            <img src="placeholder-marketing.jpeg" alt="Marketing">
+            <img src="sloth-marketing.jpeg" alt="Marketing">
             <h4>Jasmine</h4>
             <p>Community & Marketing Lead</p>
         </div>
         <div class="team-member">
-            <img src="placeholder-manager.jpeg" alt="Project Manager">
+            <img src="sloth-manager.jpeg" alt="Project Manager">
             <h4>Marcus</h4>
             <p>Project Manager</p>
         </div>
