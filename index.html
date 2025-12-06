@@ -33,13 +33,13 @@
     .glow1 {
         top: -200px;
         left: -200px;
-        background: #008000; /* Derin Orman Yeşili */
+        background: #008000; 
         animation: pulse1 8s infinite alternate;
     }
     .glow2 {
         bottom: -200px;
         right: -200px;
-        background: #00a0a0; /* Koyu Turkuaz/Mavi-Yeşil */
+        background: #00a0a0; 
         animation: pulse2 10s infinite alternate;
     }
 
@@ -238,7 +238,7 @@
     }
 
     /* ----------------------------------
-    // ROADMAP (Sloth themed list)
+    // ROADMAP (Desktop Styles)
     ----------------------------------- */
     .roadmap-container {
         max-width: 1000px; 
@@ -254,14 +254,14 @@
         margin-top: 40px;
     }
 
-    /* GÖRSEL ALANINI DİKEY YÖNLENDİRME */
+    /* GÖRSEL ALANINI DİKEY YÖNLENDİRME (Desktop) */
     .roadmap-image-wrapper {
         flex: 0 0 30%; 
         max-width: 300px;
         text-align: center;
         display: flex;
         flex-direction: column; 
-        gap: 30px; /* İKİ GÖRSEL ARASI BOŞLUK (30px) */
+        gap: 35px; /* İKİ GÖRSEL ARASI BOŞLUK (35px) */
     }
 
     .roadmap-image-wrapper img {
@@ -269,6 +269,11 @@
         height: auto;
         border-radius: 14px;
         box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
+    }
+
+    /* Mobil cihazlarda bu görselleri gizle */
+    .roadmap-image-mobile {
+        display: none;
     }
 
     .roadmap-list {
@@ -308,49 +313,31 @@
     }
 
     /* ----------------------------------
-    // MOBILE RESPONSIVENESS
+    // MOBILE RESPONSIVENESS (Max Width: 850px)
     ----------------------------------- */
     @media (max-width: 850px) {
-        nav {
-            padding: 15px 10px;
-        }
-        nav a {
-            margin: 0 8px;
-            font-size: 14px;
-        }
-        .manifesto-section {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .manifesto-video video {
-            width: 100%;
-            max-width: 300px;
-        }
-        .hero h1 {
-            font-size: 42px;
-        }
-        .manifesto-text h2, .section-content h2 {
-            font-size: 32px;
-        }
-        .manifesto-text {
-            text-align: center;
-        }
-        .buy-steps li {
-            padding-left: 40px;
-        }
-        /* ROADMAP MOBILE STACKING */
+        /* Genel Düzenleme */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
         }
+        
+        /* Desktop Görsellerini Gizle */
         .roadmap-image-wrapper {
-            flex: none;
+            display: none;
+        }
+
+        /* Mobil Görselleri Göster ve Biçimlendir */
+        .roadmap-image-mobile {
+            display: block; /* Mobil cihazlarda göster */
             width: 80%; 
             max-width: 400px;
-            margin: 0 auto;
+            margin: 20px auto 10px auto; /* Başlık üstü ve altına boşluk */
+            border-radius: 14px;
+            box-shadow: 0 0 20px rgba(0, 255, 191, 0.7);
         }
+
+        /* Listeyi yeniden merkezle */
         .roadmap-list {
             text-align: center;
             width: 100%;
@@ -359,6 +346,24 @@
             text-align: left;
             margin: 0 auto;
             max-width: 400px; 
+        }
+
+        /* Diğer Mobil Düzenlemeler */
+        nav {
+            padding: 15px 10px;
+        }
+        nav a {
+            margin: 0 8px;
+            font-size: 14px;
+        }
+        .hero h1 {
+            font-size: 42px;
+        }
+        .section-content h2 {
+            font-size: 32px;
+        }
+        .buy-steps li {
+            padding-left: 40px;
         }
     }
 </style>
@@ -429,6 +434,9 @@
             </div>
 
             <div class="roadmap-list">
+                
+                <img src="Roadmap.png" alt="Sloth Roadmap Image 1 Mobile" class="roadmap-image-mobile">
+
                 <h3 style="color: #00ffbf;">🌲 Phase 1: The Great Sloth Stretch (Awakening)</h3>
                 <ul style="list-style: none; padding-left: 0; line-height: 2;">
                     <li>✔ **Development Complete:** Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
@@ -437,6 +445,8 @@
                     <li>☐ **Zen Shield Activation:** Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
                 </ul>
                 
+                <img src="Roadmap2.png" alt="Sloth Roadmap Image 2 Mobile" class="roadmap-image-mobile">
+
                 <h3 style="color: #00ffbf; margin-top: 50px;">🚀 Phase 2: Climbing the Canopy (Ascent)</h3>
                 <p style="text-align: left; opacity: 0.8;">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
                 <ul style="list-style: none; padding-left: 0; line-height: 2;">
