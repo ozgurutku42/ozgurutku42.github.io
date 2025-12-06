@@ -1,154 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sloth Token</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sloth Token</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Comic Sans MS", "Poppins", sans-serif;
+      background: #f6f6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #222;
+      margin-bottom: 10px;
+    }
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #000;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            overflow-x: hidden;
-        }
+    .tagline {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #555;
+      max-width: 600px;
+      margin-bottom: 20px;
+    }
 
-        /* Neon arka plan */
-        .glow-bg, .glow-bg2 {
-            position: fixed;
-            width: 650px;
-            height: 650px;
-            filter: blur(200px);
-            z-index: -1;
-            opacity: 0.25;
-        }
-        .glow-bg {
-            top: -250px;
-            left: -250px;
-            background: #00aaff;
-        }
-        .glow-bg2 {
-            bottom: -250px;
-            right: -250px;
-            background: #00ffbf;
-        }
+    .subline {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 25px;
+    }
 
-        /* Konteyner (sol + sağ) */
-        .main-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            padding: 40px;
-        }
+    video {
+      width: 260px;
+      max-width: 80%;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
 
-        /* Sol kısım */
-        .left-side {
-            max-width: 420px;
-        }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 10px;
+    }
 
-        /* Logo */
-        .logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 3px solid #00eaff;
-            box-shadow: 0 0 18px #00eaff;
-            margin-bottom: 10px;
-        }
+    .btn {
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: #4CAF50;
+      color: white;
+      transition: 0.2s;
+    }
 
-        h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin: 10px 0;
-            text-shadow: 0 0 15px #00eaff;
-        }
+    .btn:hover {
+      transform: scale(1.05);
+      background: #43a047;
+    }
 
-        .subtitle {
-            font-size: 16px;
-            opacity: 0.9;
-            margin-bottom: 20px;
-        }
-
-        /* Sağdaki video */
-        .video-box video {
-            width: 260px;
-            border-radius: 14px;
-            box-shadow: 0 0 25px rgba(0,255,255,0.6);
-        }
-
-        /* Butonlar */
-        .buttons .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 6px;
-            background: rgba(0,180,255,0.18);
-            border: 1px solid #00c8ff;
-            border-radius: 10px;
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-            backdrop-filter: blur(5px);
-            transition: 0.25s;
-            box-shadow: 0 0 10px rgba(0,200,255,0.3);
-        }
-
-        .btn:hover {
-            background: rgba(0,200,255,0.35);
-            box-shadow: 0 0 25px rgba(0,255,255,0.8);
-        }
-
-        /* Mobil */
-        @media (max-width: 700px) {
-            .main-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .video-box video {
-                width: 200px;
-            }
+    @media(max-width:600px){
+      h1{font-size:2rem;}
+      .tagline{font-size:1.05rem;}
+      .subline{font-size:1rem;}
+    }
+          /* Gelişmiş mobil uyum */
+        @media (max-width: 480px) {
+            body { padding: 10px; }
+            h1 { font-size: 32px; }
+            .subtitle { font-size: 16px; line-height: 1.4; }
+            .video-box video { width: 90%; max-width: 260px; }
+            .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+            .btn { flex: 1 1 calc(50% - 20px); max-width: 160px; font-size: 15px; padding: 10px 14px; }
         }
 
     </style>
 </head>
-
 <body>
 
-    <div class="glow-bg"></div>
-    <div class="glow-bg2"></div>
+  <h1>Sloth Token</h1>
 
-    <div class="main-container">
+  <div class="tagline">A fun meme token built on the TON Blockchain.</div>
 
-        <!-- SOL KISIM -->
-        <div class="left-side">
-            <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
+  <div class="subline">TON's Coolest Crypto — $SLT: Slow down, and stack up.</div>
 
-            <h1>Sloth Token • $SLT</h1>
+  <video autoplay loop muted playsinline src="slothtoken.mp4"></video>
 
-            <p class="subtitle">
-                A clean, fun meme token on the TON Blockchain — simple, smooth, unforgettable.  
-                <br><b>$SLT: Slow down, and stack up.</b>
-            </p>
+  <div class="buttons">
+    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from Blum Memepad</a>
+    <a class="btn" href="https://www.google.com" target="_blank">Buy $SLT from STON.fi</a>
+    <a class="btn" href="https://www.google.com" target="_blank">Chart</a>
+    <a class="btn" href="https://www.google.com" target="_blank">Telegram</a>
+    <a class="btn" href="https://www.google.com" target="_blank">Twitter</a>
+  </div>
 
-            <div class="buttons">
-                <a href="https://google.com" target="_blank" class="btn">Buy $SLT from Blum MemePad</a>
-                <a href="https://google.com" target="_blank" class="btn">Buy $SLT from STON.fi</a>
-                <a href="https://google.com" target="_blank" class="btn">Chart</a>
-                <a href="https://google.com" target="_blank" class="btn">Telegram</a>
-                <a href="https://google.com" target="_blank" class="btn">Twitter</a>
-            </div>
-        </div>
 
-        <!-- SAĞ KISIM (Video) -->
-        <div class="video-box">
-            <video src="slothtoken.mp4" autoplay muted loop playsinline></video>
-        </div>
 
+<!-- ABOUT SECTION -->
+<section id="about" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
+  <h2 style="font-size:40px; text-shadow:0 0 12px #00c8ff;">About Sloth Token</h2>
+  <p style="font-size:18px; opacity:.85; line-height:1.6; margin-top:15px;">
+    Sloth Token ($SLT) is a fun, clean and community-driven meme token built on the fast and scalable TON Blockchain.
+    Designed for entertainment, culture and good vibes — $SLT brings the spirit of taking it slow… while stacking up.
+  </p>
+</section>
+
+<!-- TOKENOMICS -->
+<section id="tokenomics" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
+  <h2 style="font-size:40px; text-shadow:0 0 12px #1effbc;">Tokenomics</h2>
+  <p style="font-size:18px; opacity:.85; line-height:1.6; margin-top:15px;">
+    • Total Supply: 1,000,000,000 SLT<br>
+    • Liquidity: Locked<br>
+    • Team: 5%<br>
+    • Community Rewards: 20%<br>
+    • Marketing: 10%<br>
+  </p>
+</section>
+
+<!-- ROADMAP -->
+<section id="roadmap" style="padding:80px 20px; max-width:900px; margin:auto; text-align:center; color:#fff;">
+  <h2 style="font-size:40px; text-shadow:0 0 12px #ffea00;">Roadmap</h2>
+
+  <div style="margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;">
+    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
+      <h3>Q1 — Launch</h3>
+      <p>Website launch, community growth, first listings.</p>
     </div>
+    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
+      <h3>Q2 — Expansion</h3>
+      <p>Marketing, partnerships, social media boosts.</p>
+    </div>
+    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
+      <h3>Q3 — Utility</h3>
+      <p>Mini-games, staking concepts, community events.</p>
+    </div>
+    <div style="padding:20px; border-radius:12px; background:rgba(255,255,255,0.05); backdrop-filter:blur(6px); box-shadow:0 0 20px rgba(0,200,255,0.15);">
+      <h3>Q4 — Ecosystem</h3>
+      <p>More utilities, ecosystem tools, surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="padding:40px 0; text-align:center; color:#ccc; font-size:14px; opacity:.7;">
+  © 2025 Sloth Token — Built on TON Blockchain
+</footer>
 
 </body>
 </html>
