@@ -8,58 +8,21 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
             background: #0d0d0d;
             color: #fff;
-        }
-
-        header {
+            font-family: Arial, sans-serif;
             text-align: center;
-            padding: 40px 20px;
         }
 
         h1 {
             font-size: 48px;
-            margin-bottom: 10px;
+            margin-top: 40px;
         }
 
-        p {
+        p.subtitle {
             font-size: 20px;
             opacity: 0.8;
         }
 
-        /* ---- KÜÇÜK VİDEO ---- */
-        .right-video {
-            width: 240px;          
-            position: fixed;       
-            right: 20px;
-            bottom: 20px;
-            border-radius: 12px;
-            z-index: 9999;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-
-        /* Mobilde biraz küçült */
-        @media (max-width: 600px) {
-            .right-video {
-                width: 160px;
-                right: 10px;
-                bottom: 10px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-    <!-- ÜST ALAN -->
-    <header>
-        <h1>Sloth Token</h1>
-        <p>TON Blockchain üzerinde eğlenceli bir meme token.</p>
-    </header>
-
-    <!-- KÜÇÜK SAĞ ALTA SABİTLİ VİDEO -->
-    <video src="slothtoken.mp4" autoplay loop muted playsinline class="right-video"></video>
-
-</body>
-</html>
+        /* Video ortada küçük */
