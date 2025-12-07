@@ -203,13 +203,43 @@
         transform: translateY(-1px);
     }
 
+    /* BUTTONS */
+    .btns {
+        margin-top: 35px;
+        margin-bottom: 40px; /* Stats bölümünden önce boşluk bırakır */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 14px 30px;
+        border-radius: 10px; 
+        font-size: 18px;
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+        border: 2px solid #00ffbf; 
+        background: rgba(0, 255, 191, 0.1); 
+        backdrop-filter: blur(5px);
+        box-shadow: 0 0 20px rgba(0,255,191,0.5);
+        transition: 0.3s;
+        text-transform: uppercase;
+    }
+    .btn:hover {
+        box-shadow: 0 0 35px rgba(0,255,191,1);
+        background: rgba(0, 255, 191, 0.3);
+        transform: translateY(-2px);
+    }
+
     /* NEW STATS SECTION STYLES */
     .data-stats {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        margin-top: 40px;
+        margin-bottom: 40px; /* Manifesto'dan önce boşluk bırakır */
         padding: 0 10px;
         max-width: 900px;
         margin-left: auto;
@@ -223,7 +253,7 @@
         border-radius: 10px;
         min-width: 150px;
         text-align: center;
-        flex: 1 1 auto; /* Allows items to grow/shrink but maintain min-width */
+        flex: 1 1 auto; 
         box-shadow: 0 0 10px rgba(0, 255, 191, 0.2);
     }
 
@@ -329,35 +359,6 @@
     .manifesto-text p b {
         font-weight: 600; 
         color: #4dfff7; 
-    }
-
-    /* BUTTONS */
-    .btns {
-        margin-top: 35px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-    .btn {
-        display: inline-block;
-        padding: 14px 30px;
-        border-radius: 10px; 
-        font-size: 18px;
-        font-weight: 600;
-        text-decoration: none;
-        color: white;
-        border: 2px solid #00ffbf; 
-        background: rgba(0, 255, 191, 0.1); 
-        backdrop-filter: blur(5px);
-        box-shadow: 0 0 20px rgba(0,255,191,0.5);
-        transition: 0.3s;
-        text-transform: uppercase;
-    }
-    .btn:hover {
-        box-shadow: 0 0 35px rgba(0,255,191,1);
-        background: rgba(0, 255, 191, 0.3);
-        transform: translateY(-2px);
     }
 
     .manifesto-text p {
@@ -815,6 +816,16 @@
         </div>
     </div>
     
+    <p>
+        A fun meme token built on the TON Blockchain. TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
+    </p>
+
+    <div class="btns">
+        <a href="https://www.google.com" target="_blank" class="btn">BUY ON BLUM</a>
+        <a href="https://www.google.com" target="_blank" class="btn">BUY ON STON.FI</a>
+        <a href="https://www.google.com" target="_blank" class="btn">CHART</a>
+    </div>
+    
     <div class="data-stats">
         <div class="stat-item">
             <span class="stat-value" id="daysRunning">--</span>
@@ -832,16 +843,6 @@
             <span class="stat-value" id="currentPrice">--</span>
             <span class="stat-label">PRICE (TON)</span>
         </div>
-    </div>
-
-    <p>
-        A fun meme token built on the TON Blockchain. TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
-    </p>
-
-    <div class="btns">
-        <a href="https://www.google.com" target="_blank" class="btn">BUY ON BLUM</a>
-        <a href="https://www.google.com" target="_blank" class="btn">BUY ON STON.FI</a>
-        <a href="https://www.google.com" target="_blank" class="btn">CHART</a>
     </div>
 </section>
 
@@ -1006,44 +1007,36 @@
 <script>
     // --- DYNAMIC DATA FETCHING ---
     const CONTRACT_ADDRESS = "EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn";
-    const LAUNCH_DATE = new Date("2025-12-01T00:00:00Z"); // Token'ın çıktığı varsayılan tarih
+    // Token'ın çıktığı varsayılan tarih: 7 Aralık 2025
+    const LAUNCH_DATE = new Date("2025-12-01T00:00:00Z"); 
 
     function updateDaysRunning() {
         const now = new Date();
         const diffTime = Math.abs(now.getTime() - LAUNCH_DATE.getTime());
+        // Gün farkını hesapla
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
         document.getElementById('daysRunning').textContent = diffDays;
     }
 
-    // Bu fonksiyon, Tonscan'ın API'si olmadığı için sadece bir
-    // yer tutucu (placeholder) işlevi görür ve çalışmama ihtimali yüksektir.
+    // Bu fonksiyon, Tonscan'ın API'si olmadığı ve tarayıcıda CORS sorunu olduğu için
+    // şimdilik SADECE SABİT (Placeholder) verileri gösterir.
     async function fetchTokenData() {
-        const tonscanUrl = `https://tonscan.org/address/${CONTRACT_ADDRESS}`;
+        // CORS/API sorunu nedeniyle gerçek fetch işlemi burada başarılı olmaz.
+        // const tonscanUrl = `https://tonscan.org/address/${CONTRACT_ADDRESS}`;
         
-        // CORS nedeniyle bu kısım tarayıcıda ÇALIŞMAYACAKTIR.
-        // Gerçek dünyada bu verileri bir SUNUCU (proxy) üzerinden çekmeniz gerekir.
         try {
-            // Tonscan'dan veri çekme girişimini simüle ediyoruz (Büyük ihtimalle hata verecek)
-            const response = await fetch(tonscanUrl); 
+            // Placeholder (Yer Tutucu) Verileri:
+            const holders = 8420;
+            const transactions = 112500;
+            const priceTon = 0.000000015;
             
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            
-            // Gerçek bir API'den gelseydi veriyi işlerdik.
-            
-            // Şimdilik Placeholder (Yer Tutucu) Verileri Kullanalım:
-            const holders = 1500;
-            const transactions = 85000;
-            const priceTon = 0.00000042;
-            
-            document.getElementById('holderCount').textContent = holders.toLocaleString();
+            document.getElementById('holderCount').textContent = (holders / 1000).toFixed(1) + 'K';
             document.getElementById('totalTx').textContent = (transactions / 1000).toFixed(1) + 'K';
             document.getElementById('currentPrice').textContent = priceTon.toFixed(9) + ' TON';
             
         } catch (error) {
-            console.error("Dinamik veri çekme başarısız oldu (CORS/API sorunu):", error);
-            // Hata durumunda dahi yer tutucu verileri gösterebiliriz
+            console.error("Dinamik veri çekme başarısız oldu (Placeholder kullanılıyor):", error);
+            // Hata durumunda daha genel yer tutucu verileri göster
             document.getElementById('holderCount').textContent = '4K+';
             document.getElementById('totalTx').textContent = '100K+';
             document.getElementById('currentPrice').textContent = '0.00000001 TON';
@@ -1054,9 +1047,10 @@
     document.addEventListener('DOMContentLoaded', function() {
         // 1. Gün sayacını başlat
         updateDaysRunning();
-        setInterval(updateDaysRunning, 1000 * 60 * 60 * 24); // Her gün güncelle
+        // Günlük güncelleme
+        setInterval(updateDaysRunning, 1000 * 60 * 60 * 24); 
 
-        // 2. Dinamik verileri çek (5 dakikada bir güncelle)
+        // 2. Dinamik verileri çek (5 dakikada bir güncelleme simülasyonu)
         fetchTokenData();
         setInterval(fetchTokenData, 1000 * 60 * 5); 
 
