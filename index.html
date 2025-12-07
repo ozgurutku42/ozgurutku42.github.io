@@ -632,19 +632,20 @@
         /* NEW STATS SECTION MOBILE FIX: 4 Kutu Yan Yana */
         .data-stats {
             gap: 5px; /* Boşluk azaltıldı */
-            padding: 0;
+            padding: 0 10px; /* Kenar boşluğu korundu */
         }
         .stat-item {
-            min-width: 70px; /* Minimum genişlik azaltıldı */
+            min-width: 70px; 
             padding: 10px 5px;
-            flex-basis: calc(25% - 5px); /* Her öğe ekranın %25'i kadar yer kaplasın ve boşluk (5px) düşülsün */
-            box-sizing: border-box; /* Padding ve border'ı genişliğe dahil et */
+            /* 4 öğeyi yan yana sığdırmak için genişlik %25'e ayarlandı. */
+            flex-basis: calc(25% - 5px); 
+            box-sizing: border-box; 
         }
         .stat-value {
-            font-size: 18px; /* Yazı boyutu küçültüldü */
+            font-size: 18px; /* Daha küçük font */
         }
         .stat-label {
-            font-size: 10px; /* Etiket boyutu daha da küçültüldü */
+            font-size: 10px; /* Daha küçük etiket fontu */
         }
         /* Mobile stats bölümü için özel container padding'i kaldırılabilir veya çok az tutulabilir */
         .hero .data-stats {
@@ -831,10 +832,7 @@
     </div>
     
     <div class="data-stats">
-        <div class="stat-item">
-            <span class="stat-value" id="daysRunning">--</span>
-            <span class="stat-label">DAYS RUNNING</span>
-        </div>
+        
         <div class="stat-item">
             <span class="stat-value" id="holderCount">--</span>
             <span class="stat-label">TOTAL HOLDERS</span>
@@ -844,8 +842,12 @@
             <span class="stat-label">TRANSACTIONS</span>
         </div>
         <div class="stat-item">
-            <span class="stat-value" id="currentPrice">--</span>
+            <span class="stat-value" id="liquidity">--</span>
             <span class="stat-label">LIQUIDITY</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="currentPrice">--</span>
+            <span class="stat-label">PRICE (TON)</span>
         </div>
     </div>
 </section>
