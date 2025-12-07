@@ -22,7 +22,7 @@
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         line-height: 1.6;
-        overflow-x: hidden; /* Yatay kaymayı kesin olarak engelle */
+        overflow-x: hidden; /* Prevent horizontal scroll */
     }
 
     /* FOREST THEME BACKGROUND GLOWS */
@@ -51,7 +51,7 @@
     @keyframes pulse1 { from {opacity:0.35;} to {opacity:0.55;} } 
     @keyframes pulse2 { from {opacity:0.30;} to {opacity:0.50;} } 
 
-    /* LOGO - GÜNCELLENMİŞ BOYUT */
+    /* LOGO - UPDATED SIZE */
     .logo {
         width: 160px; 
         height: 160px; 
@@ -113,7 +113,7 @@
         padding-right: 20px;
     }
 
-    /* YENİ BAŞLIK STİLLERİ: $SLT (h1) ve SLOTH TOKEN (sub-h1) */
+    /* HEADERS: $SLT (h1) and SLOTH TOKEN (sub-h1) */
     .hero h1 { /* $SLT */
         font-size: 68px; 
         font-weight: 800;
@@ -211,14 +211,14 @@
         text-align: center;
     }
     
-    /* İçerik Sınırlayıcı */
+    /* Content Wrapper */
     .content-wrapper {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 60px; /* İçerik için yatay boşluk */
+        padding: 0 60px; 
     }
 
-    /* Ana Başlıklar Küçültüldü */
+    /* Section Main Headers */
     .section-content h2 {
         font-size: 40px; 
         font-weight: 800;
@@ -230,33 +230,33 @@
     /* Manifesto Section */
     .manifesto-section {
         padding: 120px 0; 
-        text-align: center; /* Başlığı ortalamak için */
+        text-align: center;
     }
 
-    /* Manifesto Başlığı (Ortalanmış) */
+    /* Manifesto Header (Centered) */
     .manifesto-section h2 {
         font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 50px; /* Başlık ile içerik arasına boşluk */
+        margin-bottom: 50px; 
         color: #00ffbf; 
-        text-align: center; /* Başlığı ortala */
+        text-align: center; 
     }
     
-    /* Manifesto İçerik Sarmalayıcı (Video ve Metin Konumlandırması) */
+    /* Manifesto Content Area (Desktop: Video Left, Text Right) */
     .manifesto-content-area {
         display: flex;
-        align-items: flex-start; /* Üstten hizalama */
+        align-items: flex-start; 
         justify-content: center;
         gap: 60px;
-        max-width: 1000px; /* İçerik alanını sınırlayın */
-        margin: 0 auto; /* Bu alanı ortala */
-        padding: 0 20px; /* Kenar boşlukları ekleyin */
+        max-width: 1000px; 
+        margin: 0 auto; 
+        padding: 0 20px; 
     }
 
-    /* VİDEO BOYUTU VE ALAN */
+    /* VIDEO SIZE AND AREA */
     .manifesto-video {
-        flex-basis: 300px; /* Sabit video genişliği */
+        flex-basis: 300px; 
         flex-shrink: 0;
     }
     .manifesto-video video {
@@ -266,18 +266,18 @@
     }
     
 
-    /* Manifesto Metin Bloğu */
+    /* Manifesto Text Block */
     .manifesto-text {
-        flex-grow: 1; /* Kalan alanı kapla */
-        max-width: 600px; /* İçerik metni için maksimum genişlik */
-        text-align: left; /* Metni sola hizala */
+        flex-grow: 1; 
+        max-width: 600px; 
+        text-align: left; 
     }
 
-    /* Manifesto metin bloğu içindeki h3 */
+    /* Manifesto h3 */
     .manifesto-text h3 {
-        margin-top: 0; /* İç başlıkların üst boşluğunu sıfırla */
-        font-size: 28px; /* Varsayılan h3 boyutunu koru */
-        color: #00ffbf; /* Renk koru */
+        margin-top: 0; 
+        font-size: 28px; 
+        color: #00ffbf;
     }
 
 
@@ -286,7 +286,7 @@
         font-weight: 600;
     }
     
-    /* Metin içindeki kalın kelimelerin okunabilirliği artırıldı (Manifesto) */
+    /* Bold text in Manifesto for emphasis */
     .manifesto-text p b {
         font-weight: 600; 
         color: #4dfff7; 
@@ -408,7 +408,7 @@
         text-align: center;
         display: flex;
         flex-direction: column; 
-        /* İKİ RESİM ARASI BOŞLUK DÜZENLEMESİ (140px) */
+        /* Spacing between the two images (140px) */
         gap: 140px; 
     }
     .roadmap-image-wrapper img {
@@ -525,7 +525,7 @@
         font-weight: 300; 
     }
 
-    /* FAQ metni içindeki kalın kelimeler */
+    /* Bold text in FAQ */
     .faq-answer p b {
         font-weight: 600; 
         color: #4dfff7; 
@@ -568,7 +568,7 @@
         }
 
         /* Font and Headers */
-        .hero h1 { /* $SLT mobil */
+        .hero h1 { /* $SLT mobile */
             font-size: 36px; 
             letter-spacing: normal; 
             white-space: nowrap; 
@@ -577,7 +577,7 @@
             padding: 0 10px; 
             margin-bottom: 5px;
         }
-        .hero .sub-h1 { /* SLOTH TOKEN mobil */
+        .hero .sub-h1 { /* SLOTH TOKEN mobile */
             font-size: 22px; 
         }
         
@@ -589,7 +589,7 @@
              padding: 0 5px;
         }
 
-        /* Tüm bölümlere mobil yatay padding ayarı yapıldı */
+        /* Section Padding Mobile */
         .section-content, .manifesto-section {
             padding: 60px 0; 
         }
@@ -597,25 +597,25 @@
              padding: 0 20px; 
         }
         
-        /* Manifesto Mobil Düzenlemesi */
+        /* Manifesto Mobile Layout */
         .manifesto-section h2 {
-            margin-bottom: 30px; /* Mobil başlık boşluğu */
+            margin-bottom: 30px; 
         }
         .manifesto-content-area {
-            flex-direction: column; /* Mobil için alt alta */
+            flex-direction: column; /* Stacks vertically */
             gap: 40px;
-            padding: 0; /* Mobil genişliğini içeriğe bırak */
+            padding: 0; 
         }
         .manifesto-video {
-            flex-basis: auto; /* Mobil için esnek genişlik */
-            width: 100%; /* Mobil cihazda tam genişlik */
-            max-width: 300px; /* Mobil cihazda maksimum genişlik */
-            margin: 0 auto; /* Mobil cihazda videoyu ortala */
+            flex-basis: auto; 
+            width: 100%; 
+            max-width: 300px; 
+            margin: 0 auto; /* Center the video */
         }
         .manifesto-text {
              padding: 0; 
-             max-width: 100%; /* Mobil metin tam genişlik */
-             text-align: left; /* Metni sola hizala */
+             max-width: 100%; 
+             text-align: left; 
         }
         .manifesto-text p {
             font-size: 15px;
@@ -629,7 +629,7 @@
             margin-bottom: 40px;
         }
         
-        /* LOGO MOBILE BOYUTU KORUNDU */
+        /* LOGO MOBILE SIZE */
         .logo {
             width: 120px; 
             height: 120px;
@@ -654,7 +654,7 @@
         }
         /* END CONTRACT ADDRESS MOBILE STYLES */
 
-        /* BUTONLAR MOBIL DÜZENLEMESİ */
+        /* BUTTONS MOBILE LAYOUT */
         .btns {
             gap: 8px; 
         }
@@ -664,7 +664,7 @@
             flex-grow: 1; 
             min-width: 100px; 
         }
-        /* END BUTONLAR MOBIL DÜZENLEMESİ */
+        /* END BUTTONS MOBILE LAYOUT */
 
 
         /* How to Buy */
@@ -686,7 +686,7 @@
              font-size: 14px;
         }
 
-        /* ROADMAP KISMI KAYMA DÜZELTMESİ */
+        /* ROADMAP MOBILE LAYOUT */
         .roadmap-content-wrapper {
             flex-direction: column;
             gap: 20px;
@@ -705,7 +705,7 @@
         .roadmap-list li {
             font-size: 15px;
         }
-         /* Mobil görsellerin kaymasını engellemek için */
+         /* Mobile images */
         .roadmap-image-mobile {
             display: block; 
             width: 90%; 
@@ -842,24 +842,24 @@
 
 <section class="section-content" id="howtobuy">
     <div class="content-wrapper">
-        <h2>HOW TO JOIN THE SLOW MOVEMENT (BUY $SLT)</h2>
+        <h2>😴 HOW TO JOIN THE SLOW MOVEMENT (HEAR IT FROM THE SLOTH)</h2>
         <div class="buy-steps">
             <ol>
                 <li>
-                    <strong>CREATE A WALLET</strong>
-                    <p>Download the <a href="#" class="highlight">Tonkeeper</a> wallet extension and set it up to create your wallet.</p>
+                    <strong>🌳 BUILD YOUR TREE HOUSE (CREATE A WALLET)</strong>
+                    <p>Don't get too excited... Take a deep breath first. <b>Gently</b> download the <b>Tonkeeper</b> wallet app or extension. Take your time to complete the setup for your wallet. Because this wallet is your most peaceful place to have your precious <b>$SLT HODL</b> nap.</p>
                 </li>
                 <li>
-                    <strong>GET SOME TON</strong>
-                    <p>Make sure you have TON in your wallet to swap for $SLT. If you don’t have any TON, you can buy it directly on <a href="#" class="highlight">Bybit</a>, <a href="#" class="highlight">OKX</a>, transfer from another wallet, or buy on another exchange and send it to your Tonkeeper wallet.</p>
+                    <strong>🍃 GATHER YOUR SLOTH FUEL (GET TON)</strong>
+                    <p>For the few seconds you are awake... Make sure you have some <b>TON</b> in your wallet to swap for $SLT. If you don't have any TON yet, don't worry. You can buy it directly from exchanges like <a href="#" class="highlight">Bybit</a> or <a href="#" class="highlight">OKX</a>, or <b>gently</b> transfer it from another wallet/exchange to your Tonkeeper nest. There is no rush.</p>
                 </li>
                 <li>
-                    <strong>GO TO STON.FI</strong>
-                    <p>Visit <a href="#" class="highlight">Ston.fi</a> in Google Chrome. Connect your Tonkeeper wallet, paste the $SLT token address into Ston.fi, select $SLT, and confirm. When Tonkeeper prompts you for a wallet signature, sign it to complete the process. <span style="font-size: 14px; opacity: 0.6;">(Note: You will need the correct $SLT contract address.)</span></p>
+                    <strong>🌄 FIND YOUR PEACEFUL SPOT ON STON.FI</strong>
+                    <p>Now... Open Google Chrome and <b>slowly</b> navigate to <a href="#" class="highlight">Ston.fi</a>. <b>Connect</b> your Tonkeeper wallet to the platform. Then, <b>lightly</b> paste the correct $SLT Contract Address (the one you copied from our site) into Ston.fi, select $SLT, and confirm the transaction. When your Tonkeeper wallet asks you to sign the transaction, <b>sign it</b> and maintain your calm. <span style="font-size: 14px; opacity: 0.6;">(A Little Sloth Note: Checking the contract address's accuracy <b>twice</b> is essential for a long and peaceful HODL sleep.)</span></p>
                 </li>
                 <li>
-                    <strong>SWITCH TON FOR $SLT</strong>
-                    <p>Swap your TON for $SLT. We have ZERO taxes, so you don’t need to worry about slippage unless there is significant market volatility.</p>
+                    <strong>💚 SWAP TON FOR $SLT</strong>
+                    <p>Here is the most relaxing part: <b>Patiently</b> swap your TON for $SLT. We love living slow, but our transactions are strangely <b>FAST!</b> We love $SLT and TON very much, and since you completed this transaction, you are now one of the <b>most patient</b> members of the Sloth HODL family.</p>
                 </li>
             </ol>
         </div>
@@ -909,12 +909,13 @@
                     <p style="font-weight: 600;">So, <b>slow down, stack up, and enjoy the ride!</b></p>
                 </div>
             </div>
+
             <div class="faq-item">
                 <div class="faq-question">
                     How can I support Sloth Token's marketing/promotion efforts? <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. "Hadi şimdi paylaşayım, hemen zengin olayım" diye acele etmeyin sakın. Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b></p>
+                    <p>Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. Don't rush, thinking, "I'll share it now and get rich immediately." Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b></p>
                 </div>
             </div>
 
@@ -933,28 +934,28 @@
         const contractAddress = document.getElementById('contractAddress').textContent;
         const copyButton = document.getElementById('copyButton');
         
-        // Kopyalama işlemi
+        // Copy operation
         navigator.clipboard.writeText(contractAddress).then(() => {
             
-            // Buton metnini geçici olarak değiştir
+            // Temporarily change button text
             const originalText = copyButton.textContent;
             copyButton.textContent = 'COPIED!';
             copyButton.style.backgroundColor = '#4dfff7'; 
 
-            // 1.5 saniye sonra eski haline döndür
+            // Restore after 1.5 seconds
             setTimeout(() => {
                 copyButton.textContent = originalText;
                 copyButton.style.backgroundColor = '#00ffbf'; 
             }, 1500);
 
         }).catch(err => {
-            console.error('Kopyalama başarısız oldu: ', err);
-            // Hata mesajı gösterebiliriz (örn: "FAILED")
+            console.error('Copy failed: ', err);
+            // Error message could be shown
         });
     });
 
 
-    // FAQ Accordion Functionality FIX
+    // FAQ Accordion Functionality
     document.addEventListener('DOMContentLoaded', function() {
         const faqItems = document.querySelectorAll('.faq-item');
 
