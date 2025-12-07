@@ -1021,16 +1021,30 @@
 </section>
 
 <footer>
-    <p>&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
+    <p id="copyrightYear">&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
     <p>THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
 </footer>
 
 <script>
-    // --- KOPYALAMA VE FAQ İŞLEVLERİ ---
-
     document.addEventListener('DOMContentLoaded', function() {
 
-        // Kontrat adresi kopyalama işlevi
+        // --- TELİF HAKKI YILINI OTOMATİK GÜNCELLEME İŞLEVİ ---
+        const startYear = 2025;
+        const currentYear = new Date().getFullYear();
+        const copyrightElement = document.getElementById('copyrightYear');
+
+        if (copyrightElement) {
+            let yearText = startYear;
+            if (currentYear > startYear) {
+                // Başlangıç yılı 2025'ten büyükse, aralığı göster
+                yearText = `${startYear} - ${currentYear}`;
+            }
+            
+            // Telif hakkı metnini güncelle
+            copyrightElement.innerHTML = `&copy; ${yearText} SLOTH TOKEN. ALL RIGHTS RESERVED.`;
+        }
+
+        // --- KONTRA ADRESİ KOPYALAMA İŞLEVİ ---
         document.getElementById('copyButton').addEventListener('click', function() {
             const contractAddress = document.getElementById('contractAddress').textContent;
             const copyButton = document.getElementById('copyButton');
@@ -1050,7 +1064,7 @@
             });
         });
 
-        // FAQ Accordion işlevi
+        // --- FAQ Accordion işlevi ---
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
