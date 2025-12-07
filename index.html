@@ -239,6 +239,8 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
+        /* İstatistik alanını 30px aşağı kaydırma */
+        margin-top: 30px; 
         margin-bottom: 40px; 
         padding: 0 10px;
         max-width: 900px;
@@ -288,12 +290,12 @@
         padding: 0 60px; 
     }
 
-    /* Section Main Headers */
+    /* Section Main Headers (BAŞLIK BOŞLUĞU AZALTILDI - DESKTOP) */
     .section-content h2 {
         font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 50px;
+        margin-bottom: 30px; /* 50px'den 30px'e düşürüldü */
         color: #00ffbf; 
     }
     
@@ -303,12 +305,12 @@
         text-align: center;
     }
 
-    /* Manifesto Header (Centered) */
+    /* Manifesto Header (Centered) (BAŞLIK BOŞLUĞU AZALTILDI - DESKTOP) */
     .manifesto-section h2 {
         font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 50px; 
+        margin-bottom: 30px; /* 50px'den 30px'e düşürüldü */
         color: #00ffbf; 
         text-align: center; 
     }
@@ -632,12 +634,12 @@
         /* NEW STATS SECTION MOBILE FIX: 4 Kutu Yan Yana */
         .data-stats {
             gap: 5px; /* Boşluk azaltıldı */
-            padding: 0 10px; /* Kenar boşluğu korundu */
+            padding: 0 10px; 
+            margin-top: 20px; /* İstatistik alanını mobilde de biraz aşağı kaydırma */
         }
         .stat-item {
             min-width: 70px; 
             padding: 10px 5px;
-            /* 4 öğeyi yan yana sığdırmak için genişlik %25'e ayarlandı. */
             flex-basis: calc(25% - 5px); 
             box-sizing: border-box; 
         }
@@ -663,7 +665,7 @@
         
         /* Manifesto Mobile Layout */
         .manifesto-section h2 {
-            margin-bottom: 30px; 
+            margin-bottom: 20px; /* Mobilde boşluk azaltıldı */
         }
         .manifesto-content-area {
             flex-direction: column; 
@@ -688,9 +690,10 @@
              font-size: 20px;
         }
         
+        /* Section Content H2 Mobile (BAŞLIK BOŞLUĞU AZALTILDI - MOBILE) */
         .section-content h2 {
             font-size: 32px; 
-            margin-bottom: 40px;
+            margin-bottom: 25px; /* 40px'den 25px'e düşürüldü */
         }
         
         /* LOGO MOBILE SIZE */
