@@ -129,7 +129,7 @@
         font-weight: 300;
     }
     
-    /* CONTRAC ADDRESS STYLES */
+    /* CONTRAC ADDRESS STYLES (DESKTOP) */
     .contract-container {
         max-width: 550px;
         margin: 30px auto 40px auto;
@@ -527,39 +527,37 @@
             height: 140px;
         }
         
-        /* CONTRACT ADDRESS MOBILE STYLES */
+        /* CONTRACT ADDRESS MOBILE STYLES (DÜZELTİLDİ) */
         .contract-container {
-            max-width: 90%;
+            max-width: 95%; /* Genişliği biraz daha artırdım */
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 10px; /* Kenarlardan biraz boşluk ekledim */
         }
         .contract-box {
             padding: 8px 10px;
         }
         .contract-address {
-            font-size: 14px; 
+            font-size: 13px; /* Yazı boyutunu biraz daha küçülttüm */
         }
         .copy-btn {
             padding: 6px 10px;
             font-size: 13px;
         }
+        /* END CONTRACT ADDRESS MOBILE STYLES */
 
-        /* **************************************
-        // BUTONLAR MOBIL DÜZENLEMESİ YAPILDI
-        ************************************** */
+        /* BUTONLAR MOBIL DÜZENLEMESİ */
         .btns {
-            /* Butonların yan yana sığması için boşluk azaltıldı */
             gap: 8px; 
         }
         .btn {
-            /* Mobil için buton iç dolgusu ve yazı boyutu küçültüldü */
             padding: 10px 18px;
             font-size: 14px;
-            /* Butonların eşit oranda esnemesi sağlandı, böylece yan yana sığdıklarında hizalı dururlar. */
             flex-grow: 1; 
-            min-width: 100px; /* Çok dar cihazlarda tamamen küçülmesini engeller */
+            min-width: 100px; 
         }
-        /* **************************************
-        // END BUTONLAR MOBIL DÜZENLEMESİ
-        ************************************** */
+        /* END BUTONLAR MOBIL DÜZENLEMESİ */
+
 
         /* Manifesto */
         .manifesto-section {
