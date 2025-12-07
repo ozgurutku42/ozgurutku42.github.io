@@ -59,7 +59,6 @@
         object-fit: cover;
         box-shadow: 0 0 35px rgba(0, 255, 191, 0.9); 
         z-index: 60;
-        /* YENİ BAŞLIK YAPISI İÇİN BOŞLUK AYARLARI */
         margin-top: 15px; 
         margin-bottom: 15px; 
         transition: transform 0.3s;
@@ -228,7 +227,7 @@
         color: #00ffbf; 
     }
     
-    /* Manifesto altlık kaldırıldı */
+    /* Manifesto Section */
     .manifesto-section {
         display: flex;
         align-items: center; 
@@ -239,11 +238,29 @@
         margin: 0 auto;
         text-align: left;
     }
+    
+    /* Manifesto İçerik Sarmalayıcı (Video ve Metin Konumlandırması) */
     .manifesto-section .content-wrapper {
         display: flex;
-        align-items: center; 
+        align-items: flex-start; /* Üstten hizalama */
         justify-content: center;
         gap: 60px;
+    }
+
+    /* VİDEO BOYUTU KÜÇÜLTÜLDÜ */
+    .manifesto-video video {
+        width: 300px; /* 350px'den 300px'e düşürüldü */
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0,255,191,0.7); 
+    }
+    .manifesto-video {
+        /* Video bloğunu sol tarafa hizalamak için flex-basis kullanıldı */
+        flex-shrink: 0;
+    }
+
+    /* Manifesto Metin Bloğu */
+    .manifesto-text {
+        max-width: 600px; /* Daha fazla metin sığdırmak için genişletildi */
     }
 
     /* Manifesto başlığı için özel ayar (Küçültüldü) */
@@ -253,6 +270,8 @@
         text-shadow: 0 0 15px #00ffbf;
         margin-bottom: 30px; 
         color: #00ffbf; 
+        /* Metin bloğunun soluna hizalandı */
+        text-align: left; 
     }
 
     .highlight {
@@ -293,17 +312,6 @@
         box-shadow: 0 0 35px rgba(0,255,191,1);
         background: rgba(0, 255, 191, 0.3);
         transform: translateY(-2px);
-    }
-
-    
-    .manifesto-video video {
-        width: 350px; 
-        border-radius: 20px;
-        box-shadow: 0 0 30px rgba(0,255,191,0.7); 
-    }
-
-    .manifesto-text {
-        max-width: 550px;
     }
 
     .manifesto-text p {
@@ -580,7 +588,7 @@
         }
         .content-wrapper {
              padding: 0 20px; 
-             flex-direction: column; 
+             flex-direction: column; /* Mobil için alt alta sıralama */
         }
         
         .manifesto-section .content-wrapper {
@@ -754,6 +762,7 @@
 
 <section class="manifesto-section" id="manifesto">
     <div class="content-wrapper">
+        
         <div class="manifesto-video">
             <video src="slothtoken.mp4" autoplay loop muted playsinline></video>
         </div>
