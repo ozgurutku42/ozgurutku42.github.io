@@ -128,7 +128,51 @@
         line-height: 1.5;
         font-weight: 300;
     }
+    
+    /* CONTRAC ADDRESS STYLES */
+    .contract-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 255, 191, 0.1);
+        border: 1px solid rgba(0, 255, 191, 0.4);
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin: 30px auto 40px auto;
+        max-width: 550px;
+        gap: 10px;
+        box-shadow: 0 0 15px rgba(0, 255, 191, 0.3);
+    }
 
+    .contract-address {
+        flex-grow: 1;
+        font-size: 16px;
+        font-weight: 500;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #00ffbf;
+        cursor: pointer;
+    }
+
+    .copy-btn {
+        background: #00ffbf;
+        color: #030a12;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .copy-btn:hover {
+        background: #4dfff7;
+        transform: translateY(-1px);
+    }
+
+    /* SECTION BASICS */
     .section-content {
         padding: 120px 60px;
         max-width: 1200px;
@@ -438,10 +482,39 @@
         /* Font and Headers */
         .hero h1 {
             font-size: 40px;
+            /* SLOTH TOKEN – $SLT'yi tek satırda tutmak için letter-spacing ve word-break ayarları */
+            letter-spacing: normal; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            padding: 0 10px; /* Kenarlardan taşmayı önlemek için */
+        }
+        .hero p {
+             font-size: 18px;
         }
         .section-content h2 {
             font-size: 36px;
         }
+
+        /* LOGO MOBILE BOYUTU GÜNCELLENDİ */
+        .logo {
+            width: 140px; 
+            height: 140px;
+        }
+        
+        /* CONTRACT ADDRESS MOBILE STYLES */
+        .contract-box {
+            max-width: 90%;
+            padding: 8px 10px;
+        }
+        .contract-address {
+            font-size: 14px; /* Mobil için küçültüldü */
+        }
+        .copy-btn {
+            padding: 6px 10px;
+            font-size: 13px;
+        }
+
 
         /* Manifesto */
         .manifesto-section {
@@ -494,12 +567,6 @@
             padding: 15px;
             font-size: 16px;
         }
-        
-        /* LOGO MOBILE BOYUTU GÜNCELLENDİ */
-        .logo {
-            width: 140px; /* Mobil için biraz daha küçük ama yine büyük */
-            height: 140px;
-        }
     }
 </style>
 </head>
@@ -521,6 +588,11 @@
     <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
     
     <h1>SLOTH TOKEN – $SLT</h1>
+    
+    <div class="contract-box">
+        <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn</span>
+        <button class="copy-btn" id="copyButton">COPY</button>
+    </div>
     <p>
         A fun meme token built on the TON Blockchain.
         <br>TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
@@ -679,6 +751,32 @@
 </footer>
 
 <script>
+    // CONTRACT ADDRESS COPY FUNCTIONALITY
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const contractAddress = document.getElementById('contractAddress').textContent;
+        const copyButton = document.getElementById('copyButton');
+        
+        // Kopyalama işlemi
+        navigator.clipboard.writeText(contractAddress).then(() => {
+            
+            // Buton metnini geçici olarak değiştir
+            const originalText = copyButton.textContent;
+            copyButton.textContent = 'COPIED!';
+            copyButton.style.backgroundColor = '#4dfff7'; 
+
+            // 1.5 saniye sonra eski haline döndür
+            setTimeout(() => {
+                copyButton.textContent = originalText;
+                copyButton.style.backgroundColor = '#00ffbf'; 
+            }, 1500);
+
+        }).catch(err => {
+            console.error('Kopyalama başarısız oldu: ', err);
+            // Hata mesajı gösterebiliriz (örn: "FAILED")
+        });
+    });
+
+
     // FAQ Accordion Functionality FIX
     document.addEventListener('DOMContentLoaded', function() {
         const faqItems = document.querySelectorAll('.faq-item');
