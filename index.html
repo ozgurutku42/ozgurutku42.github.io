@@ -206,7 +206,8 @@
     /* BUTTONS */
     .btns {
         margin-top: 35px;
-        margin-bottom: 40px; 
+        /* Buton altındaki boşluk azaltıldı */
+        margin-bottom: 10px; 
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
@@ -239,8 +240,8 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
-        /* İstatistik alanını 30px aşağı kaydırma */
-        margin-top: 30px; 
+        /* İstatistik üstündeki boşluk azaltıldı. Toplamda butonlar ile arası 30px civarı oldu. */
+        margin-top: 20px; 
         margin-bottom: 40px; 
         padding: 0 10px;
         max-width: 900px;
@@ -277,7 +278,8 @@
 
     /* SECTION BASICS */
     .section-content {
-        padding: 120px 0; 
+        /* Bölüm dolgusu azaltıldı */
+        padding: 80px 0; 
         max-width: 100%;
         margin: 0 auto;
         text-align: center;
@@ -290,27 +292,28 @@
         padding: 0 60px; 
     }
 
-    /* Section Main Headers (BAŞLIK BOŞLUĞU AZALTILDI - DESKTOP) */
+    /* Section Main Headers (BAŞLIK BOŞLUĞU AZALTILDI) */
     .section-content h2 {
         font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 30px; /* 50px'den 30px'e düşürüldü */
+        margin-bottom: 30px; 
         color: #00ffbf; 
     }
     
     /* Manifesto Section */
     .manifesto-section {
-        padding: 120px 0; 
+        /* Bölüm dolgusu azaltıldı */
+        padding: 80px 0; 
         text-align: center;
     }
 
-    /* Manifesto Header (Centered) (BAŞLIK BOŞLUĞU AZALTILDI - DESKTOP) */
+    /* Manifesto Header (Centered) (BAŞLIK BOŞLUĞU AZALTILDI) */
     .manifesto-section h2 {
         font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 30px; /* 50px'den 30px'e düşürüldü */
+        margin-bottom: 30px; 
         color: #00ffbf; 
         text-align: center; 
     }
@@ -631,11 +634,25 @@
              padding: 0 5px;
         }
 
-        /* NEW STATS SECTION MOBILE FIX: 4 Kutu Yan Yana */
+        /* BUTTONS MOBILE LAYOUT */
+        .btns {
+            gap: 8px; 
+            /* Buton altındaki boşluk azaltıldı */
+            margin-bottom: 10px; 
+        }
+        .btn {
+            padding: 10px 18px;
+            font-size: 14px;
+            flex-grow: 1; 
+            min-width: 100px; 
+        }
+        
+        /* NEW STATS SECTION MOBILE FIX */
         .data-stats {
-            gap: 5px; /* Boşluk azaltıldı */
+            gap: 5px; 
             padding: 0 10px; 
-            margin-top: 20px; /* İstatistik alanını mobilde de biraz aşağı kaydırma */
+            /* İstatistik üstündeki boşluk 20px olarak sabitlendi. Toplamda butonlar ile arası 30px civarı oldu. */
+            margin-top: 20px; 
         }
         .stat-item {
             min-width: 70px; 
@@ -644,20 +661,19 @@
             box-sizing: border-box; 
         }
         .stat-value {
-            font-size: 18px; /* Daha küçük font */
+            font-size: 18px; 
         }
         .stat-label {
-            font-size: 10px; /* Daha küçük etiket fontu */
+            font-size: 10px; 
         }
-        /* Mobile stats bölümü için özel container padding'i kaldırılabilir veya çok az tutulabilir */
         .hero .data-stats {
             padding: 0 10px; 
         }
         /* /NEW STATS SECTION MOBILE FIX */
 
-        /* Section Padding Mobile */
+        /* Section Padding Mobile (Bölüm dolgusu azaltıldı) */
         .section-content, .manifesto-section {
-            padding: 60px 0; 
+            padding: 40px 0; /* 60px'ten 40px'e düşürüldü */
         }
         .content-wrapper {
              padding: 0 20px; 
@@ -665,7 +681,7 @@
         
         /* Manifesto Mobile Layout */
         .manifesto-section h2 {
-            margin-bottom: 20px; /* Mobilde boşluk azaltıldı */
+            margin-bottom: 20px; 
         }
         .manifesto-content-area {
             flex-direction: column; 
@@ -690,10 +706,10 @@
              font-size: 20px;
         }
         
-        /* Section Content H2 Mobile (BAŞLIK BOŞLUĞU AZALTILDI - MOBILE) */
+        /* Section Content H2 Mobile (BAŞLIK BOŞLUĞU AZALTILDI) */
         .section-content h2 {
             font-size: 32px; 
-            margin-bottom: 25px; /* 40px'den 25px'e düşürüldü */
+            margin-bottom: 25px; 
         }
         
         /* LOGO MOBILE SIZE */
@@ -718,17 +734,6 @@
         .copy-btn {
             padding: 6px 10px;
             font-size: 12px;
-        }
-
-        /* BUTTONS MOBILE LAYOUT */
-        .btns {
-            gap: 8px; 
-        }
-        .btn {
-            padding: 10px 18px;
-            font-size: 14px;
-            flex-grow: 1; 
-            min-width: 100px; 
         }
 
         /* How to Buy */
