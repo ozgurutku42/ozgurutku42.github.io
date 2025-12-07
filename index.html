@@ -108,7 +108,8 @@
     ----------------------------------- */
     .hero {
         text-align: center;
-        padding-top: 180px; 
+        /* Üst boşluk ayarı yapıldı */
+        padding-top: 150px; 
         padding-bottom: 100px;
         padding-left: 20px;
         padding-right: 20px;
@@ -116,17 +117,17 @@
 
     /* YENİ BAŞLIK STİLLERİ: $SLT (h1) ve SLOTH TOKEN (sub-h1) */
     .hero h1 { /* $SLT */
-        font-size: 72px; 
+        font-size: 68px; /* Biraz küçültüldü */
         font-weight: 800;
         text-shadow: 0 0 25px #00ffbf; 
         margin: 0;
         padding: 0;
         letter-spacing: 2px;
         line-height: 1;
-        margin-bottom: 15px; /* LOGO üstü boşluk */
+        margin-bottom: 5px; /* LOGO üstü boşluk (azaltıldı) */
     }
     .hero .sub-h1 { /* SLOTH TOKEN */
-        font-size: 32px; 
+        font-size: 30px; /* Biraz küçültüldü */
         font-weight: 600;
         margin-top: 5px;
         margin-bottom: 10px;
@@ -136,12 +137,12 @@
     }
 
     .hero p {
-        font-size: 22px;
+        font-size: 20px; /* Biraz küçültüldü */
         opacity: 0.9;
         max-width: 700px;
         margin: 15px auto;
         line-height: 1.5; 
-        font-weight: 300;
+        font-weight: 400; /* Daha az kalın yapıldı */
     }
     
     /* CONTRAC ADDRESS STYLES (DESKTOP) */
@@ -151,7 +152,6 @@
         position: relative; 
     }
     .contract-label {
-        /* Merkezleme ayarları */
         font-size: 14px;
         font-weight: 700;
         color: #030a12;
@@ -213,17 +213,18 @@
         text-align: center;
     }
 
+    /* Ana Başlıklar Küçültüldü */
     .section-content h2 {
-        font-size: 48px;
+        font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 60px;
+        margin-bottom: 50px;
         color: #00ffbf; 
     }
     
-    /* Manifesto başlığı için özel ayar */
+    /* Manifesto başlığı için özel ayar (Küçültüldü) */
     .manifesto-text h2 {
-        font-size: 48px;
+        font-size: 40px; 
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
         margin-bottom: 30px; 
@@ -235,6 +236,12 @@
         font-weight: 600;
     }
     
+    /* Metin içindeki kalın kelimelerin okunabilirliği artırıldı (Manifesto) */
+    .manifesto-text p b {
+        font-weight: 600; /* Çok kalın yerine orta kalın */
+        color: #4dfff7; /* Hafif parlak renk */
+    }
+
     /* BUTTONS */
     .btns {
         margin-top: 35px;
@@ -287,13 +294,13 @@
     }
 
     .manifesto-text p {
-        font-size: 18px;
+        font-size: 17px; /* Biraz küçültüldü */
         opacity: 0.9;
         line-height: 1.7;
         margin-bottom: 30px; 
+        font-weight: 300; /* Hafifletildi */
     }
     
-
     /* ----------------------------------
     // HOW TO BUY (Ordered List)
     ----------------------------------- */
@@ -311,7 +318,7 @@
         counter-increment: step-counter;
         margin-bottom: 40px;
         position: relative;
-        font-size: 19px;
+        font-size: 18px; /* Biraz küçültüldü */
         line-height: 1.5;
         font-weight: 400;
         background: rgba(0, 255, 191, 0.05);
@@ -344,7 +351,7 @@
     }
     .buy-steps p {
         margin-top: 5px;
-        font-size: 16px;
+        font-size: 15px; /* Biraz küçültüldü */
         opacity: 0.85;
     }
     .buy-steps a {
@@ -399,13 +406,13 @@
         line-height: 1.7;
         padding-left: 35px; 
         position: relative;
-        font-size: 18px;
+        font-size: 17px; /* Biraz küçültüldü */
         font-weight: 400;
     }
     .roadmap-list h3 {
         margin-top: 50px;
         margin-bottom: 20px;
-        font-size: 28px;
+        font-size: 26px; /* Biraz küçültüldü */
         font-weight: 600;
         color: #00ffbf;
     }
@@ -450,8 +457,8 @@
     }
 
     .faq-question {
-        padding: 20px;
-        font-size: 18px;
+        padding: 18px; /* Biraz küçültüldü */
+        font-size: 17px; /* Biraz küçültüldü */
         font-weight: 600;
         cursor: pointer;
         display: flex;
@@ -484,8 +491,15 @@
     
     .faq-answer p {
         padding: 10px 0 20px 0;
-        font-size: 16px;
+        font-size: 15px; /* Biraz küçültüldü */
         opacity: 0.9;
+        font-weight: 300; /* Hafifletildi */
+    }
+
+    /* FAQ metni içindeki kalın kelimeler */
+    .faq-answer p b {
+        font-weight: 600; 
+        color: #4dfff7; 
     }
 
     /* ----------------------------------
@@ -519,35 +533,45 @@
             font-size: 12px; 
         }
         
+        /* Hero Padding Mobile */
+        .hero {
+             padding-top: 100px; /* Mobil üst boşluk iyileştirildi */
+        }
+
         /* Font and Headers */
         .hero h1 { /* $SLT mobil */
-            font-size: 40px; 
+            font-size: 36px; /* Biraz küçültüldü */
             letter-spacing: normal; 
             white-space: nowrap; 
             overflow: hidden; 
             text-overflow: ellipsis;
             padding: 0 10px; 
+            margin-bottom: 5px;
         }
         .hero .sub-h1 { /* SLOTH TOKEN mobil */
-            font-size: 24px;
+            font-size: 22px; /* Biraz küçültüldü */
         }
         
         /* HERO PARAGRAPH FIX */
         .hero p {
-             font-size: 18px;
-             /* Metnin akıcı olmasını sağlar */
+             font-size: 16px; /* Biraz küçültüldü */
              white-space: normal; 
              word-wrap: break-word;
+             padding: 0 5px;
         }
 
         .section-content h2 {
-            font-size: 36px;
+            font-size: 32px; /* Biraz küçültüldü */
+            margin-bottom: 40px;
+        }
+        .manifesto-text h2 {
+            font-size: 32px; /* Biraz küçültüldü */
         }
 
         /* LOGO MOBILE BOYUTU KORUNDU */
         .logo {
-            width: 140px; 
-            height: 140px;
+            width: 120px; /* Biraz küçültüldü */
+            height: 120px;
         }
         
         /* CONTRACT ADDRESS MOBILE STYLES */
@@ -561,11 +585,11 @@
             padding: 8px 10px;
         }
         .contract-address {
-            font-size: 13px; 
+            font-size: 12px; /* Biraz daha küçültüldü */
         }
         .copy-btn {
             padding: 6px 10px;
-            font-size: 13px;
+            font-size: 12px;
         }
         /* END CONTRACT ADDRESS MOBILE STYLES */
 
@@ -585,53 +609,49 @@
         /* Manifesto */
         .manifesto-section {
             flex-direction: column;
-            padding: 80px 20px;
+            padding: 60px 20px; /* Boşluk azaltıldı */
         }
         .manifesto-video video {
             width: 100%;
-            max-width: 400px; 
+            max-width: 300px; /* Küçültüldü */
         }
         .manifesto-text p {
             text-align: left; 
+            font-size: 15px;
         }
-
+        .manifesto-text h3 {
+             font-size: 20px;
+        }
+        
         /* How to Buy */
         .buy-steps li {
             padding: 15px 15px 15px 60px; 
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            font-size: 16px;
         }
         .buy-steps li::before {
             left: 10px; 
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            font-size: 20px;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            font-size: 18px;
+        }
+        .buy-steps p {
+             font-size: 14px;
         }
 
         /* ROADMAP */
-        .roadmap-content-wrapper {
-            flex-direction: column;
-            gap: 20px;
+        .roadmap-list h3 {
+            font-size: 22px;
         }
-        .roadmap-image-wrapper {
-            display: none; 
-        }
-        .roadmap-image-mobile {
-            display: block; 
-            width: 90%; 
-            max-width: 400px;
-            margin: 25px auto 15px auto; 
-        }
-        .roadmap-list ul {
-            text-align: left;
-            margin: 0 auto;
-            max-width: 400px; 
+        .roadmap-list li {
+            font-size: 15px;
         }
         
         /* FAQ Mobile */
         .faq-question {
             padding: 15px;
-            font-size: 16px;
+            font-size: 15px;
         }
     }
 </style>
