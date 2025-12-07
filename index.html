@@ -379,13 +379,13 @@
         transition: color 0.3s;
     }
     
-    /* 🪙 - COMPLETED */
+    /* ✅ - COMPLETED TASK (Targets the first <li> globally, which is the "Development Complete" step) */
     .roadmap-list li:first-child::before {
-        content: '🪙'; 
+        content: '✅'; 
         text-shadow: 0 0 10px #00ffbf;
     }
     
-    /* 🚀 - GOALS */
+    /* 🚀 - GOALS (All other items remain rockets, including Phase 2 goals) */
     .roadmap-list li:not(:first-child)::before {
         content: '🚀';
         text-shadow: 0 0 8px rgba(255, 204, 0, 0.9); 
