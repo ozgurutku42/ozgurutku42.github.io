@@ -133,10 +133,10 @@
     .contract-container {
         max-width: 550px;
         margin: 30px auto 40px auto;
-        position: relative; /* Label positioning için eklendi */
+        position: relative; 
     }
     .contract-label {
-        /* Ortaya hizalamak için düzenlendi */
+        /* Merkezleme ayarları */
         font-size: 14px;
         font-weight: 700;
         color: #030a12;
@@ -144,7 +144,7 @@
         background: #00ffbf;
         border-radius: 5px;
         position: absolute;
-        top: -12px; /* Kutunun üzerine çıktı */
+        top: -12px; 
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
@@ -203,15 +203,15 @@
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
         margin-bottom: 60px;
-        color: #00ffbf; /* Tüm ana başlıklar renkli yapıldı */
+        color: #00ffbf; 
     }
     
-    /* Manifesto başlığı için özel ayar (Manifesto section'da <h2> kullanıldığı için gerekli) */
+    /* Manifesto başlığı için özel ayar */
     .manifesto-text h2 {
         font-size: 48px;
         font-weight: 800;
         text-shadow: 0 0 15px #00ffbf;
-        margin-bottom: 30px; /* Manifesto altındaki boşluk ayarı */
+        margin-bottom: 30px; 
         color: #00ffbf; 
     }
 
@@ -542,6 +542,24 @@
             font-size: 13px;
         }
 
+        /* **************************************
+        // BUTONLAR MOBIL DÜZENLEMESİ YAPILDI
+        ************************************** */
+        .btns {
+            /* Butonların yan yana sığması için boşluk azaltıldı */
+            gap: 8px; 
+        }
+        .btn {
+            /* Mobil için buton iç dolgusu ve yazı boyutu küçültüldü */
+            padding: 10px 18px;
+            font-size: 14px;
+            /* Butonların eşit oranda esnemesi sağlandı, böylece yan yana sığdıklarında hizalı dururlar. */
+            flex-grow: 1; 
+            min-width: 100px; /* Çok dar cihazlarda tamamen küçülmesini engeller */
+        }
+        /* **************************************
+        // END BUTONLAR MOBIL DÜZENLEMESİ
+        ************************************** */
 
         /* Manifesto */
         .manifesto-section {
@@ -759,4 +777,87 @@
                 Will $SLT Token Make Us Rich? <span class="faq-toggle">+</span>
             </div>
             <div class="faq-answer">
-                <p>Look friends, let's be honest... The first and biggest goal of the $SLT Token is to offer a <b>peaceful experience</b> and a long-term <b>journey</b>. We want
+                <p>Look friends, let's be honest... The first and biggest goal of the $SLT Token is to offer a <b>peaceful experience</b> and a long-term <b>journey</b>. We want to progress slowly with our entire community and enjoy this experience to the fullest. Although we were created for fun, we certainly harbor <b>big market cap dreams</b>! However, never forget: We make **no claims** to anyone and absolutely <b>do not offer investment advice</b>.</p>
+                <p>$SLT Tokens are **not securities** of any kind. They do not represent the right to vote, govern, or share profits or revenues of any entity. Furthermore, $SLT Tokens **do not represent ownership of any physical asset.**</p>
+                <p style="font-weight: 600;">So, <b>slow down, stack up, and enjoy the ride!</b></p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                How can I support Sloth Token's marketing/promotion efforts? <span class="faq-toggle">+</span>
+            </div>
+            <div class="faq-answer">
+                <p>Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. "Hadi şimdi paylaşayım, hemen zengin olayım" diye acele etmeyin sakın. Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b></p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
+    <p>THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
+</footer>
+
+<script>
+    // CONTRACT ADDRESS COPY FUNCTIONALITY
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const contractAddress = document.getElementById('contractAddress').textContent;
+        const copyButton = document.getElementById('copyButton');
+        
+        // Kopyalama işlemi
+        navigator.clipboard.writeText(contractAddress).then(() => {
+            
+            // Buton metnini geçici olarak değiştir
+            const originalText = copyButton.textContent;
+            copyButton.textContent = 'COPIED!';
+            copyButton.style.backgroundColor = '#4dfff7'; 
+
+            // 1.5 saniye sonra eski haline döndür
+            setTimeout(() => {
+                copyButton.textContent = originalText;
+                copyButton.style.backgroundColor = '#00ffbf'; 
+            }, 1500);
+
+        }).catch(err => {
+            console.error('Kopyalama başarısız oldu: ', err);
+            // Hata mesajı gösterebiliriz (örn: "FAILED")
+        });
+    });
+
+
+    // FAQ Accordion Functionality FIX
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+
+                // Close all other accordions
+                faqItems.forEach(i => {
+                    if (i !== item && i.classList.contains('active')) {
+                        i.classList.remove('active');
+                        i.querySelector('.faq-answer').style.maxHeight = null;
+                    }
+                });
+
+                // Toggle the clicked accordion
+                if (!isActive) {
+                    item.classList.add('active');
+                    // Set max-height to the scroll height to smoothly open it
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    item.classList.remove('active');
+                    answer.style.maxHeight = null;
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
