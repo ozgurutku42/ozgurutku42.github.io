@@ -112,12 +112,24 @@
         padding-right: 20px;
     }
 
-    .hero h1 {
-        font-size: 64px; 
+    /* YENİ BAŞLIK STİLLERİ: $SLT (h1) ve SLOTH TOKEN (sub-h1) */
+    .hero h1 { /* $SLT */
+        font-size: 72px; 
         font-weight: 800;
         text-shadow: 0 0 25px #00ffbf; 
+        margin: 0;
+        padding: 0;
+        letter-spacing: 2px;
+        line-height: 1;
+    }
+    .hero .sub-h1 { /* SLOTH TOKEN */
+        font-size: 32px; 
+        font-weight: 600;
+        margin-top: 5px;
         margin-bottom: 10px;
-        letter-spacing: 1px;
+        opacity: 0.9;
+        color: #00ffbf;
+        text-shadow: 0 0 10px rgba(0, 255, 191, 0.5);
     }
 
     .hero p {
@@ -125,7 +137,7 @@
         opacity: 0.9;
         max-width: 700px;
         margin: 15px auto;
-        line-height: 1.5;
+        line-height: 1.5; /* Metinler arası boşluk için */
         font-weight: 300;
     }
     
@@ -505,18 +517,26 @@
         }
         
         /* Font and Headers */
-        .hero h1 {
-            /* Mobil için küçültüldü ve tek satırda kalması garanti edildi */
-            font-size: 30px; 
+        .hero h1 { /* $SLT mobil */
+            font-size: 40px; 
             letter-spacing: normal; 
             white-space: nowrap; 
             overflow: hidden; 
             text-overflow: ellipsis;
             padding: 0 10px; 
         }
+        .hero .sub-h1 { /* SLOTH TOKEN mobil */
+            font-size: 24px;
+        }
+        
+        /* HERO PARAGRAPH FIX */
         .hero p {
              font-size: 18px;
+             /* Mobil cihazlarda metinlerin bitişik görünmesini engeller */
+             white-space: normal; 
+             word-wrap: break-word;
         }
+
         .section-content h2 {
             font-size: 36px;
         }
@@ -527,18 +547,18 @@
             height: 140px;
         }
         
-        /* CONTRACT ADDRESS MOBILE STYLES (DÜZELTİLDİ) */
+        /* CONTRACT ADDRESS MOBILE STYLES */
         .contract-container {
-            max-width: 95%; /* Genişliği biraz daha artırdım */
+            max-width: 95%; 
             margin-left: auto;
             margin-right: auto;
-            padding: 0 10px; /* Kenarlardan biraz boşluk ekledim */
+            padding: 0 10px; 
         }
         .contract-box {
             padding: 8px 10px;
         }
         .contract-address {
-            font-size: 13px; /* Yazı boyutunu biraz daha küçülttüm */
+            font-size: 13px; 
         }
         .copy-btn {
             padding: 6px 10px;
@@ -630,7 +650,8 @@
 <section class="hero" id="home">
     <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
     
-    <h1>SLOTH TOKEN – $SLT</h1>
+    <h1>$SLT</h1>
+    <h2 class="sub-h1">SLOTH TOKEN</h2>
     
     <div class="contract-container">
         <span class="contract-label">CONTRACT ADDRESS</span>
