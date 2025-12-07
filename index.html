@@ -59,7 +59,9 @@
         object-fit: cover;
         box-shadow: 0 0 35px rgba(0, 255, 191, 0.9); 
         z-index: 60;
-        margin-bottom: 25px; 
+        /* YENİ BAŞLIK YAPISI İÇİN BOŞLUK AYARLARI */
+        margin-top: 15px; 
+        margin-bottom: 15px; 
         transition: transform 0.3s;
     }
     .logo:hover {
@@ -121,6 +123,7 @@
         padding: 0;
         letter-spacing: 2px;
         line-height: 1;
+        margin-bottom: 15px; /* LOGO üstü boşluk */
     }
     .hero .sub-h1 { /* SLOTH TOKEN */
         font-size: 32px; 
@@ -137,7 +140,7 @@
         opacity: 0.9;
         max-width: 700px;
         margin: 15px auto;
-        line-height: 1.5; /* Metinler arası boşluk için */
+        line-height: 1.5; 
         font-weight: 300;
     }
     
@@ -532,7 +535,7 @@
         /* HERO PARAGRAPH FIX */
         .hero p {
              font-size: 18px;
-             /* Mobil cihazlarda metinlerin bitişik görünmesini engeller */
+             /* Metnin akıcı olmasını sağlar */
              white-space: normal; 
              word-wrap: break-word;
         }
@@ -648,9 +651,11 @@
 </nav>
 
 <section class="hero" id="home">
-    <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
     
     <h1>$SLT</h1>
+
+    <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
+    
     <h2 class="sub-h1">SLOTH TOKEN</h2>
     
     <div class="contract-container">
@@ -661,8 +666,7 @@
         </div>
     </div>
     <p>
-        A fun meme token built on the TON Blockchain.
-        <br>TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
+        A fun meme token built on the TON Blockchain. TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
     </p>
 
     <div class="btns">
