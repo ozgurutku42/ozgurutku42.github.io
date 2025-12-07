@@ -130,6 +130,20 @@
     }
     
     /* CONTRAC ADDRESS STYLES */
+    .contract-container {
+        max-width: 550px;
+        margin: 30px auto 40px auto;
+    }
+    .contract-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #00ffbf;
+        margin-bottom: 5px;
+        text-align: left;
+        padding-left: 10px;
+        display: block;
+        opacity: 0.8;
+    }
     .contract-box {
         display: flex;
         align-items: center;
@@ -138,8 +152,6 @@
         border: 1px solid rgba(0, 255, 191, 0.4);
         border-radius: 8px;
         padding: 10px 15px;
-        margin: 30px auto 40px auto;
-        max-width: 550px;
         gap: 10px;
         box-shadow: 0 0 15px rgba(0, 255, 191, 0.3);
     }
@@ -503,8 +515,10 @@
         }
         
         /* CONTRACT ADDRESS MOBILE STYLES */
-        .contract-box {
+        .contract-container {
             max-width: 90%;
+        }
+        .contract-box {
             padding: 8px 10px;
         }
         .contract-address {
@@ -589,9 +603,12 @@
     
     <h1>SLOTH TOKEN – $SLT</h1>
     
-    <div class="contract-box">
-        <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn</span>
-        <button class="copy-btn" id="copyButton">COPY</button>
+    <div class="contract-container">
+        <span class="contract-label">CONTRACT ADDRESS</span>
+        <div class="contract-box">
+            <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn</span>
+            <button class="copy-btn" id="copyButton">COPY</button>
+        </div>
     </div>
     <p>
         A fun meme token built on the TON Blockchain.
