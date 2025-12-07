@@ -22,7 +22,7 @@
         font-family: 'Poppins', sans-serif;
         font-size: 16px;
         line-height: 1.6;
-        overflow-x: hidden;
+        overflow-x: hidden; /* Yatay kaymayı kesin olarak engelle */
     }
 
     /* FOREST THEME BACKGROUND GLOWS */
@@ -108,7 +108,6 @@
     ----------------------------------- */
     .hero {
         text-align: center;
-        /* Üst boşluk ayarı yapıldı */
         padding-top: 150px; 
         padding-bottom: 100px;
         padding-left: 20px;
@@ -124,7 +123,7 @@
         padding: 0;
         letter-spacing: 2px;
         line-height: 1;
-        margin-bottom: 5px; /* LOGO üstü boşluk (azaltıldı) */
+        margin-bottom: 5px; 
     }
     .hero .sub-h1 { /* SLOTH TOKEN */
         font-size: 30px; 
@@ -207,12 +206,9 @@
 
     /* SECTION BASICS */
     .section-content {
-        /* Altlık ekleme */
-        background: rgba(0, 255, 191, 0.05); 
-        border-top: 1px solid rgba(0, 255, 191, 0.2);
-        border-bottom: 1px solid rgba(0, 255, 191, 0.2);
-        padding: 120px 60px;
-        max-width: 100%; /* Tüm genişliği kaplamasını sağla */
+        /* Altlık Kaldırıldı */
+        padding: 120px 0; /* Geniş padding korundu, yatay sıfırlandı */
+        max-width: 100%;
         margin: 0 auto;
         text-align: center;
     }
@@ -221,6 +217,7 @@
     .content-wrapper {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 60px; /* İçerik için yatay boşluk */
     }
 
     /* Ana Başlıklar Küçültüldü */
@@ -232,20 +229,23 @@
         color: #00ffbf; 
     }
     
-    /* Manifesto altlık ekleme */
+    /* Manifesto altlık kaldırıldı */
     .manifesto-section {
-        background: rgba(0, 255, 191, 0.05); 
-        border-top: 1px solid rgba(0, 255, 191, 0.2);
-        border-bottom: 1px solid rgba(0, 255, 191, 0.2);
-        /* Mevcut Flex ve padding ayarları */
+        /* Altlık Kaldırıldı */
         display: flex;
         align-items: center; 
         justify-content: center;
         gap: 60px;
-        padding: 120px 60px;
+        padding: 120px 0; /* Geniş padding korundu, yatay sıfırlandı */
         max-width: 100%;
         margin: 0 auto;
         text-align: left;
+    }
+    .manifesto-section .content-wrapper {
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        gap: 60px;
     }
 
     /* Manifesto başlığı için özel ayar (Küçültüldü) */
@@ -575,14 +575,19 @@
              padding: 0 5px;
         }
 
-        /* Tüm bölümlere mobil genişlik uygulandı */
+        /* Tüm bölümlere mobil yatay padding ayarı yapıldı */
         .section-content, .manifesto-section {
-            padding: 60px 0; /* Sol/sağ padding sıfırlandı */
+            padding: 60px 0; 
         }
         .content-wrapper {
-             padding: 0 20px; /* İçerik için kenar boşluğu eklendi */
+             /* Mobil genişlik için yatay padding ayarı yapıldı */
+             padding: 0 20px; 
+             flex-direction: column; /* Manifesto mobil sıralama */
         }
-
+        
+        .manifesto-section .content-wrapper {
+            gap: 40px; 
+        }
 
         .section-content h2 {
             font-size: 32px; 
@@ -631,16 +636,12 @@
 
 
         /* Manifesto */
-        .manifesto-section {
-            flex-direction: column;
-            gap: 40px; /* Boşluk azaltıldı */
-        }
         .manifesto-video video {
             width: 100%;
             max-width: 300px; 
         }
         .manifesto-text {
-             padding: 0 20px; /* Manifesto metni için mobil boşluk */
+             padding: 0; /* İç paddingi content-wrapper halledecek */
         }
         .manifesto-text p {
             text-align: left; 
@@ -652,7 +653,7 @@
         
         /* How to Buy */
         .buy-steps {
-            padding: 0 20px; /* Mobil boşluk */
+            /* Mobil boşluk content-wrapper'dan geliyor */
         }
         .buy-steps li {
             padding: 15px 15px 15px 60px; 
@@ -670,19 +671,40 @@
              font-size: 14px;
         }
 
-        /* ROADMAP */
+        /* ROADMAP KISMI KAYMA DÜZELTMESİ */
+        .roadmap-content-wrapper {
+            flex-direction: column;
+            gap: 20px;
+        }
+        .roadmap-image-wrapper {
+            display: none; 
+        }
+        .roadmap-list {
+            max-width: 100%; /* Mobil cihazda tam genişlik kullanmalı */
+            padding: 0;
+        }
         .roadmap-list h3 {
             font-size: 22px;
+            text-align: center; /* Mobil H3 merkezlendi */
         }
         .roadmap-list li {
             font-size: 15px;
         }
          /* Mobil görsellerin kaymasını engellemek için */
         .roadmap-image-mobile {
-            width: 100%; 
+            display: block; 
+            width: 90%; 
             max-width: 350px; 
-            margin-left: auto;
-            margin-right: auto;
+            margin: 25px auto 15px auto; 
+            border-radius: 14px;
+            box-shadow: 0 0 25px rgba(0, 255, 191, 0.7);
+        }
+        .roadmap-list ul {
+            text-align: left;
+            margin: 0;
+            padding: 0;
+            max-width: 400px; 
+            margin: 0 auto; /* UL merkezlendi */
         }
         
         /* FAQ Mobile */
@@ -718,7 +740,7 @@
     <div class="contract-container">
         <span class="contract-label">CONTRACT ADDRESS</span>
         <div class="contract-box">
-            <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmMmWF2-8mEMrK68nJn</span>
+            <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn</span>
             <button class="copy-btn" id="copyButton">COPY</button>
         </div>
     </div>
