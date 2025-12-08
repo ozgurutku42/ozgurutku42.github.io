@@ -23,9 +23,11 @@
         background: #030a12;
         color: #fff;
         font-family: 'Poppins', sans-serif;
+        /* Ana metin ağırlığı 300'den 400'e çıkarıldı (okunabilirlik için) */
         font-size: 16px;
         line-height: 1.6;
         overflow-x: hidden; 
+        font-weight: 400; /* Global font weight for better readability */
     }
 
     /* FOREST THEME BACKGROUND GLOWS */
@@ -72,7 +74,7 @@
 
 
     /* ----------------------------------
-    // NAVIGATION
+    // NAVIGATION & LANGUAGE SELECTOR
     ----------------------------------- */
     nav {
         position: fixed;
@@ -81,11 +83,18 @@
         width: 100%;
         background: rgba(3, 10, 18, 0.98);
         backdrop-filter: blur(8px);
-        padding: 15px 50px;
+        padding: 15px 30px;
         z-index: 50;
         display: flex;
-        justify-content: center;
+        justify-content: space-between; /* Menü ve Dil Seçiciyi ayırmak için */
+        align-items: center;
         box-shadow: 0 2px 20px rgba(0, 255, 191, 0.2);
+    }
+    
+    .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1; /* Ortalamak için */
     }
 
     nav a {
@@ -97,6 +106,7 @@
         transition: color 0.3s, transform 0.3s;
         border-bottom: 3px solid transparent;
         padding-bottom: 5px;
+        white-space: nowrap; /* Menü öğelerinin tek satırda kalmasını sağlamak için */
     }
 
     nav a:hover {
@@ -104,6 +114,27 @@
         border-bottom-color: #00ffbf;
         transform: translateY(-2px);
     }
+    
+    .lang-selector button {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(0, 255, 191, 0.5);
+        padding: 5px 10px;
+        margin-left: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 14px;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .lang-selector button.active,
+    .lang-selector button:hover {
+        background: #00ffbf;
+        color: #030a12;
+        border-color: #00ffbf;
+    }
+
 
     /* ----------------------------------
     // SECTION STYLES
@@ -209,7 +240,6 @@
     /* BUTTONS */
     .btns {
         margin-top: 35px;
-        /* Buton altındaki boşluk ÇOK FAZLA ARTIRILDI (70px) */
         margin-bottom: 70px; 
         display: flex;
         flex-wrap: wrap;
@@ -239,12 +269,10 @@
 
     /* SECTION BASICS */
     .section-content {
-        /* Bölüm dolgusu SIFIRLANDI */
         padding: 0px 0; 
         max-width: 100%;
         margin: 0 auto;
         text-align: center;
-        /* ANCHOR FIX: Kaydırma sırasında menü yüksekliği kadar boşluk bırakır */
         scroll-margin-top: 100px; 
     }
     
@@ -266,10 +294,8 @@
     
     /* Manifesto Section */
     .manifesto-section {
-        /* Bölüm dolgusu SIFIRLANDI */
         padding: 0px 0; 
         text-align: center;
-        /* ANCHOR FIX: Kaydırma sırasında menü yüksekliği kadar boşluk bırakır */
         scroll-margin-top: 100px; 
     }
 
@@ -565,11 +591,26 @@
         
         /* Navigation */
         nav {
-            padding: 15px 5px;
+            padding: 15px 10px;
+            /* Flex yönünü dikey yapıp logo ve dil seçiciyi ayırmak */
+            flex-direction: column;
+        }
+        .nav-links {
+            justify-content: space-around;
+            order: 2; /* Nav linkleri alta kaydır */
+            width: 100%;
+            margin-top: 10px;
         }
         nav a {
             margin: 0 5px;
             font-size: 12px; 
+        }
+        .lang-selector {
+            order: 1; /* Dil seçiciyi üste al */
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: right;
+            padding-right: 15px;
         }
         
         /* Hero Padding Mobile */
@@ -602,7 +643,6 @@
         /* BUTTONS MOBILE LAYOUT */
         .btns {
             gap: 8px; 
-            /* Buton altındaki boşluk ÇOK FAZLA ARTIRILDI (70px) */
             margin-bottom: 70px; 
         }
         .btn {
@@ -612,11 +652,10 @@
             min-width: 100px; 
         }
         
-        /* Section Padding Mobile (Bölüm dolgusu SIFIRLANDI) */
+        /* Section Padding Mobile */
         .section-content, .manifesto-section {
             padding: 0px 0; 
-            /* Mobil menü de 60-70px civarı olduğu için 80px yeterli olur */
-            scroll-margin-top: 80px; 
+            scroll-margin-top: 120px; /* Navigasyon yüksekliği arttı */
         }
         .content-wrapper {
              padding: 0 20px; 
@@ -629,16 +668,16 @@
         .manifesto-content-area {
             flex-direction: column; 
             gap: 40px;
-            padding: 0; 
+            padding: 0 20px; /* Yanlardan dolgu ekledik */
         }
         .manifesto-video {
             flex-basis: auto; 
-            width: 100%; 
-            max-width: 300px; 
+            width: 90%; 
+            max-width: 350px; 
             margin: 0 auto; 
         }
         .manifesto-text {
-             padding: 0; 
+             padding: 20px 0; /* Videodan sonra daha iyi boşluk */
              max-width: 100%; 
              text-align: left; 
         }
@@ -749,11 +788,18 @@
 <div class="glow2"></div>
 
 <nav>
-    <a href="#home">HOME</a>
-    <a href="#manifesto">MANIFESTO</a>
-    <a href="#roadmap">ROADMAP</a>
-    <a href="#howtobuy">HOW TO BUY</a>
-    <a href="#faqs">FAQS</a>
+    <div class="lang-selector">
+        <button data-lang="en" class="active">EN</button>
+        <button data-lang="tr">TR</button>
+        <button data-lang="ru">RU</button>
+    </div>
+    <div class="nav-links">
+        <a href="#home" data-i18n="nav.home">HOME</a>
+        <a href="#manifesto" data-i18n="nav.manifesto">MANIFESTO</a>
+        <a href="#roadmap" data-i18n="nav.roadmap">ROADMAP</a>
+        <a href="#howtobuy" data-i18n="nav.howtobuy">HOW TO BUY</a>
+        <a href="#faqs" data-i18n="nav.faqs">FAQS</a>
+    </div>
 </nav>
 
 <section class="hero" id="home">
@@ -762,24 +808,24 @@
 
     <img src="slttokenlogo.jpeg" class="logo" alt="Sloth Token Logo">
     
-    <h2 class="sub-h1">SLOTH TOKEN</h2>
+    <h2 class="sub-h1" data-i18n="hero.subtitle">SLOTH TOKEN</h2>
     
     <div class="contract-container">
-        <span class="contract-label">CONTRACT ADDRESS</span>
+        <span class="contract-label" data-i18n="contract.label">CONTRACT ADDRESS</span>
         <div class="contract-box">
             <span class="contract-address" id="contractAddress">EQB6Ql1JE7Hq0JuropLYschcu-WNt2vMmWF2-8mEMrK68nJn</span>
-            <button class="copy-btn" id="copyButton">COPY</button>
+            <button class="copy-btn" id="copyButton" data-i18n="contract.copy">COPY</button>
         </div>
     </div>
     
-    <p>
+    <p data-i18n="hero.description">
         A fun meme token built on the TON Blockchain. TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>
     </p>
 
     <div class="btns">
-        <a href="https://t.me/blum/" target="_blank" class="btn">BUY ON BLUM</a>
-        <a href="https://app.ston.fi/swap" target="_blank" class="btn">BUY ON STON.FI</a>
-        <a href="https://dexscreener.com/ton/" target="_blank" class="btn">CHART</a>
+        <a href="https://t.me/blum/" target="_blank" class="btn" data-i18n="buttons.blum">BUY ON BLUM</a>
+        <a href="https://app.ston.fi/swap" target="_blank" class="btn" data-i18n="buttons.stonfi">BUY ON STON.FI</a>
+        <a href="https://dexscreener.com/ton/" target="_blank" class="btn" data-i18n="buttons.chart">CHART</a>
     </div>
     
 </section>
@@ -787,7 +833,7 @@
 <section class="manifesto-section" id="manifesto">
     <div class="content-wrapper">
         
-        <h2>😴 MANIFESTO: THE WAY OF THE CALM STACKER</h2>
+        <h2 data-i18n="manifesto.title">😴 MANIFESTO: THE WAY OF THE CALM STACKER</h2>
         
         <div class="manifesto-content-area">
             <div class="manifesto-video">
@@ -795,18 +841,18 @@
             </div>
 
             <div class="manifesto-text">
-                <p>
+                <p data-i18n="manifesto.p1">
                     Hello everyone! 🌿 Why aren't we diving straight into those chaotic, fast <b>DEXs</b>? Because I, as you know, love to take everything **slow**!
                     <br>Our strategy is very simple: First, we will comfortably settle on the most comfortable branch of our <a href="https://t.me/blum/" target="_blank" class="highlight"><b>Blum</b></a> tree. We are not gathering speedy day-traders, but loyal friends who, just like me, love to settle in for a long, peaceful **HODL** nap. Remember: **A Sloth in a hurry only stumbles on the road!** Come, let's grow slowly, steadily, and solidly, together.
                 </p>
                 
-                <h3>🎯 OUR FIRST GOAL: A LONG WINTER SLEEP (<span class="highlight">1,500 TON</span>)</h3>
-                <p>
+                <h3 data-i18n="manifesto.h3">🎯 OUR FIRST GOAL: A LONG WINTER SLEEP (<span class="highlight">1,500 TON</span>)</h3>
+                <p data-i18n="manifesto.p2">
                     Let's get a little lazier. When our liquidity pool reaches the sweet weight of exactly <span class="highlight">1,500 TON</span>... *That's* when we can slowly start swaying towards <a href="https://app.ston.fi/swap" target="_blank" class="highlight"><b>Ston.fi</b></a>, taking a giant Sloth step.
                     <br>Our ultimate goal is simple: to **take our place** as the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.
                 </p>
                 
-                <p style="font-size: 20px; font-weight: bold; color: #00ffbf;">
+                <p style="font-size: 20px; font-weight: bold; color: #00ffbf;" data-i18n="manifesto.slogan">
                     Because we are $SLT: <b>SLOW DOWN, AND STACK UP!</b>
                 </p>
             </div>
@@ -817,7 +863,7 @@
 <section class="section-content" id="roadmap">
     <div class="content-wrapper">
         <div class="roadmap-container">
-            <h2>🗺️ $SLT ROADMAP: STEADY PROGRESS, SOLID GOALS</h2>
+            <h2 data-i18n="roadmap.title">🗺️ $SLT ROADMAP: STEADY PROGRESS, SOLID GOALS</h2>
             
             <div class="roadmap-content-wrapper">
                 <div class="roadmap-image-wrapper">
@@ -829,23 +875,23 @@
                     
                     <img src="Roadmap.png" alt="Sloth Roadmap Image 1 Mobile" class="roadmap-image-mobile">
 
-                    <h3 style="color: #00ffbf;">🌲 PHASE 1: THE GREAT SLOTH STRETCH (AWAKENING)</h3>
+                    <h3 style="color: #00ffbf;" data-i18n="roadmap.phase1.title">🌲 PHASE 1: THE GREAT SLOTH STRETCH (AWAKENING)</h3>
                     <ul style="list-style: none; padding-left: 0; line-height: 2;">
-                        <li><b>Development Complete:</b> Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
+                        <li data-i18n="roadmap.phase1.li1"><b>Development Complete:</b> Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.</li>
                         
-                        <li><b>Blum Deployment:</b> We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
-                        <li><b>Reaching for Ston.fi:</b> Once the Blum den is complete, we'll slowly swing towards the <a href="https://app.ston.fi/swap" target="_blank" class="highlight">Ston.fi</a> tree. We wait until we're ready for the crowds.</li>
-                        <li><b>Zen Shield Activation:</b> Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
+                        <li data-i18n="roadmap.phase1.li2"><b>Blum Deployment:</b> We found our first chill spot on <span class="highlight">Blum</span>. Target reached when our <span class="highlight">1,500 TON</span> pillow is full!</li>
+                        <li data-i18n="roadmap.phase1.li3"><b>Reaching for Ston.fi:</b> Once the Blum den is complete, we'll slowly swing towards the <a href="https://app.ston.fi/swap" target="_blank" class="highlight">Ston.fi</a> tree. We wait until we're ready for the crowds.</li>
+                        <li data-i18n="roadmap.phase1.li4"><b>Zen Shield Activation:</b> Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm.</li>
                     </ul>
                     
                     <img src="Roadmap2.png" alt="Sloth Roadmap Image 2 Mobile" class="roadmap-image-mobile">
 
-                    <h3 style="color: #00ffbf; margin-top: 50px;">🚀 PHASE 2: CLIMBING THE CANOPY (ASCENT)</h3>
-                    <p style="text-align: left; opacity: 0.8;">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
+                    <h3 style="color: #00ffbf; margin-top: 50px;" data-i18n="roadmap.phase2.title">🚀 PHASE 2: CLIMBING THE CANOPY (ASCENT)</h3>
+                    <p style="text-align: left; opacity: 0.8;" data-i18n="roadmap.phase2.p">Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:</p>
                     <ul style="list-style: none; padding-left: 0; line-height: 2;">
-                        <li><b>Entering TON Top 50:</b> Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
-                        <li><b>The TON Top 10 Summit:</b> Perching on the thickest, most comfortable branch in the top 10.</li>
-                        <li><b>King of the TON Forest:</b> Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
+                        <li data-i18n="roadmap.phase2.li1"><b>Entering TON Top 50:</b> Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.</li>
+                        <li data-i18n="roadmap.phase2.li2"><b>The TON Top 10 Summit:</b> Perching on the thickest, most comfortable branch in the top 10.</li>
+                        <li data-i18n="roadmap.phase2.li3"><b>King of the TON Forest:</b> Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.</li>
                         
                     </ul>
                 </div>
@@ -856,24 +902,24 @@
 
 <section class="section-content" id="howtobuy">
     <div class="content-wrapper">
-        <h2>🪜 SLT PURCHASE: HOW TO JOIN THE SLOW MOVEMENT (THE SLOTH'S RELAXED HODL WAY)</h2>
+        <h2 data-i18n="howtobuy.title">🪜 SLT PURCHASE: HOW TO JOIN THE SLOW MOVEMENT (THE SLOTH'S RELAXED HODL WAY)</h2>
         <div class="buy-steps">
             <ol>
-                <li>
-                    <strong>🌳 BUILD YOUR TREE HOUSE (CREATE A WALLET)</strong>
-                    <p>Don't get too excited... Take a deep breath first. <b>Gently</b> download the <a href="https://tonkeeper.com/" target="_blank" class="highlight"><b>Tonkeeper</b></a> wallet app or extension. Take your time to complete the setup for your wallet. Because this wallet is your most peaceful place to have your precious <b>$SLT HODL</b> nap.</p>
+                <li data-i18n="howtobuy.step1.li">
+                    <strong data-i18n="howtobuy.step1.strong">🌳 BUILD YOUR TREE HOUSE (CREATE A WALLET)</strong>
+                    <p data-i18n="howtobuy.step1.p">Don't get too excited... Take a deep breath first. <b>Gently</b> download the <a href="https://tonkeeper.com/" target="_blank" class="highlight"><b>Tonkeeper</b></a> wallet app or extension. Take your time to complete the setup for your wallet. Because this wallet is your most peaceful place to have your precious <b>$SLT HODL</b> nap.</p>
                 </li>
-                <li>
-                    <strong>🍃 GATHER YOUR SLOTH FUEL (GET TON)</strong>
-                    <p>For the few seconds you are awake... Make sure you have some <b>TON</b> in your wallet to swap for $SLT. If you don't have any TON yet, don't worry. You can buy it directly from exchanges like <a href="https://www.bybit.com/" target="_blank" class="highlight">Bybit</a> or <a href="https://www.okx.com/" target="_blank" class="highlight">OKX</a>, or <b>gently</b> transfer it from another wallet/exchange to your Tonkeeper nest. There is no rush.</p>
+                <li data-i18n="howtobuy.step2.li">
+                    <strong data-i18n="howtobuy.step2.strong">🍃 GATHER YOUR SLOTH FUEL (GET TON)</strong>
+                    <p data-i18n="howtobuy.step2.p">For the few seconds you are awake... Make sure you have some <b>TON</b> in your wallet to swap for $SLT. If you don't have any TON yet, don't worry. You can buy it directly from exchanges like <a href="https://www.bybit.com/" target="_blank" class="highlight">Bybit</a> or <a href="https://www.okx.com/" target="_blank" class="highlight">OKX</a>, or <b>gently</b> transfer it from another wallet/exchange to your Tonkeeper nest. There is no rush.</p>
                 </li>
-                <li>
-                    <strong>🌄 FIND YOUR PEACEFUL SPOT ON STON.FI</strong>
-                    <p>Now... Open Google Chrome and <b>slowly</b> navigate to <a href="https://app.ston.fi/swap" target="_blank" class="highlight">Ston.fi</a>. <b>Connect</b> your Tonkeeper wallet to the platform. Then, <b>lightly</b> paste the correct $SLT Contract Address (the one you copied from our site) into Ston.fi, select $SLT, and confirm the transaction. When your Tonkeeper wallet asks you to sign the transaction, <b>sign it</b> and maintain your calm. <span style="font-size: 14px; opacity: 0.6;">(A Little Sloth Note: Checking the contract address's accuracy <b>twice</b> is essential for a long and peaceful HODL sleep.)</span></p>
+                <li data-i18n="howtobuy.step3.li">
+                    <strong data-i18n="howtobuy.step3.strong">🌄 FIND YOUR PEACEFUL SPOT ON STON.FI</strong>
+                    <p data-i18n="howtobuy.step3.p">Now... Open Google Chrome and <b>slowly</b> navigate to <a href="https://app.ston.fi/swap" target="_blank" class="highlight">Ston.fi</a>. <b>Connect</b> your Tonkeeper wallet to the platform. Then, <b>lightly</b> paste the correct $SLT Contract Address (the one you copied from our site) into Ston.fi, select $SLT, and confirm the transaction. When your Tonkeeper wallet asks you to sign the transaction, <b>sign it</b> and maintain your calm. <span style="font-size: 14px; opacity: 0.6;" data-i18n="howtobuy.step3.note">(A Little Sloth Note: Checking the contract address's accuracy <b>twice</b> is essential for a long and peaceful HODL sleep.)</span></p>
                 </li>
-                <li>
-                    <strong>💚 SWAP TON FOR $SLT</strong>
-                    <p>Here is the most relaxing part: <b>Patiently</b> swap your TON for $SLT. We love living slow, but our transactions are strangely <b>FAST!</b> We love $SLT and TON very much, and since you completed this transaction, you are now one of the <b>most patient</b> members of the Sloth HODL family.</p>
+                <li data-i18n="howtobuy.step4.li">
+                    <strong data-i18n="howtobuy.step4.strong">💚 SWAP TON FOR $SLT</strong>
+                    <p data-i18n="howtobuy.step4.p">Here is the most relaxing part: <b>Patiently</b> swap your TON for $SLT. We love living slow, but our transactions are strangely <b>FAST!</b> We love $SLT and TON very much, and since you completed this transaction, you are now one of the <b>most patient</b> members of the Sloth HODL family.</p>
                 </li>
             </ol>
         </div>
@@ -883,54 +929,54 @@
 
 <section class="section-content" id="faqs">
     <div class="content-wrapper">
-        <h2>💡 FREQUENTLY ASKED QUESTIONS (Listen to the Sloth)</h2>
+        <h2 data-i18n="faqs.title">💡 FREQUENTLY ASKED QUESTIONS (Listen to the Sloth)</h2>
         
         <div class="faq-container">
             
             <div class="faq-item">
                 <div class="faq-question">
-                    What is Sloth Token ($SLT)? <span class="faq-toggle">+</span>
+                    <span data-i18n="faqs.q1">What is Sloth Token ($SLT)?</span> <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Ah, $SLT? You're curious, aren't you? But don't rush! We are <b>community-supported sloths</b> chilling in the most comfortable and green corner of the TON Blockchain. Our philosophy? <b>"Slow Down, and Stack Up Big!"</b> The chaotic <b>DEX</b> race is not for us. We prefer taking a long, peaceful <b>HODL</b> nap in our wallets. We are transparent, and we favor fair distribution. Because the strongest stance is the calmest one.</p>
+                    <p data-i18n="faqs.a1">Ah, $SLT? You're curious, aren't you? But don't rush! We are <b>community-supported sloths</b> chilling in the most comfortable and green corner of the TON Blockchain. Our philosophy? <b>"Slow Down, and Stack Up Big!"</b> The chaotic <b>DEX</b> race is not for us. We prefer taking a long, peaceful <b>HODL</b> nap in our wallets. We are transparent, and we favor fair distribution. Because the strongest stance is the calmest one.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    Why doesn't the $SLT token have official social media channels? <span class="faq-toggle">+</span>
+                    <span data-i18n="faqs.q2">Why doesn't the $SLT token have official social media channels?</span> <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Oh, social media? Too noisy... Too fast... All those notifications, all that rushing... Not for us. The deepest secret of crypto is <b>anonymity</b>. Besides, the best <b>viral marketing</b> is done completely organically by our loyal <b>HODL army</b>. Our energy is focused on building a stable <b>community</b>, not stressing over keyboard wars. Look, <b>our slow, anonymous state is not due to weak liquidity.</b> On the contrary, we seek <b>maximalist anonymity</b> and comfort. We are so lazy (and so committed to anonymity) that <b>we don't even buy a domain.</b> This is part of our pure Sloth philosophy. We are grateful to <a href="https://github.com/" target="_blank" class="highlight">GitHub</a> for providing such a quiet place.</p>
+                    <p data-i18n="faqs.a2.p1">Oh, social media? Too noisy... Too fast... All those notifications, all that rushing... Not for us. The deepest secret of crypto is <b>anonymity</b>. Besides, the best <b>viral marketing</b> is done completely organically by our loyal <b>HODL army</b>. Our energy is focused on building a stable <b>community</b>, not stressing over keyboard wars. Look, <b>our slow, anonymous state is not due to weak liquidity.</b> On the contrary, we seek <b>maximalist anonymity</b> and comfort. We are so lazy (and so committed to anonymity) that <b>we don't even buy a domain.</b> This is part of our pure Sloth philosophy. We are grateful to <a href="https://github.com/" target="_blank" class="highlight">GitHub</a> for providing such a quiet place.</p>
                 </div>
             </div>
             
             <div class="faq-item">
                 <div class="faq-question">
-                    Will the $SLT token be listed on major exchanges (CEX)? <span class="faq-toggle">+
+                    <span data-i18n="faqs.q3">Will the $SLT token be listed on major exchanges (CEX)?</span> <span class="faq-toggle">+
                 </div>
                 <div class="faq-answer">
-                    <p><b>Absolutely not.</b> Why? We don't want to enter the complicated and tiring world of major exchanges. We believe that <b>anonymity is power</b> and that <b>decentralization</b> is paramount. Our only goal is to stay peacefully on <b>DEXs</b> (Decentralized Exchanges) with high, healthy liquidity <b>for life</b>. For us, comfort comes before popularity.</p>
+                    <p data-i18n="faqs.a3"><b>Absolutely not.</b> Why? We don't want to enter the complicated and tiring world of major exchanges. We believe that <b>anonymity is power</b> and that <b>decentralization</b> is paramount. Our only goal is to stay peacefully on <b>DEXs</b> (Decentralized Exchanges) with high, healthy liquidity <b>for life</b>. For us, comfort comes before popularity.</p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    Will $SLT Token Make Us Rich? <span class="faq-toggle">+
+                    <span data-i18n="faqs.q4">Will $SLT Token Make Us Rich?</span> <span class="faq-toggle">+
                 </div>
                 <div class="faq-answer">
-                    <p>Look friends, let's be honest... The first and biggest goal of the $SLT Token is to offer a <b>peaceful experience</b> and a long-term <b>journey</b>. We want to progress slowly with our entire community and enjoy this experience to the fullest. Although we were created for fun, we certainly harbor <b>big market cap dreams</b>! However, never forget: We make **no claims** to anyone and absolutely <b>do not offer investment advice</b>.</p>
-                    <p>$SLT Tokens are **not securities** of any kind. They do not represent the right to vote, govern, or share profits or revenues of any entity. Furthermore, $SLT Tokens **do not represent ownership of any physical asset.**</p>
-                    <p style="font-weight: 600;">So, <b>slow down, stack up, and enjoy the ride!</b></p>
+                    <p data-i18n="faqs.a4.p1">Look friends, let's be honest... The first and biggest goal of the $SLT Token is to offer a <b>peaceful experience</b> and a long-term <b>journey</b>. We want to progress slowly with our entire community and enjoy this experience to the fullest. Although we were created for fun, we certainly harbor <b>big market cap dreams</b>! However, never forget: We make **no claims** to anyone and absolutely <b>do not offer investment advice</b>.</p>
+                    <p data-i18n="faqs.a4.p2">$SLT Tokens are **not securities** of any kind. They do not represent the right to vote, govern, or share profits or revenues of any entity. Furthermore, $SLT Tokens **do not represent ownership of any physical asset.**</p>
+                    <p style="font-weight: 600;" data-i18n="faqs.a4.slogan">So, <b>slow down, stack up, and enjoy the ride!</b></p>
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-question">
-                    How can I support Sloth Token's marketing/promotion efforts? <span class="faq-toggle">+</span>
+                    <span data-i18n="faqs.q5">How can I support Sloth Token's marketing/promotion efforts?</span> <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-answer">
-                    <p>Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. Don't rush, thinking, "I'll share it now and get rich immediately." Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b></p>
+                    <p data-i18n="faqs.a5">Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. Don't rush, thinking, "I'll share it now and get rich immediately." Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b></p>
                 </div>
             </div>
 
@@ -939,12 +985,351 @@
 </section>
 
 <footer>
-    <p id="copyrightYear">&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
-    <p>THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
+    <p id="copyrightYear" data-i18n="footer.copyright">&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.</p>
+    <p data-i18n="footer.slogan">THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT.</p>
 </footer>
 
 <script>
+    // --- ÇEVİRİ OBJESİ (EN, TR, RU) ---
+    const translations = {
+        en: {
+            // META
+            meta: {
+                description: "A fun meme token built on the TON Blockchain. TON's Coolest Crypto — $SLT: SLOW DOWN, AND STACK UP.",
+                keywords: "SLOTH, $SLT, TON, TON Blockchain, Meme Token, Sloth Token, Crypto",
+                title: "SLOTH TOKEN - $SLT"
+            },
+            // NAV
+            nav: { home: "HOME", manifesto: "MANIFESTO", roadmap: "ROADMAP", howtobuy: "HOW TO BUY", faqs: "FAQS" },
+            // HERO
+            hero: {
+                subtitle: "SLOTH TOKEN",
+                description: "A fun meme token built on the TON Blockchain. TON's Coolest Crypto — <b>$SLT: SLOW DOWN, AND STACK UP.</b>"
+            },
+            contract: { label: "CONTRACT ADDRESS", copy: "COPY" },
+            buttons: { blum: "BUY ON BLUM", stonfi: "BUY ON STON.FI", chart: "CHART" },
+            // MANIFESTO
+            manifesto: {
+                title: "😴 MANIFESTO: THE WAY OF THE CALM STACKER",
+                p1: "Hello everyone! 🌿 Why aren't we diving straight into those chaotic, fast <b>DEXs</b>? Because I, as you know, love to take everything **slow**! <br>Our strategy is very simple: First, we will comfortably settle on the most comfortable branch of our <a href='https://t.me/blum/' target='_blank' class='highlight'><b>Blum</b></a> tree. We are not gathering speedy day-traders, but loyal friends who, just like me, love to settle in for a long, peaceful **HODL** nap. Remember: **A Sloth in a hurry only stumbles on the road!** Come, let's grow slowly, steadily, and solidly, together.",
+                h3: "🎯 OUR FIRST GOAL: A LONG WINTER SLEEP (<span class='highlight'>1,500 TON</span>)",
+                p2: "Let's get a little lazier. When our liquidity pool reaches the sweet weight of exactly <span class='highlight'>1,500 TON</span>... *That's* when we can slowly start swaying towards <a href='https://app.ston.fi/swap' target='_blank' class='highlight'><b>Ston.fi</b></a>, taking a giant Sloth step.<br>Our ultimate goal is simple: to **take our place** as the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem.",
+                slogan: "Because we are $SLT: <b>SLOW DOWN, AND STACK UP!</b>"
+            },
+            // ROADMAP
+            roadmap: {
+                title: "🗺️ $SLT ROADMAP: STEADY PROGRESS, SOLID GOALS",
+                phase1: {
+                    title: "🌲 PHASE 1: THE GREAT SLOTH STRETCH (AWAKENING)",
+                    li1: "<b>Development Complete:</b> Website and launch strategy created. $SLT token developed, logo prepared, and initial promotions released.",
+                    li2: "<b>Blum Deployment:</b> We found our first chill spot on <span class='highlight'>Blum</span>. Target reached when our <span class='highlight'>1,500 TON</span> pillow is full!",
+                    li3: "<b>Reaching for Ston.fi:</b> Once the Blum den is complete, we'll slowly swing towards the <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a> tree. We wait until we're ready for the crowds.",
+                    li4: "<b>Zen Shield Activation:</b> Smart Market Maker Bots (MM Bots) are deployed to prevent price volatility. They keep the vibes calm."
+                },
+                phase2: {
+                    title: "🚀 PHASE 2: CLIMBING THE CANOPY (ASCENT)",
+                    p: "Climbing this tree takes time, but we are in no hurry. We are aiming for the thickest, most comfortable branches at the top:",
+                    li1: "<b>Entering TON Top 50:</b> Steadily climbing towards the top 50 branches (mcap ranking) in the TON Ecosystem.",
+                    li2: "<b>The TON Top 10 Summit:</b> Perching on the thickest, most comfortable branch in the top 10.",
+                    li3: "<b>King of the TON Forest:</b> Becoming the most respected, most patient, and highest-mcap meme figure in the entire TON Ecosystem."
+                }
+            },
+            // HOW TO BUY
+            howtobuy: {
+                title: "🪜 SLT PURCHASE: HOW TO JOIN THE SLOW MOVEMENT (THE SLOTH'S RELAXED HODL WAY)",
+                step1: {
+                    li: "", // Li tag'in kendisini çevirmiyoruz
+                    strong: "🌳 BUILD YOUR TREE HOUSE (CREATE A WALLET)",
+                    p: "Don't get too excited... Take a deep breath first. <b>Gently</b> download the <a href='https://tonkeeper.com/' target='_blank' class='highlight'><b>Tonkeeper</b></a> wallet app or extension. Take your time to complete the setup for your wallet. Because this wallet is your most peaceful place to have your precious <b>$SLT HODL</b> nap."
+                },
+                step2: {
+                    li: "",
+                    strong: "🍃 GATHER YOUR SLOTH FUEL (GET TON)",
+                    p: "For the few seconds you are awake... Make sure you have some <b>TON</b> in your wallet to swap for $SLT. If you don't have any TON yet, don't worry. You can buy it directly from exchanges like <a href='https://www.bybit.com/' target='_blank' class='highlight'>Bybit</a> or <a href='https://www.okx.com/' target='_blank' class='highlight'>OKX</a>, or <b>gently</b> transfer it from another wallet/exchange to your Tonkeeper nest. There is no rush."
+                },
+                step3: {
+                    li: "",
+                    strong: "🌄 FIND YOUR PEACEFUL SPOT ON STON.FI",
+                    p: "Now... Open Google Chrome and <b>slowly</b> navigate to <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a>. <b>Connect</b> your Tonkeeper wallet to the platform. Then, <b>lightly</b> paste the correct $SLT Contract Address (the one you copied from our site) into Ston.fi, select $SLT, and confirm the transaction. When your Tonkeeper wallet asks you to sign the transaction, <b>sign it</b> and maintain your calm. <span style='font-size: 14px; opacity: 0.6;'>(A Little Sloth Note: Checking the contract address's accuracy <b>twice</b> is essential for a long and peaceful HODL sleep.)</span>"
+                },
+                step4: {
+                    li: "",
+                    strong: "💚 SWAP TON FOR $SLT",
+                    p: "Here is the most relaxing part: <b>Patiently</b> swap your TON for $SLT. We love living slow, but our transactions are strangely <b>FAST!</b> We love $SLT and TON very much, and since you completed this transaction, you are now one of the <b>most patient</b> members of the Sloth HODL family."
+                }
+            },
+            // FAQS
+            faqs: {
+                title: "💡 FREQUENTLY ASKED QUESTIONS (Listen to the Sloth)",
+                q1: "What is Sloth Token ($SLT)?",
+                a1: "Ah, $SLT? You're curious, aren't you? But don't rush! We are <b>community-supported sloths</b> chilling in the most comfortable and green corner of the TON Blockchain. Our philosophy? <b>\"Slow Down, and Stack Up Big!\"</b> The chaotic <b>DEX</b> race is not for us. We prefer taking a long, peaceful <b>HODL</b> nap in our wallets. We are transparent, and we favor fair distribution. Because the strongest stance is the calmest one.",
+                q2: "Why doesn't the $SLT token have official social media channels?",
+                a2: {
+                    p1: "Oh, social media? Too noisy... Too fast... All those notifications, all that rushing... Not for us. The deepest secret of crypto is <b>anonymity</b>. Besides, the best <b>viral marketing</b> is done completely organically by our loyal <b>HODL army</b>. Our energy is focused on building a stable <b>community</b>, not stressing over keyboard wars. Look, <b>our slow, anonymous state is not due to weak liquidity.</b> On the contrary, we seek <b>maximalist anonymity</b> and comfort. We are so lazy (and so committed to anonymity) that <b>we don't even buy a domain.</b> This is part of our pure Sloth philosophy. We are grateful to <a href='https://github.com/' target='_blank' class='highlight'>GitHub</a> for providing such a quiet place."
+                },
+                q3: "Will the $SLT token be listed on major exchanges (CEX)?",
+                a3: "<b>Absolutely not.</b> Why? We don't want to enter the complicated and tiring world of major exchanges. We believe that <b>anonymity is power</b> and that <b>decentralization</b> is paramount. Our only goal is to stay peacefully on <b>DEXs</b> (Decentralized Exchanges) with high, healthy liquidity <b>for life</b>. For us, comfort comes before popularity.",
+                q4: "Will $SLT Token Make Us Rich?",
+                a4: {
+                    p1: "Look friends, let's be honest... The first and biggest goal of the $SLT Token is to offer a <b>peaceful experience</b> and a long-term <b>journey</b>. We want to progress slowly with our entire community and enjoy this experience to the fullest. Although we were created for fun, we certainly harbor <b>big market cap dreams</b>! However, never forget: We make **no claims** to anyone and absolutely <b>do not offer investment advice</b>.",
+                    p2: "$SLT Tokens are **not securities** of any kind. They do not represent the right to vote, govern, or share profits or revenues of any entity. Furthermore, $SLT Tokens **do not represent ownership of any physical asset.**",
+                    slogan: "So, <b>slow down, stack up, and enjoy the ride!</b>"
+                },
+                q5: "How can I support Sloth Token's marketing/promotion efforts?",
+                a5: "Look now... Don't get too tired. If you want to do something for us, find those cool, green visuals and videos we occasionally post on our site. Then, <b>slowly</b> share them on your social media. Don't rush, thinking, \"I'll share it now and get rich immediately.\" Consistency and peace are what matter. Get the latest <b>meme materials</b> from our site—that's the trunk of our tree. Remember: <b>Your calmness is $SLT's greatest hype power.</b>"
+            },
+            // FOOTER
+            footer: {
+                copyright: "&copy; 2025 SLOTH TOKEN. ALL RIGHTS RESERVED.",
+                slogan: "THE SLOW MOVEMENT IS THE STRONGEST MOVEMENT."
+            }
+        },
+        tr: {
+            // META
+            meta: {
+                description: "TON Blockchain üzerinde eğlenceli bir meme token'ı. TON'un En Sakin Kriptosu — $SLT: YAVAŞLA VE BİRİKTİR.",
+                keywords: "SLOTH, $SLT, TON, TON Blockchain, Meme Token, Tembel Hayvan Token, Kripto",
+                title: "TEMBEL HAYVAN TOKEN - $SLT"
+            },
+            // NAV
+            nav: { home: "ANA SAYFA", manifesto: "MANİFESTO", roadmap: "YOL HARİTASI", howtobuy: "NASIL ALINIR", faqs: "S.S.S." },
+            // HERO
+            hero: {
+                subtitle: "TEMBEL HAYVAN TOKEN",
+                description: "TON Blockchain üzerinde eğlenceli bir meme token'ı. TON'un En Sakin Kriptosu — <b>$SLT: YAVAŞLA VE BİRİKTİR.</b>"
+            },
+            contract: { label: "SÖZLEŞME ADRESİ", copy: "KOPYALA" },
+            buttons: { blum: "BLUM'DAN AL", stonfi: "STON.FI'DAN AL", chart: "GRAFİK" },
+            // MANIFESTO
+            manifesto: {
+                title: "😴 MANİFESTO: SAKİN BİRİKTİRİCİNİN YOLU",
+                p1: "Herkese merhaba! 🌿 Neden o kaotik, hızlı <b>DEX’lere</b> hemen dalmıyoruz? Çünkü ben, bildiğiniz gibi, her şeyi **yavaş** almayı seviyorum! <br>Stratejimiz çok basit: Önce, <a href='https://t.me/blum/' target='_blank' class='highlight'><b>Blum</b></a> ağacımızın en konforlu dalına rahatça yerleşeceğiz. Biz hızlı gün içi tacirleri değil, tıpkı benim gibi uzun, huzurlu bir **HODL** uykusuna yatmayı seven sadık arkadaşlar topluyoruz. Unutmayın: **Acele eden Tembel Hayvan sadece yolda tökezler!** Gelin, birlikte yavaş, istikrarlı ve sağlam bir şekilde büyüyelim.",
+                h3: "🎯 İLK HEDEFİMİZ: UZUN KIŞ UYKUSU (<span class='highlight'>1,500 TON</span>)",
+                p2: "Biraz daha tembelleşelim. Likidite havuzumuz tam olarak <span class='highlight'>1,500 TON</span> tatlı ağırlığına ulaştığında... İşte *o zaman*, dev bir Tembel Hayvan adımı atarak yavaşça <a href='https://app.ston.fi/swap' target='_blank' class='highlight'><b>Ston.fi</b></a>'a doğru sallanmaya başlayabiliriz.<br>Nihai hedefimiz basit: Tüm TON Ekosistemindeki en saygın, en sabırlı ve en yüksek piyasa değerine sahip meme figürü olarak **yerimizi almak**.",
+                slogan: "Çünkü biz $SLT'yiz: <b>YAVAŞLA VE BİRİKTİR!</b>"
+            },
+            // ROADMAP
+            roadmap: {
+                title: "🗺️ $SLT YOL HARİTASI: İSTİKRARLI İLERLEME, SAĞLAM HEDEFLER",
+                phase1: {
+                    title: "🌲 AŞAMA 1: BÜYÜK TEMBEL HAYVAN ESNEYİŞİ (UYANIŞ)",
+                    li1: "<b>Geliştirme Tamamlandı:</b> Web sitesi ve lansman stratejisi oluşturuldu. $SLT token geliştirildi, logo hazırlandı ve ilk tanıtımlar yayınlandı.",
+                    li2: "<b>Blum Konuşlandırması:</b> İlk dinlenme noktamızı <span class='highlight'>Blum</span> üzerinde bulduk. <span class='highlight'>1,500 TON</span> yastığımız dolduğunda hedefe ulaşıldı!",
+                    li3: "<b>Ston.fi'ye Uzanma:</b> Blum ini tamamlandığında, yavaşça <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a> ağacına doğru sallanacağız. Kalabalıklara hazır olana kadar bekleriz.",
+                    li4: "<b>Zen Kalkanı Aktivasyonu:</b> Fiyat oynaklığını önlemek için Akıllı Piyasa Yapıcı Botlar (MM Botları) konuşlandırıldı. Ortamı sakin tutarlar."
+                },
+                phase2: {
+                    title: "🚀 AŞAMA 2: KANOPİYE TIRMANMA (YÜKSELİŞ)",
+                    p: "Bu ağaca tırmanmak zaman alır, ama acelemiz yok. En tepedeki en kalın, en rahat dalları hedefliyoruz:",
+                    li1: "<b>TON İlk 50'ye Giriş:</b> TON Ekosistemindeki ilk 50 dalına (piyasa değeri sıralaması) doğru istikrarlı bir şekilde tırmanmak.",
+                    li2: "<b>TON İlk 10 Zirvesi:</b> En kalın, en rahat ilk 10 dalına tüneyerek yerleşmek.",
+                    li3: "<b>TON Ormanının Kralı:</b> Tüm TON Ekosistemindeki en saygın, en sabırlı ve en yüksek piyasa değerine sahip meme figürü olmak."
+                }
+            },
+            // HOW TO BUY
+            howtobuy: {
+                title: "🪜 $SLT SATIN ALMA: YAVAŞ HAREKETE NASIL KATILINIR (TEMBEL HAYVANIN RAHAT HODL YOLU)",
+                step1: {
+                    li: "",
+                    strong: "🌳 AĞAÇ EVİNİZİ KURUN (CÜZDAN OLUŞTURUN)",
+                    p: "Çok heyecanlanmayın... Önce derin bir nefes alın. <a href='https://tonkeeper.com/' target='_blank' class='highlight'><b>Tonkeeper</b></a> cüzdan uygulamasını veya eklentisini **nazikçe** indirin. Cüzdan kurulumunu tamamlamak için acele etmeyin. Çünkü bu cüzdan, değerli **$SLT HODL** uykunuz için en huzurlu yerinizdir."
+                },
+                step2: {
+                    li: "",
+                    strong: "🍃 TEMBEL HAYVAN YAKITINIZI TOPLAYIN (TON ALIN)",
+                    p: "Uyanık olduğunuz o birkaç saniye için... Cüzdanınızda $SLT ile takas yapmak için biraz <b>TON</b> bulundurduğunuzdan emin olun. Henüz TON'unuz yoksa endişelenmeyin. <a href='https://www.bybit.com/' target='_blank' class='highlight'>Bybit</a> veya <a href='https://www.okx.com/' target='_blank' class='highlight'>OKX</a> gibi borsalardan doğrudan satın alabilir veya başka bir cüzdandan/borsadan Tonkeeper yuvanıza **nazikçe** transfer edebilirsiniz. Hiç acele yok."
+                },
+                step3: {
+                    li: "",
+                    strong: "🌄 STON.FI'DA HUZURLU NOKTANIZI BULUN",
+                    p: "Şimdi... Google Chrome'u açın ve <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a>'ye **yavaşça** gidin. Tonkeeper cüzdanınızı platforma **bağlayın**. Ardından, doğru $SLT Sözleşme Adresini (sitemizden kopyaladığınızı) Ston.fi'ye **hafifçe** yapıştırın, $SLT'yi seçin ve işlemi onaylayın. Tonkeeper cüzdanınız sizden işlemi imzalamanızı istediğinde, **imzalayın** ve sakinliğinizi koruyun. <span style='font-size: 14px; opacity: 0.6;'>(Küçük Bir Tembel Hayvan Notu: Uzun ve huzurlu bir HODL uykusu için sözleşme adresinin doğruluğunu **iki kez** kontrol etmek esastır.)</span>"
+                },
+                step4: {
+                    li: "",
+                    strong: "💚 TON'U $SLT İLE TAKAS EDİN",
+                    p: "İşte en rahatlatıcı kısım: TON'unuzu $SLT ile **sabırla** takas edin. Yavaş yaşamayı seviyoruz ama işlemlerimiz tuhaf bir şekilde **HIZLI** gerçekleşiyor! $SLT ve TON'u çok seviyoruz ve bu işlemi tamamladığınız için artık Tembel Hayvan HODL ailesinin **en sabırlı** üyelerinden birisiniz."
+                }
+            },
+            // FAQS
+            faqs: {
+                title: "💡 SIKÇA SORULAN SORULAR (Tembel Hayvanı Dinleyin)",
+                q1: "Sloth Token ($SLT) Nedir?",
+                a1: "Ah, $SLT mi? Meraklısın, değil mi? Ama acele etme! Biz, TON Blockchain'in en rahat ve en yeşil köşesinde keyif çatan, <b>topluluk destekli tembel hayvanlarız</b>. Felsefemiz mi? <b>\"Yavaşla ve Büyük Biriktir!\"</b> Kaotik <b>DEX</b> yarışı bize göre değil. Cüzdanlarımızda uzun, huzurlu bir <b>HODL</b> uykusuna yatmayı tercih ediyoruz. Şeffafız ve adil dağıtımdan yanayız. Çünkü en güçlü duruş, en sakin olanıdır.",
+                q2: "$SLT token'ın neden resmi sosyal medya kanalları yok?",
+                a2: {
+                    p1: "Ah, sosyal medya mı? Çok gürültülü... Çok hızlı... O bildirimler, o koşturmaca... Bize göre değil. Kriptonun en derin sırrı <b>anonimliktir</b>. Ayrıca en iyi <b>viral pazarlama</b>, sadık <b>HODL ordumuz</b> tarafından tamamen organik olarak yapılır. Enerjimiz, klavye savaşlarında strese girmek yerine, istikrarlı bir <b>topluluk</b> oluşturmaya odaklanmıştır. Bakın, <b>yavaş, anonim durumumuz, zayıf likidite yüzünden değil.</b> Tam tersine, <b>maksimalist anonimlik</b> ve konfor arıyoruz. O kadar tembeliz (ve anonimliğe o kadar bağlıyız) ki, <b>alan adı bile satın almıyoruz.</b> Bu, saf Tembel Hayvan felsefemizin bir parçasıdır. Böyle sessiz bir yer sağladığı için <a href='https://github.com/' target='_blank' class='highlight'>GitHub</a>'a minnettarız."
+                },
+                q3: "$SLT token büyük borsalarda (CEX) listelenecek mi?",
+                a3: "<b>Kesinlikle hayır.</b> Neden mi? Büyük borsaların karmaşık ve yorucu dünyasına girmek istemiyoruz. <b>Anonimliğin güç</b> olduğuna ve <b>merkeziyetsizliğin</b> (decentralization) her şeyden üstün olduğuna inanıyoruz. Tek hedefimiz, <b>ömür boyu</b> yüksek, sağlıklı likidite ile <b>DEX'lerde</b> (Merkeziyetsiz Borsalar) huzurla kalmaktır. Bizim için konfor, popülerlikten önce gelir.",
+                q4: "$SLT Token Bizi Zengin Edecek mi?",
+                a4: {
+                    p1: "Bakın arkadaşlar, dürüst olalım... $SLT Token'ın ilk ve en büyük hedefi, **huzurlu bir deneyim** ve uzun vadeli bir **yolculuk** sunmaktır. Tüm topluluğumuzla yavaşça ilerlemek ve bu deneyimin tadını çıkarmak istiyoruz. Eğlence için yaratılmış olsak da, kesinlikle **büyük piyasa değeri hayalleri** taşıyoruz! Ancak, asla unutmayın: Kimseye **hiçbir iddiada bulunmuyoruz** ve kesinlikle **yatırım tavsiyesi vermiyoruz**.",
+                    p2: "$SLT Token'lar hiçbir şekilde **menkul kıymet değildir**. Herhangi bir varlığın oy, yönetim hakkını veya kâr/gelir paylaşımını temsil etmezler. Ayrıca, $SLT Token'lar **hiçbir fiziksel varlığın sahipliğini temsil etmez.**",
+                    slogan: "Öyleyse, <b>yavaşlayın, biriktirin ve yolculuğun tadını çıkarın!</b>"
+                },
+                q5: "Sloth Token'ın pazarlama/promosyon çabalarına nasıl destek olabilirim?",
+                a5: "Şimdi bakın... Çok yorulmayın. Bizim için bir şeyler yapmak istiyorsanız, sitemizde ara sıra yayınladığımız o havalı, yeşil görselleri ve videoları bulun. Ardından, sosyal medyanızda **yavaşça** paylaşın. \"Şimdi paylaşayım da hemen zengin olayım\" diye acele etmeyin. Önemli olan tutarlılık ve huzurdur. En yeni **meme materyallerini** sitemizden alın—orası ağacımızın gövdesidir. Unutmayın: <b>Sizin sakinliğiniz, $SLT'nin en büyük hype gücüdür.</b>"
+            },
+            // FOOTER
+            footer: {
+                copyright: "&copy; 2025 TEMBEL HAYVAN TOKEN. TÜM HAKLARI SAKLIDIR.",
+                slogan: "YAVAŞ HAREKET, EN GÜÇLÜ HAREKETTİR."
+            }
+        },
+        ru: {
+            // META
+            meta: {
+                description: "Забавный мем-токен, созданный на TON Blockchain. Самый спокойный криптопроект на TON — $SLT: ЗАМЕДЛИСЬ И НАКОПИ.",
+                keywords: "SLOTH, $SLT, TON, TON Blockchain, Мем-токен, Sloth Token, Криптовалюта",
+                title: "SLOTH TOKEN - $SLT"
+            },
+            // NAV
+            nav: { home: "ГЛАВНАЯ", manifesto: "МАНИФЕСТ", roadmap: "ДОРОЖНАЯ КАРТА", howtobuy: "КАК КУПИТЬ", faqs: "ЧАВО" },
+            // HERO
+            hero: {
+                subtitle: "SLOTH TOKEN",
+                description: "Забавный мем-токен, созданный на TON Blockchain. Самый спокойный криптопроект на TON — <b>$SLT: ЗАМЕДЛИСЬ И НАКОПИ.</b>"
+            },
+            contract: { label: "АДРЕС КОНТРАКТА", copy: "КОПИРОВАТЬ" },
+            buttons: { blum: "КУПИТЬ НА BLUM", stonfi: "КУПИТЬ НА STON.FI", chart: "ГРАФИК" },
+            // MANIFESTO
+            manifesto: {
+                title: "😴 МАНИФЕСТ: ПУТЬ СПОКОЙНОГО НАКОПИТЕЛЯ",
+                p1: "Всем привет! 🌿 Почему мы не ныряем сразу в эти хаотичные, быстрые <b>DEX</b>? Потому что я, как вы знаете, люблю делать все **медленно**! <br>Наша стратегия очень проста: сначала мы с комфортом устроимся на самой удобной ветке нашего дерева <a href='https://t.me/blum/' target='_blank' class='highlight'><b>Blum</b></a>. Мы собираем не шустрых дневных трейдеров, а верных друзей, которые, как и я, любят устроиться на долгий, мирный **HODL**-сон. Помните: **Торопящийся Sloth только спотыкается на дороге!** Приходите, будем расти вместе: медленно, стабильно и надежно.",
+                h3: "🎯 НАША ПЕРВАЯ ЦЕЛЬ: ДОЛГИЙ ЗИМНИЙ СОН (<span class='highlight'>1,500 TON</span>)",
+                p2: "Давайте немного обленимся. Когда наш пул ликвидности достигнет сладкого веса ровно в <span class='highlight'>1,500 TON</span>... *Вот тогда* мы сможем медленно начать раскачиваться в сторону <a href='https://app.ston.fi/swap' target='_blank' class='highlight'><b>Ston.fi</b></a>, делая гигантский шаг Sloth'а.<br>Наша конечная цель проста: **занять свое место** как самый уважаемый, самый терпеливый мем-персонаж с самой высокой рыночной капитализацией во всей экосистеме TON.",
+                slogan: "Потому что мы $SLT: <b>ЗАМЕДЛИСЬ И НАКОПИ!</b>"
+            },
+            // ROADMAP
+            roadmap: {
+                title: "🗺️ ДОРОЖНАЯ КАРТА $SLT: СТАБИЛЬНЫЙ ПРОГРЕСС, НАДЕЖНЫЕ ЦЕЛИ",
+                phase1: {
+                    title: "🌲 ФАЗА 1: ВЕЛИКОЕ РАСТЯЖЕНИЕ SLOTH'А (ПРОБУЖДЕНИЕ)",
+                    li1: "<b>Разработка Завершена:</b> Создан веб-сайт и стратегия запуска. Разработан токен $SLT, подготовлен логотип и выпущены первые промо-материалы.",
+                    li2: "<b>Развертывание Blum:</b> Мы нашли наше первое спокойное место на <span class='highlight'>Blum</span>. Цель достигнута, когда наша подушка в <span class='highlight'>1,500 TON</span> будет полной!",
+                    li3: "<b>Движение к Ston.fi:</b> Как только логово Blum будет готово, мы медленно переберемся к дереву <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a>. Мы ждем, пока не будем готовы к толпам.",
+                    li4: "<b>Активация Щита Дзен:</b> Внедрены умные боты маркет-мейкеры (MM Bots) для предотвращения волатильности цен. Они сохраняют спокойную атмосферу."
+                },
+                phase2: {
+                    title: "🚀 ФАЗА 2: ПОДЪЕМ К ВЕРШИНЕ (ВОСХОЖДЕНИЕ)",
+                    p: "Подъем на это дерево занимает время, но мы никуда не торопимся. Мы целимся на самые толстые и удобные ветки наверху:",
+                    li1: "<b>Вхождение в ТОП-50 TON:</b> Уверенное восхождение к 50 лучшим веткам (рейтинг капитализации) в экосистеме TON.",
+                    li2: "<b>Саммит ТОП-10 TON:</b> Усаживание на самую толстую и удобную ветку в первой десятке.",
+                    li3: "<b>Король Леса TON:</b> Стать самым уважаемым, самым терпеливым мем-персонажем с самой высокой рыночной капитализацией во всей экосистеме TON."
+                }
+            },
+            // HOW TO BUY
+            howtobuy: {
+                title: "🪜 ПОКУПКА $SLT: КАК ПРИСОЕДИНИТЬСЯ К МЕДЛЕННОМУ ДВИЖЕНИЮ (РАССЛАБЛЕННЫЙ HODL-ПУТЬ SLOTH'А)",
+                step1: {
+                    li: "",
+                    strong: "🌳 ПОСТРОЙТЕ СВОЙ ДОМИК НА ДЕРЕВЕ (СОЗДАЙТЕ КОШЕЛЕК)",
+                    p: "Не слишком волнуйтесь... Сначала сделайте глубокий вдох. **Аккуратно** скачайте приложение или расширение кошелька <a href='https://tonkeeper.com/' target='_blank' class='highlight'><b>Tonkeeper</b></a>. Не торопитесь с настройкой кошелька. Потому что этот кошелек — ваше самое мирное место для драгоценного **$SLT HODL**-сна."
+                },
+                step2: {
+                    li: "",
+                    strong: "🍃 СОБЕРИТЕ ТОПЛИВО SLOTH'А (ПОЛУЧИТЕ TON)",
+                    p: "В течение тех нескольких секунд, пока вы бодрствуете... Убедитесь, что в вашем кошельке есть немного <b>TON</b> для обмена на $SLT. Если у вас еще нет TON, не волнуйтесь. Вы можете купить его напрямую на биржах, таких как <a href='https://www.bybit.com/' target='_blank' class='highlight'>Bybit</a> или <a href='https://www.okx.com/' target='_blank' class='highlight'>OKX</a>, или **осторожно** перевести с другого кошелька/биржи в свое гнездо Tonkeeper. Спешить некуда."
+                },
+                step3: {
+                    li: "",
+                    strong: "🌄 НАЙДИТЕ СВОЕ СПОКОЙНОЕ МЕСТО НА STON.FI",
+                    p: "Теперь... Откройте Google Chrome и **медленно** перейдите на <a href='https://app.ston.fi/swap' target='_blank' class='highlight'>Ston.fi</a>. **Подключите** свой кошелек Tonkeeper к платформе. Затем **аккуратно** вставьте правильный Адрес Контракта $SLT (тот, который вы скопировали с нашего сайта) в Ston.fi, выберите $SLT и подтвердите транзакцию. Когда ваш кошелек Tonkeeper попросит подписать транзакцию, **подпишите ее** и сохраняйте спокойствие. <span style='font-size: 14px; opacity: 0.6;'>(Небольшая Заметка Sloth'а: Проверка точности адреса контракта **дважды** необходима для долгого и мирного HODL-сна.)</span>"
+                },
+                step4: {
+                    li: "",
+                    strong: "💚 ОБМЕНЯЙТЕ TON НА $SLT",
+                    p: "Вот самая расслабляющая часть: **Терпеливо** обменяйте свой TON на $SLT. Мы любим жить медленно, но наши транзакции на удивление **БЫСТРЫЕ!** Мы очень любим $SLT и TON, и так как вы завершили эту транзакцию, теперь вы один из **самых терпеливых** членов семьи Sloth HODL."
+                }
+            },
+            // FAQS
+            faqs: {
+                title: "💡 ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (Послушайте Sloth'а)",
+                q1: "Что такое Sloth Token ($SLT)?",
+                a1: "Ах, $SLT? Вам любопытно, не так ли? Но не торопитесь! Мы — <b>поддерживаемые сообществом sloth'ы</b>, отдыхающие в самом удобном и зеленом уголке TON Blockchain. Наша философия? <b>\"Замедлись и Накопи по-крупному!\"</b> Хаотичная гонка <b>DEX</b> не для нас. Мы предпочитаем долгий, мирный **HODL**-сон в наших кошельках. Мы прозрачны и выступаем за справедливое распределение. Потому что самая сильная позиция — самая спокойная.",
+                q2: "Почему у токена $SLT нет официальных каналов в социальных сетях?",
+                a2: {
+                    p1: "О, социальные сети? Слишком шумно... Слишком быстро... Все эти уведомления, вся эта спешка... Не для нас. Самый глубокий секрет криптографии — <b>анонимность</b>. Кроме того, лучший <b>вирусный маркетинг</b> полностью органически осуществляется нашей преданной <b>HODL-армией</b>. Наша энергия сосредоточена на построении стабильного <b>сообщества</b>, а не на стрессе от клавиатурных войн. Смотрите, <b>наше медленное, анонимное состояние не из-за слабой ликвидности.</b> Напротив, мы ищем <b>максималистскую анонимность</b> и комфорт. Мы настолько ленивы (и настолько привержены анонимности), что **даже не покупаем домен.** Это часть нашей чистой философии Sloth'а. Мы благодарны <a href='https://github.com/' target='_blank' class='highlight'>GitHub</a> за предоставление такого тихого места."
+                },
+                q3: "Будет ли токен $SLT размещен на крупных биржах (CEX)?",
+                a3: "<b>Абсолютно нет.</b> Почему? Мы не хотим вступать в сложный и утомительный мир крупных бирж. Мы верим, что <b>анонимность — это сила</b> и что <b>децентрализация</b> (decentralization) превыше всего. Наша единственная цель — мирно оставаться на <b>DEX</b> (Децентрализованных Биржах) с высокой, здоровой ликвидностью **навсегда**. Для нас комфорт важнее популярности.",
+                q4: "Сделает ли нас токен $SLT богатыми?",
+                a4: {
+                    p1: "Послушайте, друзья, давайте будем честны... Первая и самая большая цель $SLT Token — предложить **мирный опыт** и долгосрочное **путешествие**. Мы хотим медленно развиваться со всем нашим сообществом и наслаждаться этим опытом в полной мере. Хотя мы были созданы для развлечения, у нас, безусловно, есть **мечты о большой рыночной капитализации**! Однако, никогда не забывайте: Мы **не даем никаких обещаний** и абсолютно **не предоставляем инвестиционных советов**.",
+                    p2: "$SLT Токены **не являются ценными бумагами** любого рода. Они не представляют право голоса, управления или долю в прибыли или доходах какого-либо юридического лица. Кроме того, $SLT Токены **не представляют право собственности на какой-либо физический актив.**",
+                    slogan: "Итак, <b>замедляйтесь, накапливайте и наслаждайтесь поездкой!</b>"
+                },
+                q5: "Как я могу поддержать маркетинговые/промо-усилия Sloth Token?",
+                a5: "Смотрите... Не слишком уставайте. Если вы хотите что-то для нас сделать, найдите те классные, зеленые визуальные материалы и видео, которые мы время от времени публикуем на нашем сайте. Затем **медленно** поделитесь ими в своих социальных сетях. Не спешите, думая: «Сейчас поделюсь и сразу разбогатею». Главное — последовательность и спокойствие. Получайте самые свежие **мем-материалы** с нашего сайта — это ствол нашего дерева. Помните: **Ваше спокойствие — величайшая сила хайпа $SLT.**"
+            },
+            // FOOTER
+            footer: {
+                copyright: "&copy; 2025 SLOTH TOKEN. ВСЕ ПРАВА ЗАЩИЩЕНЫ.",
+                slogan: "МЕДЛЕННОЕ ДВИЖЕНИЕ - САМОЕ СИЛЬНОЕ ДВИЖЕНИЕ."
+            }
+        }
+    };
+    
+    // --- TEMEL DİL İŞLEVLERİ ---
+    let currentLang = localStorage.getItem('slt_lang') || 'en';
+
+    function updateContent(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        const langData = translations[lang];
+
+        if (!langData) return;
+
+        // Metinleri güncelle
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            // Anahtar yolu bulma (ör: 'nav.home', 'hero.description')
+            const value = key.split('.').reduce((obj, i) => obj && obj[i], langData);
+            
+            if (value !== undefined) {
+                // HTML içeren çeviriler için innerHTML kullan
+                if (key.includes('description') || key.includes('p') || key.includes('a') || key.includes('li')) {
+                    el.innerHTML = value;
+                } else {
+                    el.textContent = value;
+                }
+            }
+        });
+
+        // Meta ve Title güncelleme
+        document.title = langData.meta.title;
+        document.querySelector('html').lang = lang;
+        document.querySelector('meta[name="description"]').setAttribute('content', langData.meta.description);
+        document.querySelector('meta[name="keywords"]').setAttribute('content', langData.meta.keywords);
+
+        // Aktif butonu işaretleme
+        document.querySelectorAll('.lang-selector button').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            }
+        });
+
+        // Kopya butonu metnini yeniden sıfırlama
+        const copyBtn = document.getElementById('copyButton');
+        if (copyBtn) {
+            copyBtn.textContent = langData.contract.copy;
+            copyBtn.style.backgroundColor = '#00ffbf'; 
+        }
+
+        currentLang = lang;
+        localStorage.setItem('slt_lang', lang);
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
+        // Sayfa yüklendiğinde varsayılan veya kayıtlı dili uygula
+        updateContent(currentLang);
+
+        // Dil değiştirme düğmelerine event listener ekle
+        document.querySelectorAll('.lang-selector button').forEach(button => {
+            button.addEventListener('click', function() {
+                updateContent(this.getAttribute('data-lang'));
+            });
+        });
 
         // --- TELİF HAKKI YILINI OTOMATİK GÜNCELLEME İŞLEVİ ---
         const startYear = 2025;
@@ -954,26 +1339,28 @@
         if (copyrightElement) {
             let yearText = startYear;
             if (currentYear > startYear) {
-                // Başlangıç yılı 2025'ten büyükse, aralığı göster
                 yearText = `${startYear} - ${currentYear}`;
             }
             
-            // Telif hakkı metnini güncelle
-            copyrightElement.innerHTML = `&copy; ${yearText} SLOTH TOKEN. ALL RIGHTS RESERVED.`;
+            // Çeviriye dokunmadan sadece yılı güncelle
+            let originalText = copyrightElement.textContent;
+            copyrightElement.innerHTML = originalText.replace(/(\d{4})|(\d{4}\s-\s\d{4})/, yearText);
         }
 
         // --- KONTRA ADRESİ KOPYALAMA İŞLEVİ ---
         document.getElementById('copyButton').addEventListener('click', function() {
             const contractAddress = document.getElementById('contractAddress').textContent;
             const copyButton = document.getElementById('copyButton');
+            const originalCopyText = translations[currentLang].contract.copy;
+            const copiedText = currentLang === 'tr' ? 'KOPYALANDI!' : (currentLang === 'ru' ? 'СКОПИРОВАНО!' : 'COPIED!');
             
             navigator.clipboard.writeText(contractAddress).then(() => {
-                const originalText = copyButton.textContent;
-                copyButton.textContent = 'COPIED!';
+                copyButton.textContent = copiedText;
                 copyButton.style.backgroundColor = '#4dfff7'; 
 
                 setTimeout(() => {
-                    copyButton.textContent = originalText;
+                    // Orijinal çeviri metnine geri dön
+                    copyButton.textContent = originalCopyText;
                     copyButton.style.backgroundColor = '#00ffbf'; 
                 }, 1500);
 
@@ -1000,7 +1387,7 @@
 
                 if (!isActive) {
                     item.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.maxHeight = answer.scrollHeight + 20 + "px"; // 20px ek dolgu
                 } else {
                     item.classList.remove('active');
                     answer.style.maxHeight = null;
